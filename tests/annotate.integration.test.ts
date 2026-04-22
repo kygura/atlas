@@ -62,11 +62,38 @@ test("runAnnotate scores, writes data, commits scan record, and persists itinera
       raw_reasoning: "reasoning"
     }
   ]));
+  writeFileSync(join(root, "tmp", "execution_context.json"), JSON.stringify({
+    trigger_source: "telegram",
+    origin_interface: "telegram",
+    request_text: "surf and isolation under €700",
+    defaulted_params: ["trip length"],
+    context_summary: ["budget under €700"],
+    resolved_origin: "AGP",
+    user_context: {
+      location_label: "Malaga",
+      preferred_origins: ["AGP", "MAD"],
+      max_budget_eur: 700,
+      destination_focus: ["Lombok"],
+      preference_tags: ["surf", "isolation"],
+      notes: []
+    },
+    telegram: {
+      chat_id: "123",
+      message_id: 99,
+      user_id: 77,
+      username: "atlas_user",
+      language_code: "en",
+      photo_file_id: null,
+      location: null
+    }
+  }));
 
-  const result = runAnnotate({ rootDir: root, mode: "scheduled" });
+  const result = runAnnotate({ rootDir: root, mode: "query" });
   expect(result.scored).toHaveLength(1);
   expect(result.commit.committed).toBe(true);
   expect(result.record.itinerary_text).toContain("ATLAS —");
+  expect(result.record.query).toBe("surf and isolation under €700");
+  expect(result.record.execution_context?.telegram?.chat_id).toBe("123");
   expect(readFileSync(join(root, "tmp", "scored_results.json"), "utf8")).toContain("composite_score");
   const dataFile = readdirSync(join(root, "data")).find((entry) => entry.endsWith(".json"));
   expect(dataFile).toBeDefined();

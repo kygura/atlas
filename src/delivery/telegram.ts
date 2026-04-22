@@ -2,6 +2,12 @@ const TELEGRAM_API = "https://api.telegram.org";
 const MAX_MESSAGE_LENGTH = 4096;
 const MAX_CAPTION_LENGTH = 1024;
 
+export type TelegramSendOptions = {
+  replyToMessageId?: number;
+  parseMode?: "MarkdownV2" | "HTML";
+  disableWebPagePreview?: boolean;
+};
+
 function splitText(text: string): string[] {
   if (text.length <= MAX_MESSAGE_LENGTH) {
     return [text];
@@ -25,13 +31,24 @@ function splitText(text: string): string[] {
   return chunks;
 }
 
-export async function sendTelegramText(chatId: string, text: string, botToken: string): Promise<void> {
+export async function sendTelegramText(
+  chatId: string,
+  text: string,
+  botToken: string,
+  options: TelegramSendOptions = {}
+): Promise<void> {
   const chunks = splitText(text);
   for (const chunk of chunks) {
     const res = await fetch(`${TELEGRAM_API}/bot${botToken}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text: chunk })
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: chunk,
+        ...(options.replyToMessageId ? { reply_to_message_id: options.replyToMessageId } : {}),
+        ...(options.parseMode ? { parse_mode: options.parseMode } : {}),
+        ...(options.disableWebPagePreview ? { link_preview_options: { is_disabled: true } } : {})
+      })
     });
     if (!res.ok) {
       const body = await res.text();
@@ -40,11 +57,23 @@ export async function sendTelegramText(chatId: string, text: string, botToken: s
   }
 }
 
-export async function sendTelegramPhoto(chatId: string, photo: string, caption: string, botToken: string): Promise<void> {
+export async function sendTelegramPhoto(
+  chatId: string,
+  photo: string,
+  caption: string,
+  botToken: string,
+  options: TelegramSendOptions = {}
+): Promise<void> {
   const res = await fetch(`${TELEGRAM_API}/bot${botToken}/sendPhoto`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: chatId, photo, caption: caption.slice(0, MAX_CAPTION_LENGTH) })
+    body: JSON.stringify({
+      chat_id: chatId,
+      photo,
+      caption: caption.slice(0, MAX_CAPTION_LENGTH),
+      ...(options.replyToMessageId ? { reply_to_message_id: options.replyToMessageId } : {}),
+      ...(options.parseMode ? { parse_mode: options.parseMode } : {})
+    })
   });
   if (!res.ok) {
     const body = await res.text();

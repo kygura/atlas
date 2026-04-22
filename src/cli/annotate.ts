@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { deriveExecutionContext } from "../context/execution";
 import { getBaselines } from "../context/history";
 import {
   FlightResultsSchema,
@@ -22,24 +23,6 @@ export type AnnotateOptions = {
   query?: string | null;
   originResolved?: string;
 };
-
-function readQuery(rootDir: string): string | null {
-  const inboundPath = rootPath(rootDir, "tmp", "inbound_query.txt");
-  if (!existsSync(inboundPath)) {
-    return null;
-  }
-  const text = readFileSync(inboundPath, "utf8").trim();
-  return text || null;
-}
-
-function readDefaultedParams(rootDir: string): string[] {
-  const defaultsPath = rootPath(rootDir, "tmp", "query_defaults.json");
-  if (!existsSync(defaultsPath)) {
-    return [];
-  }
-  const parsed = JSON.parse(readFileSync(defaultsPath, "utf8"));
-  return Array.isArray(parsed) ? parsed.filter((value): value is string => typeof value === "string" && value.length > 0) : [];
-}
 
 function isFirstScan(rootDir: string): boolean {
   const dataDir = rootPath(rootDir, "data");
@@ -75,22 +58,30 @@ export function runAnnotate(options: AnnotateOptions = {}) {
   const scored = ScoredResultsSchema.parse(scoreAll(flights, annotations, baselines, weights, wishlist))
     .sort((left, right) => right.composite_score - left.composite_score);
 
-  const inferredQuery = options.query ?? readQuery(rootDir);
+  const resolvedOrigin = options.originResolved ?? flights[0]?.origin ?? null;
+  const executionContext = deriveExecutionContext(rootDir, {
+    mode: options.mode,
+    query: options.query,
+    originResolved: resolvedOrigin
+  });
+  const inferredQuery = executionContext.request_text;
   const inferredMode = options.mode ?? (inferredQuery ? "query" : "scheduled");
   const mode = RunModeSchema.parse(inferredMode);
   const itineraryText = renderItinerary(scored, {
     firstScan: isFirstScan(rootDir),
     queryText: inferredQuery,
-    defaultedParams: readDefaultedParams(rootDir)
+    defaultedParams: executionContext.defaulted_params,
+    executionContext
   });
   const record = ScanRecordSchema.parse({
     scan_date: todayIso(),
     run_mode: mode,
-    origin_resolved: options.originResolved ?? flights[0]?.origin ?? "UNK",
+    origin_resolved: resolvedOrigin ?? "UNK",
     query: mode === "query" ? inferredQuery : null,
     results: scored,
     itinerary_delivered: false,
-    itinerary_text: itineraryText
+    itinerary_text: itineraryText,
+    execution_context: executionContext
   });
 
   const commit = commitScanRecord(rootDir, record);

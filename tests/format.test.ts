@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 import { renderItinerary } from "../src/cli/format";
-import type { ScoredResult } from "../src/ingestion/schemas";
+import type { ExecutionContext, ScoredResult } from "../src/ingestion/schemas";
 
 const scored: ScoredResult[] = [
   {
@@ -41,16 +41,44 @@ const scored: ScoredResult[] = [
   }
 ];
 
+const executionContext: ExecutionContext = {
+  trigger_source: "telegram",
+  origin_interface: "telegram",
+  request_text: "surf and isolation",
+  defaulted_params: ["origin", "budget"],
+  context_summary: ["user sent a Telegram query"],
+  resolved_origin: "AGP",
+  user_context: {
+    location_label: "Malaga",
+    preferred_origins: ["AGP"],
+    max_budget_eur: 1200,
+    destination_focus: ["Lombok"],
+    preference_tags: ["surf", "isolation"],
+    notes: []
+  },
+  telegram: {
+    chat_id: "123",
+    message_id: 42,
+    user_id: 7,
+    username: "atlas_user",
+    language_code: "en",
+    photo_file_id: null,
+    location: null
+  }
+};
+
 test("renderItinerary prints ranked results, fallback booking links, and first-scan footer", () => {
   const itinerary = renderItinerary(scored, {
     generatedDate: "2026-04-22",
     firstScan: true,
     queryText: "surf and isolation",
-    defaultedParams: ["origin", "budget"]
+    defaultedParams: ["origin", "budget"],
+    executionContext
   });
   expect(itinerary).toContain("ATLAS — 2026-04-22 · from AGP");
   expect(itinerary).toContain("Query intent: surf and isolation");
   expect(itinerary).toContain("Defaults applied: origin, budget");
+  expect(itinerary).toContain("Execution context: user sent a Telegram query");
   expect(itinerary).toContain("⚡ #1 Lombok via SIN");
   expect(itinerary).toContain("[search results](https://www.google.com/travel/flights?");
   expect(itinerary).toContain("Promising shoulder season surf.");

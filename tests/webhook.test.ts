@@ -37,7 +37,16 @@ test("handler forwards message text and returns ok", async () => {
   globalThis.fetch = fetchMock as unknown as typeof fetch;
 
   const res = makeRes();
-  await handler({ body: { message: { text: "surf and isolation" } } }, res);
+  await handler({
+    body: {
+      message: {
+        text: "surf and isolation",
+        chat: { id: 999 },
+        message_id: 123,
+        from: { id: 55, username: "atlas_user", language_code: "en" }
+      }
+    }
+  }, res);
 
   expect(res.statusCode).toBe(200);
   expect(res.payload).toEqual({ ok: true });
@@ -45,6 +54,15 @@ test("handler forwards message text and returns ok", async () => {
   const body = JSON.parse(((fetchMock.mock.calls as unknown[][])[0][1] as RequestInit).body as string);
   expect(body.text).toBe("surf and isolation");
   expect(body.photo_file_id).toBeUndefined();
+  expect(body.execution_context.telegram).toEqual({
+    chat_id: "999",
+    message_id: 123,
+    user_id: 55,
+    username: "atlas_user",
+    language_code: "en",
+    photo_file_id: null,
+    location: null
+  });
 });
 
 test("handler forwards photo file_id and caption", async () => {
@@ -59,6 +77,9 @@ test("handler forwards photo file_id and caption", async () => {
     body: {
       message: {
         caption: "find me a flight like this",
+        chat: { id: 321 },
+        message_id: 77,
+        from: { id: 44, username: "photo_user", language_code: "en" },
         photo: [
           { file_id: "small_id", width: 90, height: 90 },
           { file_id: "large_id", width: 1280, height: 720 }
@@ -72,6 +93,7 @@ test("handler forwards photo file_id and caption", async () => {
   const body = JSON.parse(((fetchMock.mock.calls as unknown[][])[0][1] as RequestInit).body as string);
   expect(body.text).toBe("find me a flight like this");
   expect(body.photo_file_id).toBe("large_id");
+  expect(body.execution_context.telegram.photo_file_id).toBe("large_id");
 });
 
 test("handler forwards photo-only message (no caption)", async () => {
@@ -94,6 +116,7 @@ test("handler forwards photo-only message (no caption)", async () => {
   expect(fetchMock).toHaveBeenCalledTimes(1);
   const body = JSON.parse(((fetchMock.mock.calls as unknown[][])[0][1] as RequestInit).body as string);
   expect(body.photo_file_id).toBe("img_id");
+  expect(body.execution_context.request_text).toBeNull();
 });
 
 test("handler drops empty message with no photo", async () => {

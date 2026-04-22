@@ -1,6 +1,7 @@
 import { readdirSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { ScoredResultsSchema, type ScoredResult } from "../ingestion/schemas";
+import { summarizeExecutionContext, readExecutionContext } from "../context/execution";
+import { ScoredResultsSchema, type ExecutionContext, type ScoredResult } from "../ingestion/schemas";
 import { readJsonFile, resolveRootDir, rootPath, todayIso } from "../utils/common";
 
 export type FormatOptions = {
@@ -8,6 +9,7 @@ export type FormatOptions = {
   firstScan?: boolean;
   queryText?: string | null;
   defaultedParams?: string[];
+  executionContext?: ExecutionContext | null;
 };
 
 function weatherPhrase(score: number): string {
@@ -86,8 +88,10 @@ export function renderItinerary(scored: ScoredResult[], options: FormatOptions =
   const origin = ranked[0]?.flight.origin ?? scored[0]?.flight.origin ?? "UNK";
   const uniqueRoutes = new Set(scored.map((result) => `${result.flight.origin}-${result.flight.destination}`));
   const firstScan = options.firstScan ?? false;
-  const queryText = options.queryText?.trim();
-  const defaultedParams = options.defaultedParams ?? [];
+  const executionContext = options.executionContext ?? null;
+  const queryText = options.queryText?.trim() ?? executionContext?.request_text?.trim();
+  const defaultedParams = options.defaultedParams ?? executionContext?.defaulted_params ?? [];
+  const contextSummary = summarizeExecutionContext(executionContext);
 
   const lines: string[] = [`ATLAS — ${generatedDate} · from ${origin}`, ""];
 
@@ -95,6 +99,9 @@ export function renderItinerary(scored: ScoredResult[], options: FormatOptions =
     lines.push(`Query intent: ${queryText}`);
     if (defaultedParams.length) {
       lines.push(`Defaults applied: ${defaultedParams.join(", ")}`);
+    }
+    if (contextSummary.length) {
+      lines.push(`Execution context: ${contextSummary.join(" · ")}`);
     }
     lines.push("");
   }
@@ -122,6 +129,7 @@ export function renderItinerary(scored: ScoredResult[], options: FormatOptions =
 export function runFormat(rootDir?: string): string {
   const resolvedRoot = resolveRootDir(rootDir);
   const scored = ScoredResultsSchema.parse(readJsonFile(rootPath(resolvedRoot, "tmp", "scored_results.json")));
+  const executionContext = readExecutionContext(resolvedRoot);
   const dataDir = rootPath(resolvedRoot, "data");
   const dataFiles = existsSync(dataDir)
     ? readdirSync(dataDir).filter((entry) => entry.endsWith(".json"))
@@ -130,7 +138,8 @@ export function runFormat(rootDir?: string): string {
   const itinerary = renderItinerary(scored, {
     firstScan,
     queryText: readQueryText(resolvedRoot),
-    defaultedParams: readDefaultedParams(resolvedRoot)
+    defaultedParams: readDefaultedParams(resolvedRoot),
+    executionContext
   });
   writeFileSync(rootPath(resolvedRoot, "tmp", "itinerary.txt"), itinerary, "utf8");
   return itinerary;

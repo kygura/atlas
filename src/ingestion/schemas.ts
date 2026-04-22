@@ -5,6 +5,9 @@ const isoDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 export const FlightSourceSchema = z.enum(["kiwi", "lastminute"]);
 export const CrowdLevelSchema = z.enum(["low", "medium", "high", "peak"]);
 export const RunModeSchema = z.enum(["scheduled", "query"]);
+export const TriggerSourceSchema = z.enum(["scheduled", "telegram"]);
+export const OriginInterfaceSchema = z.enum(["routine_schedule", "telegram"]);
+export const TelegramParseModeSchema = z.enum(["MarkdownV2", "HTML"]);
 
 export const FlightResultSchema = z.object({
   flight_id: z.string().min(1),
@@ -55,6 +58,47 @@ export const ScoredResultSchema = z.object({
   opportunity_reason: z.string().nullable()
 });
 
+export const TelegramLocationSchema = z.object({
+  latitude: z.number(),
+  longitude: z.number()
+});
+
+export const TelegramContextSchema = z.object({
+  chat_id: z.string().min(1),
+  message_id: z.number().int().nonnegative().nullable(),
+  user_id: z.number().int().nonnegative().nullable(),
+  username: z.string().nullable(),
+  language_code: z.string().nullable(),
+  photo_file_id: z.string().nullable(),
+  location: TelegramLocationSchema.nullable()
+});
+
+export const UserContextSchema = z.object({
+  location_label: z.string().nullable(),
+  preferred_origins: z.array(z.string().length(3)),
+  max_budget_eur: z.number().nonnegative().nullable(),
+  destination_focus: z.array(z.string()),
+  preference_tags: z.array(z.string()),
+  notes: z.array(z.string())
+});
+
+export const ExecutionContextSchema = z.object({
+  trigger_source: TriggerSourceSchema,
+  origin_interface: OriginInterfaceSchema,
+  request_text: z.string().nullable(),
+  defaulted_params: z.array(z.string()),
+  context_summary: z.array(z.string()),
+  resolved_origin: z.string().length(3).nullable(),
+  user_context: UserContextSchema,
+  telegram: TelegramContextSchema.nullable()
+});
+
+export const TelegramOutboundMessageSchema = z.object({
+  text: z.string().min(1),
+  parse_mode: TelegramParseModeSchema.optional(),
+  disable_web_page_preview: z.boolean().optional()
+});
+
 export const ScanRecordSchema = z.object({
   scan_date: isoDateSchema,
   run_mode: RunModeSchema,
@@ -62,7 +106,9 @@ export const ScanRecordSchema = z.object({
   query: z.string().nullable(),
   results: z.array(ScoredResultSchema),
   itinerary_delivered: z.boolean(),
-  itinerary_text: z.string()
+  itinerary_text: z.string(),
+  execution_context: ExecutionContextSchema.optional(),
+  telegram_message: TelegramOutboundMessageSchema.optional()
 });
 
 export const WishlistItemSchema = z.object({
@@ -77,6 +123,7 @@ export const WishlistItemSchema = z.object({
 export const HardFiltersSchema = z.object({
   max_stops: z.number().int().nonnegative(),
   max_travel_time_hours: z.number().positive(),
+  max_layover_wait_hours: z.number().positive(),
   budget_economy_eur: z.object({
     min: z.number().nonnegative(),
     max: z.number().nonnegative()
@@ -107,3 +154,5 @@ export type WishlistItem = z.infer<typeof WishlistItemSchema>;
 export type HardFilters = z.infer<typeof HardFiltersSchema>;
 export type ScoringWeights = z.infer<typeof ScoringWeightsSchema>;
 export type RunMode = z.infer<typeof RunModeSchema>;
+export type ExecutionContext = z.infer<typeof ExecutionContextSchema>;
+export type TelegramOutboundMessage = z.infer<typeof TelegramOutboundMessageSchema>;

@@ -1,7 +1,8 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { ScanRecordSchema } from "../ingestion/schemas";
+import { ScanRecordSchema, type ScanRecord } from "../ingestion/schemas";
+import { resolveTelegramMessage } from "../delivery/message";
 import { markItineraryDelivered } from "../persistence/repo";
 import { sendTelegramText } from "../delivery/telegram";
 import { resolveRootDir, rootPath } from "../utils/common";
@@ -16,7 +17,12 @@ export type DeliverResult = {
   committed?: boolean;
 };
 
-function findLatestUndeliveredRecord(dataDir: string): string | null {
+type PendingRecord = {
+  filePath: string;
+  record: ScanRecord;
+};
+
+function findLatestUndeliveredRecord(dataDir: string): PendingRecord | null {
   if (!existsSync(dataDir)) {
     return null;
   }
@@ -30,7 +36,7 @@ function findLatestUndeliveredRecord(dataDir: string): string | null {
       const raw = JSON.parse(readFileSync(filePath, "utf8"));
       const record = ScanRecordSchema.parse(raw);
       if (!record.itinerary_delivered) {
-        return filePath;
+        return { filePath, record };
       }
     } catch {
       continue;
@@ -39,29 +45,51 @@ function findLatestUndeliveredRecord(dataDir: string): string | null {
   return null;
 }
 
+function errorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
+
 export async function runDeliver(options: DeliverOptions = {}): Promise<DeliverResult> {
   const rootDir = resolveRootDir(options.rootDir);
+  const pendingRecord = findLatestUndeliveredRecord(rootPath(rootDir, "data"));
 
-  const chatId = process.env.ATLAS_TELEGRAM_CHAT_ID;
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = pendingRecord?.record.execution_context?.telegram?.chat_id ?? process.env.ATLAS_TELEGRAM_CHAT_ID;
   if (!chatId || !botToken) {
-    return { sent: false, reason: "ATLAS_TELEGRAM_CHAT_ID or TELEGRAM_BOT_TOKEN not set" };
+    return { sent: false, reason: "reply chat_id or TELEGRAM_BOT_TOKEN not set" };
   }
 
   const itineraryPath = rootPath(rootDir, "tmp", "itinerary.txt");
-  if (!existsSync(itineraryPath)) {
-    return { sent: false, reason: "tmp/itinerary.txt not found" };
-  }
-  const text = readFileSync(itineraryPath, "utf8").trim();
+  const text = existsSync(itineraryPath)
+    ? readFileSync(itineraryPath, "utf8").trim()
+    : pendingRecord?.record.itinerary_text.trim() ?? "";
   if (!text) {
-    return { sent: false, reason: "tmp/itinerary.txt is empty" };
+    return { sent: false, reason: "tmp/itinerary.txt is empty and no persisted itinerary is available" };
   }
 
-  await sendTelegramText(chatId, text, botToken);
+  const replyToMessageId = pendingRecord?.record.run_mode === "query"
+    ? pendingRecord.record.execution_context?.telegram?.message_id ?? undefined
+    : undefined;
+  const message = resolveTelegramMessage(rootDir, pendingRecord?.record ?? null, text);
 
-  const recordPath = findLatestUndeliveredRecord(rootPath(rootDir, "data"));
-  if (recordPath) {
-    const commit = markItineraryDelivered(rootDir, recordPath);
+  try {
+    await sendTelegramText(chatId, message.text, botToken, {
+      replyToMessageId,
+      parseMode: message.parse_mode,
+      disableWebPagePreview: message.disable_web_page_preview ?? true
+    });
+  } catch (error) {
+    return {
+      sent: false,
+      reason: `native Telegram delivery failed (${errorMessage(error)}); use Composio MCP fallback`
+    };
+  }
+
+  if (pendingRecord) {
+    const commit = markItineraryDelivered(rootDir, pendingRecord.filePath);
     return { sent: true, committed: commit.committed };
   }
 

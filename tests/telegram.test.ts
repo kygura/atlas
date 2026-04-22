@@ -21,6 +21,23 @@ test("sendTelegramText sends a single message for short text", async () => {
   expect(body.text).toBe("Hello world");
 });
 
+test("sendTelegramText can reply to a source message", async () => {
+  const fetchMock = mock(() => Promise.resolve(new Response(null, { status: 200 })));
+  globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+  await sendTelegramText(CHAT_ID, "Hello back", TOKEN, {
+    replyToMessageId: 42,
+    parseMode: "MarkdownV2",
+    disableWebPagePreview: true
+  });
+
+  const call = (fetchMock.mock.calls as unknown[][])[0];
+  const body = JSON.parse((call[1] as RequestInit).body as string);
+  expect(body.reply_to_message_id).toBe(42);
+  expect(body.parse_mode).toBe("MarkdownV2");
+  expect(body.link_preview_options).toEqual({ is_disabled: true });
+});
+
 test("sendTelegramText splits text longer than 4096 chars", async () => {
   const fetchMock = mock(() => Promise.resolve(new Response(null, { status: 200 })));
   globalThis.fetch = fetchMock as unknown as typeof fetch;
@@ -55,6 +72,16 @@ test("sendTelegramPhoto sends photo with caption", async () => {
   expect(body.photo).toBe("file_id_abc");
   expect(body.caption).toBe("A caption");
   expect(body.chat_id).toBe(CHAT_ID);
+});
+
+test("sendTelegramPhoto can reply to a source message", async () => {
+  const fetchMock = mock(() => Promise.resolve(new Response(null, { status: 200 })));
+  globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+  await sendTelegramPhoto(CHAT_ID, "file_id_abc", "A caption", TOKEN, { replyToMessageId: 9 });
+
+  const body = JSON.parse(((fetchMock.mock.calls as unknown[][])[0][1] as RequestInit).body as string);
+  expect(body.reply_to_message_id).toBe(9);
 });
 
 test("sendTelegramPhoto truncates caption to 1024 chars", async () => {
