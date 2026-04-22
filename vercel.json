@@ -1,0 +1,5 @@
+{
+  "functions": {
+    "api/trigger.ts": { "runtime": "nodejs20.x" }
+  }
+}

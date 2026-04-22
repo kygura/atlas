@@ -1,0 +1,13 @@
+name: Atlas Scan
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "0 7 * * 1"
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: echo "Atlas migration path only; routine remains the primary runtime."

@@ -1,0 +1,7 @@
+{
+  "max_stops": 2,
+  "max_travel_time_hours": 22,
+  "budget_economy_eur": { "min": 300, "max": 1800 },
+  "fallback_origins": ["AGP", "MAD"],
+  "lastminute_window_days": 21
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "destination": "Lombok",
+    "iata": "LOP",
+    "status": "active",
+    "intent_tags": ["surf", "isolation", "warm-water"],
+    "avoid_periods": ["Jul 15 – Aug 31"],
+    "notes": "Prefer Selong Belanak or Desert Point area. Avoid Nyepi."
+  },
+  {
+    "destination": "Palawan",
+    "iata": "PPS",
+    "status": "active",
+    "intent_tags": ["maritime", "remote", "island-hopping"],
+    "notes": "Coron or El Nido. Avoid Mar–Apr (hottest)."
+  },
+  {
+    "destination": "Madeira",
+    "iata": "FNC",
+    "status": "active",
+    "intent_tags": ["mild-weather", "hiking", "ocean"],
+    "notes": "Funchal base with north coast day trips."
+  }
+]
