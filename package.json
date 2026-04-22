@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "normalize": "bun run src/cli/normalize.ts",
     "annotate": "bun run src/cli/annotate.ts",
-    "format": "bun run src/cli/format.ts"
+    "format": "bun run src/cli/format.ts",
+    "deliver": "bun run src/cli/deliver.ts"
   },
   "dependencies": {
     "zod": "^3.24.3"

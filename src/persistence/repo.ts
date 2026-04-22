@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import type { ScanRecord } from "../ingestion/schemas";
+import { ScanRecordSchema, type ScanRecord } from "../ingestion/schemas";
 import { writeJsonFile } from "../utils/common";
 
 export type CommitResult = {
@@ -42,6 +42,22 @@ export function commitScanRecord(rootDir: string, record: ScanRecord): CommitRes
     return { filePath, committed: false };
   } catch {
     git(rootDir, ["commit", "-m", `atlas: record ${record.scan_date} ${record.run_mode} scan`]);
+    return { filePath, committed: true };
+  }
+}
+
+export function markItineraryDelivered(rootDir: string, filePath: string): CommitResult {
+  const raw = JSON.parse(readFileSync(filePath, "utf8"));
+  const record = ScanRecordSchema.parse(raw);
+  const updated: ScanRecord = { ...record, itinerary_delivered: true };
+  writeFileSync(filePath, `${JSON.stringify(updated, null, 2)}\n`, "utf8");
+
+  git(rootDir, ["add", filePath]);
+  try {
+    git(rootDir, ["diff", "--cached", "--quiet", "--", "data"]);
+    return { filePath, committed: false };
+  } catch {
+    git(rootDir, ["commit", "-m", `atlas: mark itinerary delivered ${updated.scan_date}`]);
     return { filePath, committed: true };
   }
 }

@@ -1,7 +1,18 @@
+type PhotoSize = {
+  file_id: string;
+  width: number;
+  height: number;
+};
+
 type Req = {
   body?: {
-    message?: { text?: string };
+    message?: {
+      text?: string;
+      caption?: string;
+      photo?: PhotoSize[];
+    };
     text?: string;
+    photo_file_id?: string;
   };
 };
 
@@ -11,8 +22,12 @@ type Res = {
 };
 
 export default async function handler(req: Req, res: Res) {
-  const text = req.body?.message?.text || req.body?.text || "";
-  if (!text) {
+  const message = req.body?.message;
+  const text = message?.caption || message?.text || req.body?.text || "";
+  const photos = message?.photo;
+  const photoFileId = photos?.length ? photos[photos.length - 1]?.file_id : req.body?.photo_file_id;
+
+  if (!text && !photoFileId) {
     return res.status(200).json({ ok: true });
   }
 
@@ -20,6 +35,10 @@ export default async function handler(req: Req, res: Res) {
   const token = process.env.ROUTINE_TOKEN;
 
   if (fireUrl && token) {
+    const payload: Record<string, string> = { text };
+    if (photoFileId) {
+      payload.photo_file_id = photoFileId;
+    }
     void fetch(fireUrl, {
       method: "POST",
       headers: {
@@ -28,7 +47,7 @@ export default async function handler(req: Req, res: Res) {
         "anthropic-beta": "experimental-cc-routine-2026-04-01",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ text })
+      body: JSON.stringify(payload)
     }).catch(() => undefined);
   }
 
