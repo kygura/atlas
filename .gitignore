@@ -3,7 +3,8 @@ node_modules/
 coverage/
 dist/
 __pycache__/
-
+tests/
+bun.lock
 tmp/*
 !tmp/.gitkeep
 PROJECT.md
