@@ -1,0 +1,181 @@
+{
+  "scan_date": "2026-04-25",
+  "run_mode": "scheduled",
+  "origin_resolved": "AGP",
+  "query": null,
+  "results": [
+    {
+      "flight": {
+        "flight_id": "MAD-LOP-2026-05-18",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "LOP",
+        "destination_name": "Lombok",
+        "travel_window_start": "2026-05-18",
+        "travel_window_end": "2026-05-24",
+        "days_out": 23,
+        "price_economy_eur": 778,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": null,
+        "travel_time_hours": 47,
+        "booking_url": "https://on.kiwi.com/Oc0BYZ",
+        "snapshot_date": "2026-04-25",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-LOP-2026-05-18",
+        "weather_score": 4,
+        "crowd_level": "low",
+        "notable_events": [],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": 4,
+        "isolation_score": 4,
+        "personal_flag": "Pre-season golden window: swell building at Desert Point and Selong Belanak, lineups sparse, guesthouses not yet full — and rates before July spike.",
+        "raw_reasoning": "May 18–24 is transitional early dry season in Lombok. Temperatures 25–30°C, water 27°C, minimal rainfall, excellent for surfing and beach time. Dry season has officially started but peak tourist surge (Jul–Aug) hasn't arrived. Crowd level is low to medium by Lombok standards — still easy to find quiet breaks at Selong Belanak and Desert Point. Yadnya Kasada festival occurs on Java (not Lombok), not relevant here. No local Lombok events distort prices. Surf quality 4/5: transitional swells, improving S/SW groundswell, variable winds — very surfable but not yet peak June consistency. Isolation score 4/5: southern Lombok remains genuinely off-the-beaten-path. Price €778 round trip MAD→LOP is very competitive for this long-haul route. The 2-stop routing via Lufthansa hubs adds journey friction but is within the 47h limit."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 7.58,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-LOP-2026-06-18",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "LOP",
+        "destination_name": "Lombok",
+        "travel_window_start": "2026-06-18",
+        "travel_window_end": "2026-06-25",
+        "days_out": 54,
+        "price_economy_eur": 839,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": null,
+        "travel_time_hours": 41,
+        "booking_url": "https://on.kiwi.com/wpiGBW",
+        "snapshot_date": "2026-04-25",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-LOP-2026-06-18",
+        "weather_score": 5,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Yadnya Kasada festival on Mount Bromo / Java (no impact on Lombok itself)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": 5,
+        "isolation_score": 3,
+        "personal_flag": "Peak swell month at Desert Point: consistent S/SW groundswell and light offshore winds — June is when this wave fires best.",
+        "raw_reasoning": "June 18–25 sits in the heart of Lombok's dry season: reliably sunny, 27°C, SE trade winds consistent, sea warm. This is the prime surf window. June brings peak S/SW swells to Desert Point and Selong Belanak; surf quality 5/5. Crowd level medium — Gili Islands fill up with visitors, but southern Lombok surf spots remain manageable; pre-July so not yet peak-peak. Yadnya Kasada is a Java-based event with no impact on Lombok. No local events distort prices or crowds. Isolation score 3/5: slightly more crowded than May but southern Lombok still retains character. Price €839 round trip — reasonable for June. Travel window falls outside the wishlist avoid period (Jul 15–Aug 31). Booking URL confirmed."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 7.35,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-05-19",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-05-19",
+        "travel_window_end": "2026-05-23",
+        "days_out": 24,
+        "price_economy_eur": 194,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": null,
+        "travel_time_hours": 10,
+        "booking_url": "https://on.kiwi.com/s7YZ2X",
+        "snapshot_date": "2026-04-25",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-05-19",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Madeira Flower Festival (Apr 30–May 24) — Grand Parade May 22, Funchal carpeted in flower art",
+          "Classic Car Revival Madeira (May 22–24)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "The Grand Parade of the Flower Festival falls on May 22 — orchids, proteas and bougainvillea floats through Funchal exactly during this stay.",
+        "raw_reasoning": "May 19–23 lands squarely in the Madeira Flower Festival (Apr 30–May 24), one of the island's signature annual events. The Grand Parade is May 22. Weather is excellent: 20–24°C, low rainfall, 14h daylight, ideal for levada hiking. Crowds are medium — the Flower Festival draws visitors but Madeira is not yet in high-summer mode. Events are annual recurring fixtures, not one-off anomalies, so no distortion flag. The Classic Car Revival (May 22–24) overlaps but is a secondary draw. Flight is direct-ish from MAD, 1 stop, 10h, €194 round trip — outstanding value. Isolation score low (Funchal city); hiking access to remote levadas and peaks excellent. No surf relevance."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.93,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "AGP-FNC-2026-06-16",
+        "source": "kiwi",
+        "origin": "AGP",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-06-16",
+        "travel_window_end": "2026-06-25",
+        "days_out": 52,
+        "price_economy_eur": 213,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": null,
+        "travel_time_hours": 24,
+        "booking_url": "https://on.kiwi.com/fJVbz5",
+        "snapshot_date": "2026-04-25",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "AGP-FNC-2026-06-16",
+        "weather_score": 4,
+        "crowd_level": "high",
+        "notable_events": [
+          "Atlantic Festival (Jun 5–28) — fireworks over Funchal Bay every Saturday night",
+          "Festa da Cereja / Cherry Festival in Câmara de Lobos (Jun 19–21)",
+          "São João (Saint John's Day) — bonfires on pebble beaches, Jun 23",
+          "Monte Regional Ramp Race (Jun 20–21)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "São João bonfires on Funchal's pebble beaches Jun 23 — the Atlantic Festival fireworks fire every Saturday of the stay; this window stacks four events.",
+        "raw_reasoning": "June in Madeira averages 21°C, ~3 rain days, sea at 21°C — good but not exceptional. The Atlantic Festival runs the entire travel window with fireworks synchronized to music every Saturday evening; São João (23 Jun) is the island's biggest street party; Cherry Festival and Monte Ramp Race all land in the same 9-day stay. Crowd level is high, especially on festival weekends, but all events are recurring annual fixtures, not one-off anomalies, so no price distortion flag. AGP origin adds 2 stops vs MAD's 1 stop and routes via mainland hubs. Isolation score low — Funchal is a city, well connected. Surf not applicable. Origin AGP raises travel friction vs MAD; price is slightly lower than MAD-FNC but with more stops."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.14,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    }
+  ],
+  "itinerary_delivered": true,
+  "itinerary_text": "ATLAS — 2026-04-25 · from MAD\n\n#1 Lombok via direct\n✈ €778 · 2 stop(s) · 47.0h · Book → https://on.kiwi.com/Oc0BYZ\n📅 2026-05-18 – 2026-05-24 (6 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: low\n💡 Pre-season golden window: swell building at Desert Point and Selong Belanak, lineups sparse, guesthouses not yet full — and rates before July spike.\n\n#2 Lombok via direct\n✈ €839 · 2 stop(s) · 41.0h · Book → https://on.kiwi.com/wpiGBW\n📅 2026-06-18 – 2026-06-25 (7 days)\n🌤 Weather: 5/5 — excellent seasonal conditions\n👥 Crowds: medium\n💡 Peak swell month at Desert Point: consistent S/SW groundswell and light offshore winds — June is when this wave fires best.\n\n#3 Madeira via direct\n✈ €194 · 1 stop(s) · 10.0h · Book → https://on.kiwi.com/s7YZ2X\n📅 2026-05-19 – 2026-05-23 (4 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 The Grand Parade of the Flower Festival falls on May 22 — orchids, proteas and bougainvillea floats through Funchal exactly during this stay.\n\n#4 Madeira via direct\n✈ €213 · 2 stop(s) · 24.0h · Book → https://on.kiwi.com/fJVbz5\n📅 2026-06-16 – 2026-06-25 (9 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: high\n💡 São João bonfires on Funchal's pebble beaches Jun 23 — the Atlantic Festival fireworks fire every Saturday of the stay; this window stacks four events.\n\nDataset: 4 records across 3 routes · Updated 2026-04-25 · First scan.\n",
+  "execution_context": {
+    "trigger_source": "telegram",
+    "origin_interface": "telegram",
+    "request_text": null,
+    "defaulted_params": [],
+    "context_summary": [],
+    "resolved_origin": "AGP",
+    "user_context": {
+      "location_label": null,
+      "preferred_origins": [],
+      "max_budget_eur": null,
+      "destination_focus": [],
+      "preference_tags": [],
+      "notes": []
+    },
+    "telegram": null
+  }
+}
