@@ -1,0 +1,189 @@
+{
+  "trip_id": "fnc26may",
+  "destination": "Madeira",
+  "flight": {
+    "flight_id": "MAD-FNC-2026-05-12",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "FNC",
+    "destination_name": "Madeira",
+    "travel_window_start": "2026-05-12",
+    "travel_window_end": "2026-05-19",
+    "days_out": 17,
+    "price_economy_eur": 227,
+    "price_business_eur": null,
+    "stops": 1,
+    "best_layover": null,
+    "travel_time_hours": 8.5,
+    "booking_url": "https://on.kiwi.com/JDOYwY",
+    "snapshot_date": "2026-04-25",
+    "search_error": null
+  },
+  "hotel": {
+    "hotel_id": "254086",
+    "name": "The Editory Garden Funchal",
+    "rating": 4.7,
+    "review_count": 10,
+    "price_per_night_eur": 210,
+    "total_price_eur": 1473,
+    "nights": 7,
+    "check_in": "2026-05-12",
+    "check_out": "2026-05-19",
+    "location": "Funchal, residential neighborhood",
+    "amenities": [
+      "Garden",
+      "Quiet residential setting",
+      "Walking distance to Lido and Old Town",
+      "Free WiFi"
+    ],
+    "review_summary": "Quiet garden retreat a few blocks back from the seafront — the residential feel keeps it calm at night while leaving the Lido pools and Old Town within easy walking distance.",
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g189167-d254086-Reviews-The_Editory_Garden_Funchal-Funchal_Madeira_Madeira_Islands.html?staydates=2026_05_12_2026_05_19"
+  },
+  "hotel_alt": {
+    "hotel_id": "8841039",
+    "name": "Castanheiro Boutique Hotel",
+    "rating": 4.8,
+    "review_count": 1391,
+    "price_per_night_eur": 277,
+    "total_price_eur": 1936,
+    "nights": 7,
+    "check_in": "2026-05-12",
+    "check_out": "2026-05-19",
+    "location": "Funchal Old Town, central",
+    "amenities": [
+      "Rooftop pool",
+      "Boutique design",
+      "Old Town location",
+      "Trendy bar"
+    ],
+    "review_summary": "True boutique pick — five 17th–20th century buildings linked into one design hotel, rooftop pool with cathedral views, walks straight into the Mercado dos Lavradores.",
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g189167-d8841039-Reviews-Castanheiro_Boutique_Hotel-Funchal_Madeira_Madeira_Islands.html?staydates=2026_05_12_2026_05_19"
+  },
+  "daily_plan": [
+    {
+      "date": "2026-05-12",
+      "label": "Arrival",
+      "note": "Land FNC ~14:05 (1 stop via OPO). Bus or 25-min taxi to Funchal. Check in, decompress, sunset stroll along Avenida do Mar.",
+      "activities": []
+    },
+    {
+      "date": "2026-05-13",
+      "label": "Day 1 — Pico do Arieiro sunrise",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "PR1 Sunrise Pico do Arieiro Self-Guided Hiking Transfer",
+          "price_eur": 34,
+          "duration_min": 480,
+          "rating": 4.8,
+          "description": "Pre-dawn van to Madeira's third-highest peak; self-guided ridge traverse along PR1 above the cloud line.",
+          "booking_link": "https://www.viator.com/tours/Funchal/Sunrise-Hike-from-Pico-do-Areeiro-to-Pico-Ruivo/d22388-339274P1?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-14",
+      "label": "Day 2 — Rabaçal valley",
+      "activities": [
+        {
+          "slot": "Full Day",
+          "title": "25 Fountains Levada: Hiking Tour in Rabaçal Valley (PR6)",
+          "price_eur": 48,
+          "duration_min": 420,
+          "rating": 4.7,
+          "description": "Walking tour through laurissilva forest along Levada das 25 Fontes to the spring-fed pool — UNESCO heritage zone.",
+          "booking_link": "https://www.viator.com/tours/Funchal/Levada-Rabacal-and-25-Fountains-Walking-Tour/d22388-12964P5?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-15",
+      "label": "Day 3 — Whale watching",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "Whale & Dolphin Watching, Calheta",
+          "price_eur": 60,
+          "duration_min": 120,
+          "rating": 4.93,
+          "description": "Small RHIB out of Calheta marina — sperm whale and short-finned pilot whale year-round, dolphin pods most days.",
+          "booking_link": "https://www.viator.com/tours/Calheta/Whale-and-Dolphin-Watching-or-Swim-with-Dolphins-in-Madeira/d50841-23523P1?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-16",
+      "label": "Day 4 — Village safari",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "Half-Day Small-Group Madeira Village Safari",
+          "price_eur": 44,
+          "duration_min": 180,
+          "rating": 4.77,
+          "description": "Small-group 4×4 through the Curral das Freiras crater village and Eira do Serrado viewpoint — quiet inland Madeira.",
+          "booking_link": "https://www.viator.com/tours/Funchal/Half-Day-Village-Safari-from-Funchal/d22388-25508P1?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "label": "Day 5 — São Lourenço peninsula",
+      "activities": [
+        {
+          "slot": "AM–PM",
+          "title": "PR8 Ponta São Lourenço Self-Guided Hike with Transfer",
+          "price_eur": 31,
+          "duration_min": 360,
+          "rating": 4.29,
+          "description": "Volcanic peninsula at the eastern tip of the island — exposed cliffs, no shade, Atlantic on three sides.",
+          "booking_link": "https://www.viator.com/tours/Funchal/Canical-UNESCO-Self-Guided-Ponta-Sao-Lourenco-Hike/d22388-339274P5?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-18",
+      "label": "Day 6 — Levada do Rei",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "Levada do Rei PR18 Scenic Hike with Transfer",
+          "price_eur": 40,
+          "duration_min": 240,
+          "rating": 4.95,
+          "description": "Quiet northern levada through dense laurel forest to the Ribeiro Bonito source — barely any other hikers on weekdays.",
+          "booking_link": "https://www.viator.com/tours/Funchal/Levada-do-Rei-PR18-Scenic-Hike-Transfer-in-Madeira/d22388-463149P9?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-19",
+      "label": "Departure",
+      "note": "Check out by 11:00. Funchal-Madeira Airport transfer (~25 min). Flight FNC 16:20 → LIS → MAD 22:25.",
+      "activities": []
+    }
+  ],
+  "total_estimate": {
+    "flight": 227,
+    "hotel": 1473,
+    "activities": 257,
+    "total": 1957
+  },
+  "validation": {
+    "gates_passed": [
+      "composite_score",
+      "weather_score",
+      "crowd_level",
+      "distortion_flag",
+      "budget_compliance",
+      "isolation_score"
+    ],
+    "warnings": []
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true
+  },
+  "created_at": "2026-04-25T22:50:00.000Z"
+}
