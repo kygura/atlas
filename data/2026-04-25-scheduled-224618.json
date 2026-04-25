@@ -1,0 +1,107 @@
+{
+  "scan_date": "2026-04-25",
+  "run_mode": "scheduled",
+  "origin_resolved": "MAD",
+  "query": null,
+  "results": [
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-05-12",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-05-12",
+        "travel_window_end": "2026-05-19",
+        "days_out": 17,
+        "price_economy_eur": 227,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": null,
+        "travel_time_hours": 8.5,
+        "booking_url": "https://on.kiwi.com/JDOYwY",
+        "snapshot_date": "2026-04-25",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-05-12",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Madeira Flower Festival (Apr 30 – May 24) — opening weeks, floral displays in Funchal",
+          "Festival ends May 24 with Grand Parade (after this window)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "Hits the Flower Festival's quieter opening week — Funchal carpeted in petal art before the May 22 Grand Parade crowd arrives, and €227 is excellent value with 1 stop.",
+        "raw_reasoning": "May 12–19 is squarely in the spring shoulder — temperatures 19–23°C, sea 19°C, ~3 rain days, 14h daylight. Excellent for levada hikes, paragliding, and sea pools. The Madeira Flower Festival runs Apr 30 – May 24; this window catches the floral installations and orchid carpets but misses the Grand Parade peak (May 22). Crowds medium: festival attracts visitors but pre-summer so not yet packed. Festival is annual recurring — no distortion. €227 round trip MAD→OPO→FNC, 1 stop each way, 8.5h outbound: outstanding value, well under budget. Isolation score low: Funchal is a city, but day-trip access to remote levadas and São Lourenço peninsula is excellent. Surf not relevant for this destination."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.87,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-06-15",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-06-15",
+        "travel_window_end": "2026-06-22",
+        "days_out": 51,
+        "price_economy_eur": 195,
+        "price_business_eur": null,
+        "stops": 0,
+        "best_layover": null,
+        "travel_time_hours": 2.6666666666666665,
+        "booking_url": "https://on.kiwi.com/zU7S0w",
+        "snapshot_date": "2026-04-25",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-06-15",
+        "weather_score": 4,
+        "crowd_level": "high",
+        "notable_events": [
+          "Atlantic Festival (Jun 5–28) — fireworks over Funchal Bay every Saturday night",
+          "Festa da Cereja / Cherry Festival in Câmara de Lobos (Jun 19–21)",
+          "Monte Regional Ramp Race (Jun 20–21)",
+          "São João bonfires begin Jun 23 (departure day)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "Direct €195 flight is the find — Atlantic Festival fireworks fire on Saturday Jun 20, Cherry Festival overlaps the same weekend, and the trip stacks four events in 7 days.",
+        "raw_reasoning": "June 15–22 is full Madeira early-summer: 21–23°C, ~3 rain days, sea 21°C. Good but not exceptional weather; the season is improving. Atlantic Festival runs the entire stay (Jun 5–28) with fireworks-music shows every Saturday (Jun 20 falls in window). Cherry Festival in Câmara de Lobos Jun 19–21 brings local food and culture. Monte Regional Ramp Race Jun 20–21 adds motorsport spectacle. São João's main night is Jun 23 — departure day, so just misses the bonfire street parties. Crowd level high on festival weekends. All events are recurring annual fixtures, no price distortion. €195 direct MAD→FNC (2h40m) plus 1-stop return is exceptional pricing. Isolation low (urban base) but day-trip access to Pico Ruivo, São Lourenço excellent."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.17,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    }
+  ],
+  "itinerary_delivered": false,
+  "itinerary_text": "ATLAS — 2026-04-25 · from MAD\n\n#1 Madeira via direct\n✈ €227 · 1 stop(s) · 8.5h · Book → https://on.kiwi.com/JDOYwY\n📅 2026-05-12 – 2026-05-19 (7 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 Hits the Flower Festival's quieter opening week — Funchal carpeted in petal art before the May 22 Grand Parade crowd arrives, and €227 is excellent value with 1 stop. Thin history for this route; baseline still forming.\n\n#2 Madeira via direct\n✈ €195 · 0 stop(s) · 2.7h · Book → https://on.kiwi.com/zU7S0w\n📅 2026-06-15 – 2026-06-22 (7 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: high\n💡 Direct €195 flight is the find — Atlantic Festival fireworks fire on Saturday Jun 20, Cherry Festival overlaps the same weekend, and the trip stacks four events in 7 days. Thin history for this route; baseline still forming.\n\nDataset: 2 records across 1 routes · Updated 2026-04-25\n",
+  "execution_context": {
+    "trigger_source": "telegram",
+    "origin_interface": "telegram",
+    "request_text": null,
+    "defaulted_params": [],
+    "context_summary": [],
+    "resolved_origin": "MAD",
+    "user_context": {
+      "location_label": null,
+      "preferred_origins": [],
+      "max_budget_eur": null,
+      "destination_focus": [],
+      "preference_tags": [],
+      "notes": []
+    },
+    "telegram": null
+  }
+}
