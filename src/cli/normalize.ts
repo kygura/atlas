@@ -98,6 +98,30 @@ function dateTimeValue(...values: unknown[]): number | null {
   return null;
 }
 
+// "47 hours and 10 min" | "6h20m" | "34 hours" → decimal hours
+function parseDurationHoursString(value: unknown): number | null {
+  if (typeof value !== "string" || !value.trim()) return null;
+  const long = value.match(/(\d+)\s*h(?:ours?)?\s*(?:and\s*)?(\d+)?\s*m(?:in(?:utes?)?)?/i);
+  if (long) return parseInt(long[1]) + (long[2] ? parseInt(long[2]) / 60 : 0);
+  const hoursOnly = value.match(/^(\d+)\s*h(?:ours?)?$/i);
+  if (hoursOnly) return parseInt(hoursOnly[1]);
+  return null;
+}
+
+// "1544.81 €" | "€778" → number
+function parsePriceString(value: unknown): number | null {
+  if (typeof value !== "string") return null;
+  const n = parseFloat(value.replace(/[^\d.]/g, ""));
+  return Number.isFinite(n) ? n : null;
+}
+
+// lastminute "Out: 2 | Ret: 2" → 2
+function parseStopsString(value: unknown): number | null {
+  if (typeof value !== "string") return null;
+  const m = value.match(/Out:\s*(\d+)/i);
+  return m ? parseInt(m[1]) : null;
+}
+
 function layoverWaitHoursValue(value: unknown): number | null {
   if (value == null) {
     return null;
@@ -220,28 +244,47 @@ function maxLayoverWaitHours(attempt: RawAttempt): number | null {
 
 function buildFlightResult(attempt: RawAttempt, filters: HardFilters, index: number): FlightResult | NormalizeFailure {
   const source = maybeSource(stringValue(attempt.source, attempt.provider));
-  const origin = stringValue(attempt.origin, attempt.from, attempt.origin_iata, readNested(attempt, ["route", "origin"]));
-  const destination = stringValue(attempt.destination, attempt.to, attempt.destination_iata, attempt.iata, readNested(attempt, ["route", "destination"]));
-  const destinationName = stringValue(attempt.destination_name, attempt.destinationName, attempt.city, attempt.name, destination);
+  // Kiwi: flyFrom/flyTo; lastminute: from/to; manual: origin/destination
+  const origin = stringValue(
+    attempt.origin, attempt.from, attempt.flyFrom,
+    attempt.origin_iata, readNested(attempt, ["route", "origin"])
+  );
+  const destination = stringValue(
+    attempt.destination, attempt.to, attempt.flyTo,
+    attempt.destination_iata, attempt.iata, readNested(attempt, ["route", "destination"])
+  );
+  // Kiwi: cityTo; manual: destination_name
+  const destinationName = stringValue(
+    attempt.destination_name, attempt.destinationName,
+    attempt.cityTo, attempt.city, attempt.name, destination
+  );
   const snapshotDate = dateValue(attempt.snapshot_date) ?? todayIso();
+  // Kiwi: departure.local ("2026-05-18T10:45:00.000"); manual/lastminute: departure_date / travel_window_start
   const travelWindowStart = dateValue(
     attempt.travel_window_start,
     attempt.window_start,
     attempt.departure_date,
-    readNested(attempt, ["window", "start"])
+    readNested(attempt, ["window", "start"]),
+    readNested(attempt, ["departure", "local"])
   );
+  // Kiwi: return.departure.local; manual: return_date / travel_window_end
   const travelWindowEnd = dateValue(
     attempt.travel_window_end,
     attempt.window_end,
     attempt.return_date,
     readNested(attempt, ["window", "end"]),
+    readNested(attempt, ["return", "departure", "local"]),
     travelWindowStart
   );
+  // price_eur = manual shorthand; price_amount = lastminute cents; price string "1544.81 €" via parsePriceString
   const priceEconomy = numberValue(
     attempt.price_economy_eur,
+    attempt.price_eur,
     attempt.economy_price_eur,
     readNested(attempt, ["price", "economy_eur"]),
     readNested(attempt, ["prices", "economy"]),
+    typeof attempt.price_amount === "number" ? attempt.price_amount / 100 : null,
+    parsePriceString(attempt.price),
     attempt.price
   );
   const priceBusiness = numberValue(
@@ -250,21 +293,36 @@ function buildFlightResult(attempt: RawAttempt, filters: HardFilters, index: num
     readNested(attempt, ["price", "business_eur"]),
     readNested(attempt, ["prices", "business"])
   );
-  const stops = Math.trunc(numberValue(attempt.stops, readNested(attempt, ["route", "stops"])) ?? 0);
+  // Kiwi: layovers.length; lastminute: "Out: 2 | Ret: 2" via parseStopsString
+  const stops = Math.trunc(
+    numberValue(
+      attempt.stops,
+      parseStopsString(attempt.stops),
+      Array.isArray(attempt.layovers) ? attempt.layovers.length : null,
+      readNested(attempt, ["route", "stops"])
+    ) ?? 0
+  );
   const bestLayover = stringValue(
     attempt.best_layover,
     Array.isArray(attempt.layovers) ? attempt.layovers[0] : undefined,
     readNested(attempt, ["route", "best_layover"])
   ) ?? null;
+  // travel_time_hours_outbound = manual shorthand; duration_out = lastminute string; durationInSeconds = Kiwi outbound seconds
   const travelTimeHours = numberValue(
     attempt.travel_time_hours,
+    attempt.travel_time_hours_outbound,
     attempt.duration_hours,
+    parseDurationHoursString(attempt.duration_out),
     readNested(attempt, ["travel_time", "hours"]),
-    readNested(attempt, ["route", "travel_time_hours"])
+    readNested(attempt, ["route", "travel_time_hours"]),
+    typeof attempt.durationInSeconds === "number" ? attempt.durationInSeconds / 3600 : null
   );
+  // deepLink = Kiwi (capital L); deeplink = lastminute (lowercase)
   const bookingUrl = stringValue(
     attempt.booking_url,
     attempt.deep_link,
+    attempt.deepLink,
+    attempt.deeplink,
     attempt.url,
     readNested(attempt, ["booking", "url"])
   ) ?? null;
