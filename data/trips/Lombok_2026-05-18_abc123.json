@@ -1,0 +1,141 @@
+{
+  "trip_id": "abc123",
+  "destination": "Lombok",
+  "flight": {
+    "flight_id": "MAD-LOP-2026-05-18",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "LOP",
+    "destination_name": "Lombok",
+    "travel_window_start": "2026-05-18",
+    "travel_window_end": "2026-05-24",
+    "days_out": 23,
+    "price_economy_eur": 778,
+    "price_business_eur": null,
+    "stops": 2,
+    "best_layover": null,
+    "travel_time_hours": 47,
+    "booking_url": "https://on.kiwi.com/Oc0BYZ",
+    "snapshot_date": "2026-04-25",
+    "search_error": null
+  },
+  "hotel": {
+    "hotel_id": "13563754",
+    "name": "Rascals Kuta Lombok - Adults Only",
+    "rating": 4.9,
+    "review_count": 237,
+    "price_per_night_eur": 74,
+    "total_price_eur": 296,
+    "nights": 4,
+    "check_in": "2026-05-20",
+    "check_out": "2026-05-24",
+    "location": "Jalan Kuta Lombok, Kuta, Lombok",
+    "amenities": [
+      "Pool",
+      "Free breakfast",
+      "Free WiFi",
+      "Spa",
+      "Diving",
+      "Airport transport"
+    ],
+    "review_summary": "Authentic boutique adults-only resort that delivers exactly what it promises — quiet enough to unwind but steps from Kuta's café strip; staff give genuinely personal advice rather than tourist-office scripts.",
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g2155769-d13563754-Reviews-Rascals_Kuta_Lombok_Adults_Only-Kuta_Lombok_West_Nusa_Tenggara.html"
+  },
+  "hotel_alt": {
+    "hotel_id": "23258743",
+    "name": "Amber Lombok Beach Resort",
+    "rating": 4.6,
+    "review_count": 412,
+    "price_per_night_eur": 61,
+    "total_price_eur": 244,
+    "nights": 4,
+    "check_in": "2026-05-20",
+    "check_out": "2026-05-24",
+    "location": "Pantai Torok, Selong Belanak, Lombok",
+    "amenities": [
+      "Beachfront",
+      "Pool",
+      "Free breakfast",
+      "Free WiFi",
+      "Bicycle rental"
+    ],
+    "review_summary": "Sits directly on Selong Belanak's turquoise bay — waking up 10 metres from the water makes this the most immersive option for the surf-and-isolation wishlist.",
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g2147811-d23258743-Reviews-Amber_Lombok_Beach_Resort-Selong_Belanak_Lombok_West_Nusa_Tenggara.html"
+  },
+  "daily_plan": [
+    {
+      "date": "2026-05-20",
+      "label": "Arrival",
+      "note": "Arrive ~10:30 local. Check in, decompress, sunset swim at Selong Belanak.",
+      "activities": []
+    },
+    {
+      "date": "2026-05-21",
+      "label": "Day 1",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "Private Surf Lesson — Selong Belanak",
+          "price_eur": 38.27,
+          "duration_min": 90,
+          "rating": 5,
+          "description": "One-on-one instruction on Selong Belanak's gently rolling waves.",
+          "booking_link": "https://www.viator.com/tours/Lombok/Private-Surf-Lessons-in-Selong-Belanak/d22869-428248P1?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "label": "Day 2",
+      "activities": [
+        {
+          "slot": "Full Day",
+          "title": "Waterfall & Traditional Village Private Tour",
+          "price_eur": 53.92,
+          "duration_min": 540,
+          "rating": 5,
+          "description": "Benang Kelambu Waterfall, Sukarara weaving village, Sade Sasak village, Selong Belanak finish.",
+          "booking_link": "https://www.viator.com/tours/Lombok/Lombok-Private-Tour-Watefall-And-Traditional-Village-Including-Beach/d22869-128493P4?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "label": "Day 3",
+      "activities": [
+        {
+          "slot": "AM–PM",
+          "title": "Selong Hill + Tiu Kelep & Sendang Gile Waterfalls",
+          "price_eur": 52.18,
+          "duration_min": 450,
+          "rating": 5,
+          "description": "Panoramic rice-terrace viewpoint then jungle trek to double waterfalls near Senaru.",
+          "booking_link": "https://www.viator.com/tours/Lombok/Enchanting-Tiu-Kelep-Lombok-Majestic-Waterfall-Adventure/d22869-427117P3?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    }
+  ],
+  "total_estimate": {
+    "flight": 778,
+    "hotel": 296,
+    "activities": 144,
+    "total": 1218
+  },
+  "validation": {
+    "gates_passed": [
+      "composite_score",
+      "weather_score",
+      "crowd_level",
+      "distortion_flag",
+      "budget_compliance",
+      "isolation_score"
+    ],
+    "warnings": []
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true
+  },
+  "created_at": "2026-04-25T00:00:00.000Z"
+}
