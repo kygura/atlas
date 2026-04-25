@@ -159,7 +159,7 @@
       "opportunity_reason": null
     }
   ],
-  "itinerary_delivered": false,
+  "itinerary_delivered": true,
   "itinerary_text": "ATLAS — 2026-04-25 · from MAD\n\n#1 Lombok via direct\n✈ €778 · 2 stop(s) · 47.0h · Book → https://on.kiwi.com/Oc0BYZ\n📅 2026-05-18 – 2026-05-24 (6 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: low\n💡 Pre-season golden window: swell building at Desert Point and Selong Belanak, lineups sparse, guesthouses not yet full — and rates before July spike.\n\n#2 Lombok via direct\n✈ €839 · 2 stop(s) · 41.0h · Book → https://on.kiwi.com/wpiGBW\n📅 2026-06-18 – 2026-06-25 (7 days)\n🌤 Weather: 5/5 — excellent seasonal conditions\n👥 Crowds: medium\n💡 Peak swell month at Desert Point: consistent S/SW groundswell and light offshore winds — June is when this wave fires best.\n\n#3 Madeira via direct\n✈ €194 · 1 stop(s) · 10.0h · Book → https://on.kiwi.com/s7YZ2X\n📅 2026-05-19 – 2026-05-23 (4 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 The Grand Parade of the Flower Festival falls on May 22 — orchids, proteas and bougainvillea floats through Funchal exactly during this stay.\n\n#4 Madeira via direct\n✈ €213 · 2 stop(s) · 24.0h · Book → https://on.kiwi.com/fJVbz5\n📅 2026-06-16 – 2026-06-25 (9 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: high\n💡 São João bonfires on Funchal's pebble beaches Jun 23 — the Atlantic Festival fireworks fire every Saturday of the stay; this window stacks four events.\n\nDataset: 4 records across 3 routes · Updated 2026-04-25 · First scan.\n",
   "execution_context": {
     "trigger_source": "telegram",
