@@ -1,0 +1,182 @@
+{
+  "trip_id": "lop-20260518-a1b2",
+  "destination": "Lombok",
+  "flight": {
+    "flight_id": "MAD-LOP-2026-05-18",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "LOP",
+    "destination_name": "Lombok",
+    "travel_window_start": "2026-05-18",
+    "travel_window_end": "2026-05-25",
+    "days_out": 21,
+    "price_economy_eur": 776,
+    "price_business_eur": null,
+    "stops": 2,
+    "best_layover": "AUH",
+    "travel_time_hours": 41.75,
+    "booking_url": "https://on.kiwi.com/wLe1Us",
+    "snapshot_date": "2026-04-27",
+    "search_error": null
+  },
+  "hotel": {
+    "name": "Amazing Lombok Resort",
+    "rating": 5,
+    "review_count": 20,
+    "price_per_night_eur": 48,
+    "total_eur": 240,
+    "nights": 5,
+    "location": "Serangan village, Selong Belanak, South Lombok",
+    "amenities": [
+      "Pool",
+      "Free WiFi",
+      "Beach access",
+      "Hiking",
+      "Bar/lounge",
+      "Airport transfer"
+    ],
+    "review_summary": "Tranquil authentic village resort with beautiful rooms and great food — guests consistently praise the pool, peace, and proximity to Selong Belanak beach.",
+    "booking_url": "https://www.tripadvisor.com/Hotel_Review-g2147811-d23956850-Reviews-Amazing_Lombok_Resort-Selong_Belanak_Lombok_West_Nusa_Tenggara.html"
+  },
+  "hotel_alt": {
+    "name": "Boni Beach Lombok | Hotel & Restaurant",
+    "rating": 5,
+    "review_count": 35,
+    "price_per_night_eur": 110,
+    "total_eur": 548,
+    "nights": 5,
+    "location": "Serangan Beach, Selong Belanak — beachfront boutique",
+    "amenities": [
+      "Pool",
+      "Private pool",
+      "Free WiFi",
+      "Restaurant",
+      "Bar/lounge",
+      "Airport transfer"
+    ],
+    "review_summary": "Sanctuary-grade boutique with exceptional food — guests call it the best hotel in Lombok.",
+    "booking_url": "https://www.tripadvisor.com/Hotel_Review-g2147811-d26268502-Reviews-Boni_Beach_Lombok_Hotel_Restaurant-Selong_Belanak_Lombok_West_Nusa_Tenggara.html"
+  },
+  "daily_plan": [
+    {
+      "date": "2026-05-20",
+      "label": "Arrival",
+      "slots": [
+        {
+          "slot": "PM",
+          "title": "Arrive LOP — Selong Belanak first look",
+          "price_eur": 0,
+          "link": null
+        }
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "label": "Day 2",
+      "slots": [
+        {
+          "slot": "AM",
+          "title": "Private Surf Lesson — Selong Belanak",
+          "price_eur": 38.21,
+          "duration_min": 90,
+          "rating": 5,
+          "link": "https://www.viator.com/tours/Lombok/Private-Surf-Lessons-in-Selong-Belanak/d22869-428248P1?pid=P00280233&medium=mcp&client=anthropic",
+          "description": "One-on-one coaching on Selong Belanak's mellow beach break — morning glassiness, offshore trade winds, private instruction."
+        },
+        {
+          "slot": "PM",
+          "title": "Beach & Desert Point tide check",
+          "price_eur": 0,
+          "link": null
+        }
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "label": "Day 3",
+      "slots": [
+        {
+          "slot": "AM+PM",
+          "title": "Waterfall & Traditional Sasak Village Private Tour",
+          "price_eur": 53.85,
+          "duration_min": 540,
+          "rating": 5,
+          "link": "https://www.viator.com/tours/Lombok/Lombok-Private-Tour-Watefall-And-Traditional-Village-Including-Beach/d22869-128493P4?pid=P00280233&medium=mcp&client=anthropic",
+          "description": "Full-day: tropical waterfall, authentic Sasak weaving village, hidden beach — private driver-guide, all-inclusive."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "label": "Day 4",
+      "slots": [
+        {
+          "slot": "AM",
+          "title": "Private Surf Lesson — Selong Belanak (session 2)",
+          "price_eur": 38.21,
+          "duration_min": 90,
+          "rating": 5,
+          "link": "https://www.viator.com/tours/Lombok/Private-Surf-Lessons-in-Selong-Belanak/d22869-428248P1?pid=P00280233&medium=mcp&client=anthropic",
+          "description": "Second session to consolidate technique in offshore morning conditions."
+        },
+        {
+          "slot": "PM",
+          "title": "Desert Point scouting (Bangko-Bangko)",
+          "price_eur": 0,
+          "link": null,
+          "description": "45min drive to assess Desert Point — if it's firing on the right tide, this is the session of the trip."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "label": "Day 5",
+      "slots": [
+        {
+          "slot": "AM+PM",
+          "title": "3 Waterfalls Escape: Kelambu, Stokel & Sesere",
+          "price_eur": 62.53,
+          "duration_min": 600,
+          "rating": 5,
+          "link": "https://www.viator.com/tours/Lombok/Day-Trip-Benang-Stokel-Waterfall-Benang-Kelambu-Waterfall-and-Lingsar-Temple/d22869-223745P10?pid=P00280233&medium=mcp&client=anthropic",
+          "description": "Private full-day jungle chase: Benang Kelambu curtain falls, Stokel plunge pools, Lingsar Hindu-Sasak temple."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-25",
+      "label": "Departure",
+      "slots": [
+        {
+          "slot": "AM",
+          "title": "Check out — depart LOP 11:15",
+          "price_eur": 0,
+          "link": null
+        }
+      ]
+    }
+  ],
+  "total_estimate": {
+    "flight": 776,
+    "hotel": 240,
+    "activities": 193,
+    "total": 1209
+  },
+  "validation": {
+    "gates_passed": [
+      "composite_score",
+      "weather_score",
+      "crowd_level",
+      "distortion_flag",
+      "budget_compliance",
+      "isolation_score"
+    ],
+    "warnings": []
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true
+  },
+  "created_at": "2026-04-27T00:00:00.000Z"
+}
