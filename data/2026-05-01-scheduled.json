@@ -1,0 +1,219 @@
+{
+  "scan_date": "2026-05-01",
+  "run_mode": "scheduled",
+  "origin_resolved": "MAD",
+  "query": null,
+  "results": [
+    {
+      "flight": {
+        "flight_id": "MAD-LOP-2026-05-17",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "LOP",
+        "destination_name": "Lombok",
+        "travel_window_start": "2026-05-17",
+        "travel_window_end": "2026-05-25",
+        "days_out": 16,
+        "price_economy_eur": 842,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": "AUH",
+        "travel_time_hours": 41.75,
+        "booking_url": "https://on.kiwi.com/PTcx9O",
+        "snapshot_date": "2026-05-01",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-LOP-2026-05-17",
+        "weather_score": 4,
+        "crowd_level": "low",
+        "notable_events": [],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": 3,
+        "isolation_score": 4,
+        "personal_flag": "May is the uncrowded sweet spot before the surf pack arrives — swell building, Desert Point waking up, lineups still half-empty.",
+        "raw_reasoning": "May 17–25 is early dry season for Lombok: temperatures 25–30°C, water 27°C, no rain. Southeast trade winds beginning to establish offshore flow on the south coast. Swell is building but has not yet peaked — Desert Point is not reliably firing but days are possible. Selong Belanak is consistent and fun. No major cultural events or strikes noted. Crowd level low: June–August are the peak surf months; May has noticeably fewer surfers in the lineups. Isolation score 4: Selong Belanak and Desert Point areas are structurally remote with sparse infrastructure. Surf quality 3: swell is present and growing, conditions are good but not the barrels that fire June–Sep."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 7.1,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-06-15",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-06-15",
+        "travel_window_end": "2026-06-24",
+        "days_out": 45,
+        "price_economy_eur": 168,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": "LIS",
+        "travel_time_hours": 11,
+        "booking_url": "https://on.kiwi.com/EZyeYc",
+        "snapshot_date": "2026-05-01",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-06-15",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Atlantic Festival – weekly fireworks over Funchal Bay (Jun 5–28)",
+          "Medieval Market Machico (Jun 5–7)",
+          "Cherry Festival Câmara de Lobos (Jun 19–21)",
+          "Festa dos Altares de São João / St. John's Altars (Jun 20–24)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 3,
+        "personal_flag": "Atlantic Festival pyromusicals light up Funchal Bay every Saturday night — an unexpected bonus that fits perfectly with the hiking and coastal plan.",
+        "raw_reasoning": "June 15–24 in Madeira falls within the Atlantic Festival (Jun 5–28), which brings weekly Saturday-night fireworks synchronized to music over Funchal Bay. The Cherry Festival (Jun 19–21) and St. John's Altars (Jun 20–24) add local flavour in smaller villages. Weather is ideal: first half of June is rated best for whale watching and diving, temperatures moderate, mostly dry. These events are annual and structural to June pricing — not one-off distortions. Crowd level medium: busier than shoulder months but not peak July–Aug. Isolation score 3 because north-coast levada hikes offer real solitude away from Funchal. Distortion flag false — June events are recurring and already priced in."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 7.09,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-LOP-2026-06-18",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "LOP",
+        "destination_name": "Lombok",
+        "travel_window_start": "2026-06-18",
+        "travel_window_end": "2026-06-24",
+        "days_out": 48,
+        "price_economy_eur": 873,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": "AUH",
+        "travel_time_hours": 30.67,
+        "booking_url": "https://on.kiwi.com/vz5ODw",
+        "snapshot_date": "2026-05-01",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-LOP-2026-06-18",
+        "weather_score": 5,
+        "crowd_level": "medium",
+        "notable_events": [],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": 4,
+        "isolation_score": 4,
+        "personal_flag": "Desert Point's barrel season opens in June — still reachable before the July–August pilgrimage packs the lineup.",
+        "raw_reasoning": "June 18–24 is peak dry season: consistent southeast swell, offshore winds all morning, 25–30°C, minimal rain. Desert Point is entering its best window (Jun–Sep) for advanced surfers; Selong Belanak offers clean, groomed conditions. Crowd level medium: June is officially the start of the busy season but July–August are far more congested. The wishlist explicitly avoids Jul 15–Aug 31, making June the strategic window to catch peak surf quality without peak crowds. Isolation score 4: south Lombok's surf areas remain remote despite growing surf tourism. No notable events flagged. Surf quality 4: swell consistent and powerful, offshore mornings, some barrels possible at Desert Point."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 7.04,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-05-18",
+        "source": "lastminute",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-05-18",
+        "travel_window_end": "2026-05-25",
+        "days_out": 17,
+        "price_economy_eur": 232.73,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": "LIS",
+        "travel_time_hours": 6.83,
+        "booking_url": "https://www.lastminute.ie/msr/route/searching.do?departureAirport=MAD&arrivalAirport=FNC&outboundDay=18&outboundMonthYear=052026&returnDay=25&returnMonthYear=052026&adults=1&childs=0&infants=0&COBRANDED=LMNEN_LLMPROJECTEN&currency=EUR&url=search3.do&roundtrip=true&fareType=&requestId=769705091656742912&mac=769705091656742912SCHv011876970390&acntb=flight&utm_term=MADFNC&utm_campaign=results&utm_medium=meta_search&utm_source=LMNEN_LLMPROJECTEN",
+        "snapshot_date": "2026-05-01",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-05-18",
+        "weather_score": 4,
+        "crowd_level": "high",
+        "notable_events": [
+          "Madeira Flower Festival (Apr 30–May 24)",
+          "Grand Parade May 17",
+          "Flower Classic Auto Parade May 10"
+        ],
+        "distortion_flag": true,
+        "distortion_reason": "Madeira Flower Festival (Apr 30–May 24) inflates Funchal accommodation demand, hotel prices, and flight loads during this exact travel window; not structurally representative of off-season pricing",
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "Window lands in the closing days of the Flower Festival — Funchal is at peak buzz with parade crowds and sold-out pousadas.",
+        "raw_reasoning": "May 18–25 sits in the final week of the Madeira Flower Festival (Apr 30–May 24), one of the island's biggest annual draws. The Grand Parade ran May 17, the day before departure, meaning the city is still in full festival mode on arrival. Weather is excellent (21–23°C, dry, blooms everywhere), but Funchal is decidedly crowded and accommodation prices significantly elevated. Isolation score is low because the festival concentrates visitors in Funchal. This window is flagged as distorted: the flight price of €232.73 may not reflect the true off-season baseline for this route."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.11,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-PPS-2026-06-19",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "PPS",
+        "destination_name": "Palawan",
+        "travel_window_start": "2026-06-19",
+        "travel_window_end": "2026-06-24",
+        "days_out": 49,
+        "price_economy_eur": 1218,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": "CAN",
+        "travel_time_hours": 32.5,
+        "booking_url": "https://www.kiwi.com/deep?affilid=alpicaialpic&currency=EUR&flightsId=0a221edb508f50955aa4586d_0%7C0a221edb508f50955aa4586d_1%7C1edb12f55091000099f507e5_0%7C12f51edb509400005efac289_0%7C0a221edb508f50955aa4586d_2%7C0a221edb508f50955aa4586d_3&from=MAD&lang=en&passengers=1&to=PPS",
+        "snapshot_date": "2026-05-01",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-PPS-2026-06-19",
+        "weather_score": 3,
+        "crowd_level": "low",
+        "notable_events": [
+          "Baragatan Festival – Puerto Princesa (annual June celebration of Palawan founding)",
+          "Possible boat route closures El Nido–Linapacan during swells >1.5m"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 4,
+        "personal_flag": "Off-peak June means Coron's hidden lagoons nearly to yourself — the trade-off is ~19 rainy days and some northern island-hopping routes that close in heavy swells.",
+        "raw_reasoning": "June 19–24 in Palawan is the start of the wet season (southwest monsoon). Average ~19 rainy days in June, afternoon downpours typical but mornings often clear. Temperature 26–30°C. Weather score 3: weather is manageable but rain risk is real and some island-hopping routes (El Nido northern runs) close in high swells. Crowd level low: June is firmly off-peak, significantly reduced tourist volumes vs. dry season (Nov–May). The Baragatan Festival in Puerto Princesa is a local cultural event — colorful, worth noting but not a price distortion. Isolation score 4: Coron particularly remote; El Nido's more accessible. Distortion flag false: Baragatan does not materially inflate flight or hotel prices. The price of €1218 reflects the structural cost of routing from MAD to this remote destination, not event distortion."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 5.84,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    }
+  ],
+  "itinerary_delivered": false,
+  "itinerary_text": "ATLAS — 2026-05-01 · from MAD\n\n#1 Lombok via AUH\n✈ €842 · 2 stop(s) · 41.8h · Book → https://on.kiwi.com/PTcx9O\n📅 2026-05-17 – 2026-05-25 (8 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: low\n💡 May is the uncrowded sweet spot before the surf pack arrives — swell building, Desert Point waking up, lineups still half-empty. Thin history for this route; baseline still forming.\n\n#2 Madeira via LIS\n✈ €168 · 1 stop(s) · 11.0h · Book → https://on.kiwi.com/EZyeYc\n📅 2026-06-15 – 2026-06-24 (9 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 Atlantic Festival pyromusicals light up Funchal Bay every Saturday night — an unexpected bonus that fits perfectly with the hiking and coastal plan. Thin history for this route; baseline still forming.\n\n#3 Lombok via AUH\n✈ €873 · 2 stop(s) · 30.7h · Book → https://on.kiwi.com/vz5ODw\n📅 2026-06-18 – 2026-06-24 (6 days)\n🌤 Weather: 5/5 — excellent seasonal conditions\n👥 Crowds: medium\n💡 Desert Point's barrel season opens in June — still reachable before the July–August pilgrimage packs the lineup. Thin history for this route; baseline still forming.\n\n#4 Palawan via CAN\n✈ €1218 · 2 stop(s) · 32.5h · Book → https://www.kiwi.com/deep?affilid=alpicaialpic&currency=EUR&flightsId=0a221edb508f50955aa4586d_0%7C0a221edb508f50955aa4586d_1%7C1edb12f55091000099f507e5_0%7C12f51edb509400005efac289_0%7C0a221edb508f50955aa4586d_2%7C0a221edb508f50955aa4586d_3&from=MAD&lang=en&passengers=1&to=PPS\n📅 2026-06-19 – 2026-06-24 (5 days)\n🌤 Weather: 3/5 — mixed but workable conditions\n👥 Crowds: low\n💡 Off-peak June means Coron's hidden lagoons nearly to yourself — the trade-off is ~19 rainy days and some northern island-hopping routes that close in heavy swells. Thin history for this route; baseline still forming.\n\nDataset: 5 records across 3 routes · Updated 2026-05-01\n",
+  "execution_context": {
+    "trigger_source": "telegram",
+    "origin_interface": "telegram",
+    "request_text": null,
+    "defaulted_params": [],
+    "context_summary": [],
+    "resolved_origin": "MAD",
+    "user_context": {
+      "location_label": null,
+      "preferred_origins": [],
+      "max_budget_eur": null,
+      "destination_focus": [],
+      "preference_tags": [],
+      "notes": []
+    },
+    "telegram": null
+  }
+}
