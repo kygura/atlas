@@ -1,0 +1,158 @@
+{
+  "trip_id": "lop_20260517_atlas01",
+  "destination": "Lombok",
+  "destination_iata": "LOP",
+  "flight": {
+    "flight_id": "MAD-LOP-2026-05-17",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "LOP",
+    "destination_name": "Lombok",
+    "travel_window_start": "2026-05-17",
+    "travel_window_end": "2026-05-25",
+    "days_out": 16,
+    "price_economy_eur": 842,
+    "stops": 2,
+    "best_layover": "AUH",
+    "layovers_full": [
+      "Abu Dhabi (AUH)",
+      "Jakarta (CGK)"
+    ],
+    "outbound_departure": "2026-05-17T10:45:00",
+    "outbound_arrival": "2026-05-19T10:30:00",
+    "outbound_duration_h": 41.75,
+    "return_departure": "2026-05-25T11:15:00",
+    "return_arrival": "2026-05-26T08:10:00",
+    "return_duration_h": 26.92,
+    "booking_url": "https://on.kiwi.com/PTcx9O",
+    "snapshot_date": "2026-05-01"
+  },
+  "hotel": {
+    "hotel_id": 12364711,
+    "name": "Mana Retreat",
+    "rating": 4.9,
+    "review_count": 210,
+    "price_per_night_eur": 36,
+    "total_eur": 217,
+    "nights": 6,
+    "check_in": "2026-05-19",
+    "check_out": "2026-05-25",
+    "amenities": [
+      "Pool",
+      "Free breakfast",
+      "Yoga classes",
+      "Spa",
+      "Free WiFi",
+      "Airport transport"
+    ],
+    "review_summary": "Outstanding yoga retreat with expert daily classes, spacious cabana rooms, exceptional vegan/vegetarian kitchen, and a calm property that feels worlds away from the surf crowds.",
+    "booking_url": "https://www.tripadvisor.com/Hotel_Review-g2155769-d12364711-Reviews-Mana_Retreat-Kuta_Lombok_West_Nusa_Tenggara.html"
+  },
+  "hotel_alt": {
+    "hotel_id": 16881826,
+    "name": "Batatu Villa",
+    "rating": 4.9,
+    "review_count": 54,
+    "price_per_night_eur": 49,
+    "total_eur": 295,
+    "nights": 6,
+    "check_in": "2026-05-19",
+    "check_out": "2026-05-25",
+    "amenities": [
+      "Private pool",
+      "Hot tub",
+      "Free breakfast",
+      "Full kitchen",
+      "Free WiFi"
+    ],
+    "review_summary": "Private villa with personal pool and hot tub — complete seclusion after long surf days, well-equipped kitchen, excellent for those who want isolation over communal retreat vibes.",
+    "booking_url": "https://www.tripadvisor.com/Hotel_Review-g2155769-d16881826-Reviews-Batatu_Villa-Kuta_Lombok_West_Nusa_Tenggara.html"
+  },
+  "daily_plan": [
+    {
+      "date": "2026-05-19",
+      "label": "Day 1 — Arrival",
+      "am": "Arrive LOP 10:30 — transfer ~1.5h to Mana Retreat, Kuta Lombok",
+      "pm": "Rest, explore Kuta beach on foot, sunset"
+    },
+    {
+      "date": "2026-05-20",
+      "label": "Day 2 — Surf Day",
+      "am": "Private Surf Lessons — Selong Belanak · €38.26 · 90min · ★5.0",
+      "am_link": "https://www.viator.com/tours/Lombok/Private-Surf-Lessons-in-Selong-Belanak/d22869-428248P1?pid=P00280233&medium=mcp&client=anthropic",
+      "pm": "Free time — Selong Belanak white-sand beach"
+    },
+    {
+      "date": "2026-05-21",
+      "label": "Day 3 — Waterfall, Village & Coast",
+      "full_day": "Private Tour: Waterfall + Sasak Village + Beach · €53.92 · 9h · ★5.0",
+      "full_day_link": "https://www.viator.com/tours/Lombok/Lombok-Private-Tour-Watefall-And-Traditional-Village-Including-Beach/d22869-128493P4?pid=P00280233&medium=mcp&client=anthropic"
+    },
+    {
+      "date": "2026-05-22",
+      "label": "Day 4 — Gili Islands",
+      "am": "Gili Air: Snorkeling 3 Gili Islands with GoPro · €11.62 · 5h · ★4.85",
+      "am_link": "https://www.viator.com/tours/Gili-Islands/Gili-Air-Snorkeling-Trip-Explore-Coral-Reefs-and-Sea-Turtles/d32622-102421P32?pid=P00280233&medium=mcp&client=anthropic",
+      "pm": "Explore Gili Air village, return fast boat to Lombok"
+    },
+    {
+      "date": "2026-05-23",
+      "label": "Day 5 — Sasak Culture",
+      "full_day": "Lombok Sasak Culture & Village Tour · €30.32 · 9h",
+      "full_day_link": "https://www.viator.com/tours/Lombok/Lombok-Sasak-Culture-and-village-Tour/d22869-5500190P1?pid=P00280233&medium=mcp&client=anthropic"
+    },
+    {
+      "date": "2026-05-24",
+      "label": "Day 6 — Free",
+      "am": "Final surf at Selong Belanak or quiet morning at Mawun Bay (isolated horseshoe beach, 10min drive)",
+      "pm": "Pack, settle up, early rest before 11:15 departure"
+    }
+  ],
+  "total_estimate": {
+    "flight_eur": 842,
+    "hotel_eur": 217,
+    "activities_eur": 134,
+    "total_eur": 1193
+  },
+  "validation": {
+    "composite_score": 7.1,
+    "weather_score": 4,
+    "crowd_level": "low",
+    "isolation_score": 4,
+    "surf_quality": 3,
+    "gates_passed": [
+      "composite_score",
+      "weather_score",
+      "crowd_level",
+      "distortion_flag",
+      "budget_compliance",
+      "isolation_score"
+    ],
+    "warnings": []
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true,
+    "note": "First scan for MAD-LOP route. No historical baseline yet. Price of €842 cannot be benchmarked — baseline will build over subsequent scans."
+  },
+  "alternative": {
+    "destination": "Madeira",
+    "destination_iata": "FNC",
+    "flight_id": "MAD-FNC-2026-06-15",
+    "price_eur": 168,
+    "outbound": "2026-06-15 dep MAD 23:00 → arr FNC 09:00+1",
+    "return": "2026-06-24 dep FNC 08:35 → arr MAD 18:15",
+    "stops": 1,
+    "layover": "LIS",
+    "booking_url": "https://on.kiwi.com/EZyeYc",
+    "composite_score": 7.09,
+    "hotel_suggestion": "The Vine Hotel, Funchal",
+    "hotel_rating": 4.5,
+    "hotel_price_per_night_eur": 385,
+    "hotel_booking_url": "https://www.tripadvisor.com/Hotel_Review-g189167-d1107923-Reviews-The_Vine_Hotel-Funchal_Madeira_Madeira_Islands.html",
+    "highlight": "Atlantic Festival fireworks over Funchal Bay every Saturday night (Jun 5–28); Cherry Festival Jun 19–21; €168 flight is the cheapest of the scan."
+  },
+  "created_at": "2026-05-01T00:00:00Z",
+  "prices_checked_at": "2026-05-01T00:00:00Z"
+}
