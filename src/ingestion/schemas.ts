@@ -120,6 +120,39 @@ export const WishlistItemSchema = z.object({
   notes: z.string().optional()
 });
 
+export const WishlistPatchSchema = z.array(WishlistItemSchema);
+
+export const TravellerProfileSchema = z.object({
+  persona: z.string().min(1),
+  intent_tags: z.array(z.string()),
+  luxury_exceptions: z.string().optional(),
+  avoid: z.array(z.string()).optional()
+});
+
+export const TripProfileSchema = z.object({
+  id: z.string().min(1),
+  label: z.string().min(1),
+  criteria: z.array(z.string()),
+  sample_origins: z.array(z.string().length(3)).optional(),
+  max_results: z.number().int().positive().optional(),
+  relevant_months: z.array(z.number().int().min(1).max(12)).optional()
+});
+
+export const DestinationCandidateSchema = z.object({
+  destination: z.string().min(1),
+  iata: z.string().length(3),
+  profile_id: z.string().min(1),
+  reason: z.string().min(1),
+  intent_tags: z.array(z.string()),
+  avoid_periods: z.array(z.string()).optional(),
+  notes: z.string().optional()
+});
+
+export const ScoutPatchSchema = z.object({
+  profile_id: z.string().min(1),
+  candidates: z.array(DestinationCandidateSchema)
+});
+
 export const HardFiltersSchema = z.object({
   max_stops: z.number().int().nonnegative(),
   max_travel_time_hours: z.number().positive(),
@@ -151,6 +184,11 @@ export type LLMAnnotation = z.infer<typeof LLMAnnotationSchema>;
 export type ScoredResult = z.infer<typeof ScoredResultSchema>;
 export type ScanRecord = z.infer<typeof ScanRecordSchema>;
 export type WishlistItem = z.infer<typeof WishlistItemSchema>;
+export type WishlistPatch = z.infer<typeof WishlistPatchSchema>;
+export type TravellerProfile = z.infer<typeof TravellerProfileSchema>;
+export type TripProfile = z.infer<typeof TripProfileSchema>;
+export type DestinationCandidate = z.infer<typeof DestinationCandidateSchema>;
+export type ScoutPatch = z.infer<typeof ScoutPatchSchema>;
 export type HardFilters = z.infer<typeof HardFiltersSchema>;
 export type ScoringWeights = z.infer<typeof ScoringWeightsSchema>;
 export type RunMode = z.infer<typeof RunModeSchema>;

@@ -1,0 +1,28 @@
+name: Auto-merge routine branch
+
+on:
+  push:
+    branches-ignore:
+      - master
+      - main
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create PR and auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          branch=${GITHUB_REF#refs/heads/}
+          pr_url=$(gh pr list --head "$branch" --json url --jq '.[0].url' || true)
+          if [ -z "$pr_url" ]; then
+            pr_url=$(gh pr create --base master --head "$branch" --title "Routine update from $branch" --body "Auto-generated scan results.")
+          fi
+          gh pr merge "$pr_url" --squash --auto

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "surf",
+    "label": "Warm-water surf",
+    "criteria": ["consistent swell", "warm water", "reef or point break"],
+    "sample_origins": ["AGP", "MAD","LPA"],
+    "max_results": 3,
+    "relevant_months": [3, 4, 5, 9, 10, 11]
+  },
+  {
+    "id": "hiking",
+    "label": "Spring / autumn hiking",
+    "criteria": ["good trail weather", "low crowds", "scenic"],
+    "sample_origins": ["AGP", "MAD"],
+    "max_results": 3,
+    "relevant_months": [3, 4, 5, 9, 10]
+  }
+]
