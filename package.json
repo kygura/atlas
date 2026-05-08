@@ -11,7 +11,11 @@
     "persist-trip": "bun run src/cli/persist-trip.ts",
     "format": "bun run src/cli/format.ts",
     "deliver": "bun run src/cli/deliver.ts",
-    "configure": "bun run src/cli/configure.ts"
+    "configure": "bun run src/cli/configure.ts",
+    "wishlist": "bun run src/cli/wishlist.ts",
+    "promote": "bun run src/cli/promote.ts",
+    "frontend:dev": "cd frontend && bun run dev",
+    "frontend:build": "cd frontend && bun run build"
   },
   "dependencies": {
     "zod": "^3.24.3"
