@@ -1,0 +1,224 @@
+{
+  "trip_id": "FNC-20260519-atlas01",
+  "destination": "Madeira",
+  "flight": {
+    "flight_id": "MAD-FNC-2026-05-19",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "FNC",
+    "destination_name": "Madeira",
+    "travel_window_start": "2026-05-19",
+    "travel_window_end": "2026-05-29",
+    "days_out": 16,
+    "price_economy_eur": 196,
+    "price_business_eur": null,
+    "stops": 1,
+    "best_layover": null,
+    "travel_time_hours": 11,
+    "booking_url": "https://on.kiwi.com/uxJgB5",
+    "snapshot_date": "2026-05-03",
+    "search_error": null
+  },
+  "hotel": {
+    "name": "Barceló Funchal Oldtown",
+    "tripadvisor_id": 24895691,
+    "rating": 4.5,
+    "review_count": 494,
+    "price_per_night_eur": 354,
+    "total_price_eur": 3540,
+    "address": "Rua Alfândega 9, Funchal, Madeira 9000-059 Portugal",
+    "amenities": [
+      "Free WiFi",
+      "Rooftop pool with ocean views",
+      "Free breakfast",
+      "Fitness centre"
+    ],
+    "review_summary": "Guests praise the unbeatable Old Town location and rooftop pool, noting the blend of historic Madeiran architecture with clean contemporary rooms and genuinely warm local staff.",
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g189167-d24895691-Reviews-Barcelo_Funchal_Oldtown-Funchal_Madeira_Madeira_Islands.html"
+  },
+  "hotel_alt": {
+    "name": "Hotel PortoBay Santa Maria",
+    "tripadvisor_id": 250768,
+    "rating": 4.7,
+    "review_count": 4394,
+    "price_per_night_eur": 337,
+    "total_price_eur": 3370,
+    "amenities": [
+      "Free internet",
+      "Pool",
+      "Bar/lounge",
+      "Airport transfer"
+    ],
+    "review_summary": "Consistently rated Madeira's top-value option — reviewers single out the seafront promenade setting, excellent pool area, and reliable airport transfers.",
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g189167-d250768-Reviews-Hotel_PortoBay_Santa_Maria-Funchal_Madeira_Madeira_Islands.html"
+  },
+  "daily_plan": [
+    {
+      "day": 1,
+      "date": "2026-05-19",
+      "activities": []
+    },
+    {
+      "day": 2,
+      "date": "2026-05-20",
+      "activities": [
+        {
+          "time": "AM",
+          "title": "Old Funchal Walking Tour",
+          "price_eur": 16.4,
+          "duration_min": 120,
+          "rating": 4.74,
+          "description": "Guided walk through Funchal's historic core — cathedral, Carmo Arch, and Zona Velha murals — with expert local storytelling.",
+          "link": "https://www.viator.com/en-GB/tours/Funchal/History-Tellers/d22388-10440P2?pid=P00280233&medium=mcp&client=anthropic"
+        },
+        {
+          "time": "PM",
+          "title": "Funchal City Tour + Old Town (Private)",
+          "price_eur": 32,
+          "duration_min": 60,
+          "rating": 4.92,
+          "description": "Private tuk-tuk circuit of city highlights, Old Town street art, and cable-car viewpoint — ideal orientation for first-timers.",
+          "link": "https://www.viator.com/en-GB/tours/Madeira/Funchal-City-Tour/d5392-111098P1?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-05-21",
+      "activities": [
+        {
+          "time": "AM",
+          "title": "Levada do Caldeirão Verde — Self-Guided Hike",
+          "price_eur": 40,
+          "duration_min": 360,
+          "rating": 4.91,
+          "description": "Transfer to Queimadas Forest Park for the most dramatic levada in the north — tunnels, waterfalls, and emerald canyon walls in near-solitude.",
+          "link": "https://www.viator.com/en-GB/tours/Funchal/Levada-do-Caldeirao-Verde-Self-Guided-Hike-in-Madeira/d22388-463149P6?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-05-22",
+      "activities": [
+        {
+          "time": "AM",
+          "title": "The East Tour — Pico do Areeiro, Santana & Pico do Facho (Small Group)",
+          "price_eur": 35.22,
+          "duration_min": 420,
+          "rating": 4.93,
+          "description": "Small-group loop to Madeira's highest summit, traditional thatched Santana village, and Pico do Facho's panoramic Atlantic views.",
+          "link": "https://www.viator.com/en-GB/tours/Madeira/East-of-Madeira-tour/d5392-186563P1?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-05-23",
+      "activities": [
+        {
+          "time": "AM",
+          "title": "Stairway to Heaven — Pico do Areeiro Summit Hike",
+          "price_eur": 48,
+          "duration_min": 270,
+          "rating": 4.89,
+          "description": "Early-morning ridge hike between Pico do Areeiro and Pico Ruivo — the island's most spectacular ridge trail, above the clouds.",
+          "link": "https://www.viator.com/en-GB/tours/Funchal/Stairway-to-Heaven-Pico-do-Areeiro-in-Madeira-Island/d22388-12964P22?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "date": "2026-05-24",
+      "activities": [
+        {
+          "time": "AM",
+          "title": "Funchal: Discover Local Highlights & Traditions",
+          "price_eur": 19.9,
+          "duration_min": 90,
+          "rating": null,
+          "description": "Off-beat neighbourhood walk through the markets, artisan workshops, and community spaces locals actually use.",
+          "link": "https://www.viator.com/en-GB/tours/Madeira/Funchal-Discover-local-highlights-and-traditions/d5392-5607605P9?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "date": "2026-05-25",
+      "activities": [
+        {
+          "time": "AM",
+          "title": "25 Fountains Levada — Rabaçal Valley Hiking Tour (PR6)",
+          "price_eur": 48,
+          "duration_min": 420,
+          "rating": 4.7,
+          "description": "The iconic Rabaçal levada walk to the 25 fountains waterfall — laurisilva forest, mist, and some of Europe's oldest endemic trees.",
+          "link": "https://www.viator.com/en-GB/tours/Funchal/Levada-Rabacal-and-25-Fountains-Walking-Tour/d22388-12964P5?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "date": "2026-05-26",
+      "activities": [
+        {
+          "time": "AM",
+          "title": "Madeira: Sunrise at Pico do Arieiro & Hike Larano Trail",
+          "price_eur": 40,
+          "duration_min": 450,
+          "rating": 4.8,
+          "description": "Pre-dawn drive to Pico do Arieiro (1,818m) for sunrise above the clouds, followed by the Larano coastal trail down to Porto da Cruz.",
+          "link": "https://www.viator.com/en-GB/tours/Funchal/Stunning-Views-and-Madeiras-Wine-Tasting/d22388-351244P4?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 9,
+      "date": "2026-05-27",
+      "activities": [
+        {
+          "time": "AM",
+          "title": "Levada do Rei PR18 — Scenic Hike with Transfer",
+          "price_eur": 40,
+          "duration_min": 240,
+          "rating": 4.95,
+          "description": "Madeira's highest-rated short levada — 4h through ancient laurel forest alongside the Levada do Rei water channel, rarely crowded.",
+          "link": "https://www.viator.com/en-GB/tours/Funchal/Levada-do-Rei-PR18-Scenic-Hike-Transfer-in-Madeira/d22388-463149P9?pid=P00280233&medium=mcp&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 10,
+      "date": "2026-05-28",
+      "activities": []
+    },
+    {
+      "day": 11,
+      "date": "2026-05-29",
+      "activities": []
+    }
+  ],
+  "total_estimate": {
+    "flight": 196,
+    "hotel": 3540,
+    "activities": 319,
+    "total": 4055
+  },
+  "validation": {
+    "gates_passed": [
+      "composite_score",
+      "weather_score",
+      "crowd_level",
+      "distortion_flag",
+      "budget_compliance",
+      "isolation_score"
+    ],
+    "warnings": []
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true
+  },
+  "created_at": "2026-05-03T00:00:00Z"
+}

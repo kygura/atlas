@@ -1,0 +1,220 @@
+{
+  "scan_date": "2026-04-27",
+  "run_mode": "scheduled",
+  "origin_resolved": "MAD",
+  "query": null,
+  "results": [
+    {
+      "flight": {
+        "flight_id": "MAD-LOP-2026-05-18",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "LOP",
+        "destination_name": "Lombok",
+        "travel_window_start": "2026-05-18",
+        "travel_window_end": "2026-05-25",
+        "days_out": 21,
+        "price_economy_eur": 776,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": null,
+        "travel_time_hours": 41.75,
+        "booking_url": "https://on.kiwi.com/wLe1Us",
+        "snapshot_date": "2026-04-27",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-LOP-2026-05-18",
+        "weather_score": 4,
+        "crowd_level": "low",
+        "notable_events": [],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": 4,
+        "isolation_score": 4,
+        "personal_flag": "Desert Point reports 78% clean-wave probability in May — the dry season just started, swell is building, lineups at Selong Belanak are still sparse before the July influx.",
+        "raw_reasoning": "May 18–25 in Lombok: early dry season, 25–30°C, sea 27°C, SE trade winds beginning to establish, minimal rainfall. Surf quality 4/5: Desert Point has 78% clean day probability in May per surf-forecast.com, with S/SW groundswell building and offshore ENE winds. Selong Belanak solid for mid-level surfers, consistent and uncrowded. Crowd level low — dry season has started but the main Jul–Aug tourist surge has not arrived; guesthouses in south Lombok not yet at capacity and prices not yet peak. No local festivals or events in Lombok for this window (Yadnya Kasada is Java-based, no Lombok impact). Isolation score 4/5: southern Lombok (Desert Point, Selong Belanak) is genuinely off-the-beaten-path. No distortion factors — this is structural low-season pricing for a high-quality surf window."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 7.58,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-LOP-2026-06-19",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "LOP",
+        "destination_name": "Lombok",
+        "travel_window_start": "2026-06-19",
+        "travel_window_end": "2026-06-29",
+        "days_out": 53,
+        "price_economy_eur": 880,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": null,
+        "travel_time_hours": 30.666666666666668,
+        "booking_url": "https://on.kiwi.com/dDOXRP",
+        "snapshot_date": "2026-04-27",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-LOP-2026-06-19",
+        "weather_score": 5,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Yadnya Kasada festival on Mount Bromo / Java (no impact on Lombok)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": 5,
+        "isolation_score": 3,
+        "personal_flag": "June 19–29 is peak Desert Point season — consistent S/SW groundswell, offshore trade winds every morning; 10 nights to wait for the barrel of the trip.",
+        "raw_reasoning": "June 19–29 in Lombok: peak dry season, 27°C daily, sea 27–28°C, reliable SE trade winds offshore all morning. Weather 5/5. Surf quality 5/5: June is when Desert Point and Selong Belanak fire at their best — S/SW groundswell at its most consistent, trade winds grooming conditions daily. The 10-night window maximises chances of catching Desert Point on a firing tide. Crowd level medium: Gili Islands fill up in June but south Lombok surf spots remain manageable; pre-July so not yet peak-peak. Yadnya Kasada is Java-based, no Lombok impact. Isolation score 3/5: slightly more visitors than May but southern Lombok retains its character. No distortion — annual seasonal pattern. €880 round trip for peak surf window is reasonable."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 7.28,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-05-17",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-05-17",
+        "travel_window_end": "2026-05-23",
+        "days_out": 20,
+        "price_economy_eur": 190,
+        "price_business_eur": null,
+        "stops": 0,
+        "best_layover": null,
+        "travel_time_hours": 2.6666666666666665,
+        "booking_url": "https://on.kiwi.com/iHEvhu",
+        "snapshot_date": "2026-04-27",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-05-17",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Madeira Flower Festival (Apr 30–May 24) — Grand Parade May 22 in Funchal",
+          "Funchal Garden Festival — themed gardens across parks and promenades throughout May"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "The Flower Festival Grand Parade lands May 22 — the city peaks with bougainvillea floats and floral carpets during the exact midpoint of this stay.",
+        "raw_reasoning": "May 17–23 in Funchal: 18–22°C highs, minimal rainfall, ~7h sunshine daily, sea 19°C. Classic Madeiran spring — comfortable for levada hiking and coastal walks. The Madeira Flower Festival runs Apr 30–May 24; the Grand Parade is May 22, falling squarely in the stay. Garden Festival also active. Crowds are medium — festival draws visitors but significantly below summer levels. Both events are annual recurring fixtures, not one-off anomalies, so no price distortion. Flight is essentially direct from MAD (2.67h outbound), return via LIS — excellent value at €190 round trip. Isolation score 2/5: Funchal is a city, but north coast and Fanal forest offer real seclusion on day trips. No surf relevance (hiking/ocean/mild-weather tags)."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.93,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-06-22",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-06-22",
+        "travel_window_end": "2026-06-30",
+        "days_out": 56,
+        "price_economy_eur": 162,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": null,
+        "travel_time_hours": 15,
+        "booking_url": "https://on.kiwi.com/pZmHco",
+        "snapshot_date": "2026-04-27",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-06-22",
+        "weather_score": 4,
+        "crowd_level": "high",
+        "notable_events": [
+          "Atlantic Festival (all June) — International Fireworks Competition, fireworks every Saturday night at 22:30",
+          "São João / Santos Populares (Jun 23) — bonfires, sardines, street parties across Funchal",
+          "São Pedro (Jun 29) — harbour celebrations, falls within stay",
+          "Summer Sunsets and Regional Arts Week (ongoing throughout June)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "São João bonfires on Jun 23 and Atlantic Festival fireworks on Jun 27 both land in this stay — two of Madeira's biggest annual nights within 4 days of each other.",
+        "raw_reasoning": "June 22–30 in Funchal: 22–24°C highs, ideal outdoor weather, very low rainfall, warm enough for swimming and hiking all day. Peak cultural month: Atlantic Festival runs all June with synchronized pyromusical fireworks every Saturday (Jun 27 falls within stay); Santos Populares São João is Jun 23, São Pedro Jun 29 — both within the 8-night window. Crowds are high, particularly on festival nights around the harbour; accommodation demand elevated. All events are annual recurring, no distortion flag. Price of €162 round trip is outstanding for an 8-night Madeira stay — notably cheaper than the May option despite more activity. Isolation score 2/5: Funchal city, festival-mode. North coast and Fanal accessible but Funchal itself will be busy. No surf relevance."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.23,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-PPS-2026-06-19",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "PPS",
+        "destination_name": "Palawan",
+        "travel_window_start": "2026-06-19",
+        "travel_window_end": "2026-06-29",
+        "days_out": 53,
+        "price_economy_eur": 1147,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": null,
+        "travel_time_hours": 32.5,
+        "booking_url": "https://www.kiwi.com/deep?affilid=alpicaialpic&currency=EUR&flightsId=0a221edb508f509aeb9d610e_0%7C0a221edb508f509aeb9d610e_1%7C1edb12f55091000099f507e5_0%7C12f51edb5099000062c08a52_0%7C0a221edb508f509aeb9d610e_2%7C0a221edb508f509aeb9d610e_3&from=MAD&lang=en&passengers=1&to=PPS&booking_token=HH7bw9HmtLuywbTA7uRuhDOEIwUejzKz4n47W7g6oc8wwy6uygYqaOsIr7jsxcmxaHt5oRIrJGNseidhfOXjn5EDKVgiSLJch65WmcRftqBfcVuZ3cmxNfxPDCn3Lz4hLdYcFRgspwWQB7q8MnO62kUxi9l47swxL3w-B4WMybYMS-bz31uyYxxWr4lfmi7x-48MdlWUgIgLnbADslT3woGVv2R-PJyUSZY0bf5KbcG1oQLZUZhZRbd6JZ6rs6WridPC2DgvZ5Q8dq312JmNYOJotQmAmsL2oF5fkYy3GJGFMjRr0GPMEdBOPwbwcOPwqorbC0F_6lEik82f4HXHfQzm0tWfOuhYrTLXKeEN7f7PvpzqWRZcPEo2eVwcoE9J3WrOpJWiuCZfOFQCxA3kbX8DniGvkk2e5Vq1JSUfyZ9NXaR5rBmdFHLZZmZ3SAG175UwPSfybiPeu4GTL0NgwaU3pvV9t-Y_AoPDkC1u4bIE8Qrpur4kaRk5Mpb4T9LNSkFWoIykrs1UFsz57YgWAHGPRgyOCIn7li8VpnFWG-6LhIUd_plSWaXzOTxVGuDd5VVIwaXjkrO-_sH_Gd6w2OP4RyayYV8pNl980WFOhbQIAf4wv6ebRIJSBwC8I2K7OsrzWodpnArqdt2Hj8T47snK9B8Ca3TjZg2JEuLtHjk03soKUKsVV6Fq3GGHjThdIUheQBhEM0QQGbeRHV5HfnSYJ-d2r6diHxs2H0O5PuLBhek3nKhUr-cD7N0ItklvUUi5Z6QaYXnSci68DTOGytD0XQTB_sKAWduRYS-Tov8fwTF8WqR8GIz5WTGTguek6SpwZ369wmv35xFRu0l0QjyM_B3G2Xf78vATeNIRFJnNdlTp2EAs516glYK0Y2tefH4VcCPAOU64DCsnJmd1KLdz4mAb3ZbBmuR6GlkFNsXtNm_XAObCmkZOLBHLsQP-8mp8Ml78zRLb1ieQcOU1CZBiHE07INie7rZWOxNBZj8vhq0NwwTMFpqQ_AA8R1xEHANjDU-lFK_VNaSMOjjPkKqajLfi49M7UW1Iwtn7hHhX3J4v65d3TPWL0AfUGFcA3Lakdi-Jo0Hq-Lh6VuFWlHsJjdKBpX7gX_wIBdMsJVEM3CfOw0lnf9sbVUpPVXEGlsoeGCBM7dbdj0pRc3YNOAA==",
+        "snapshot_date": "2026-04-27",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-PPS-2026-06-19",
+        "weather_score": 2,
+        "crowd_level": "low",
+        "notable_events": [
+          "Rainy season onset — monsoon brings heavy rainfall averaging 313mm in June",
+          "Rough seas likely — island-hopping tours at El Nido and Coron may be restricted or cancelled"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 4,
+        "personal_flag": "June is rainy season in Palawan — 15–22 rain days expected and rough seas that routinely close the El Nido lagoon and Coron island-hopping tours central to the wishlist intent.",
+        "raw_reasoning": "June 19–29 in Palawan (El Nido/Coron): wet season has arrived. Average 313mm rainfall in June, 15–22 rainy days, frequent afternoon thunderstorms, rough seas. Weather score 2/5. This directly conflicts with the island-hopping and maritime intent tags in the wishlist — lagoon access at El Nido and Coron island tours are regularly suspended during monsoon swells. Crowd level is low (off-season discount pricing, fewer tourists), and isolation score 4/5 (genuinely remote). However, the core activities the destination is listed for (island-hopping, snorkelling, clear-water maritime experiences) are severely weather-compromised. Wishlist note says 'avoid Mar–Apr (hottest)' but June wet season is a more fundamental problem for the itinerary. No distortion — this is structural monsoon-season pricing. At €1,147 it's the most expensive option and the least suitable season for the intent."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 5.34,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    }
+  ],
+  "itinerary_delivered": true,
+  "itinerary_text": "ATLAS — 2026-04-27 · from MAD\n\n#1 Lombok via direct\n✈ €776 · 2 stop(s) · 41.8h · Book → https://on.kiwi.com/wLe1Us\n📅 2026-05-18 – 2026-05-25 (7 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: low\n💡 Desert Point reports 78% clean-wave probability in May — the dry season just started, swell is building, lineups at Selong Belanak are still sparse before the July influx. Thin history for this route; baseline still forming.\n\n#2 Lombok via direct\n✈ €880 · 2 stop(s) · 30.7h · Book → https://on.kiwi.com/dDOXRP\n📅 2026-06-19 – 2026-06-29 (10 days)\n🌤 Weather: 5/5 — excellent seasonal conditions\n👥 Crowds: medium\n💡 June 19–29 is peak Desert Point season — consistent S/SW groundswell, offshore trade winds every morning; 10 nights to wait for the barrel of the trip. Thin history for this route; baseline still forming.\n\n#3 Madeira via direct\n✈ €190 · 0 stop(s) · 2.7h · Book → https://on.kiwi.com/iHEvhu\n📅 2026-05-17 – 2026-05-23 (6 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 The Flower Festival Grand Parade lands May 22 — the city peaks with bougainvillea floats and floral carpets during the exact midpoint of this stay. Thin history for this route; baseline still forming.\n\n#4 Madeira via direct\n✈ €162 · 1 stop(s) · 15.0h · Book → https://on.kiwi.com/pZmHco\n📅 2026-06-22 – 2026-06-30 (8 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: high\n💡 São João bonfires on Jun 23 and Atlantic Festival fireworks on Jun 27 both land in this stay — two of Madeira's biggest annual nights within 4 days of each other. Thin history for this route; baseline still forming.\n\n#5 Palawan via direct\n✈ €1147 · 2 stop(s) · 32.5h · Book → https://www.kiwi.com/deep?affilid=alpicaialpic&currency=EUR&flightsId=0a221edb508f509aeb9d610e_0%7C0a221edb508f509aeb9d610e_1%7C1edb12f55091000099f507e5_0%7C12f51edb5099000062c08a52_0%7C0a221edb508f509aeb9d610e_2%7C0a221edb508f509aeb9d610e_3&from=MAD&lang=en&passengers=1&to=PPS&booking_token=HH7bw9HmtLuywbTA7uRuhDOEIwUejzKz4n47W7g6oc8wwy6uygYqaOsIr7jsxcmxaHt5oRIrJGNseidhfOXjn5EDKVgiSLJch65WmcRftqBfcVuZ3cmxNfxPDCn3Lz4hLdYcFRgspwWQB7q8MnO62kUxi9l47swxL3w-B4WMybYMS-bz31uyYxxWr4lfmi7x-48MdlWUgIgLnbADslT3woGVv2R-PJyUSZY0bf5KbcG1oQLZUZhZRbd6JZ6rs6WridPC2DgvZ5Q8dq312JmNYOJotQmAmsL2oF5fkYy3GJGFMjRr0GPMEdBOPwbwcOPwqorbC0F_6lEik82f4HXHfQzm0tWfOuhYrTLXKeEN7f7PvpzqWRZcPEo2eVwcoE9J3WrOpJWiuCZfOFQCxA3kbX8DniGvkk2e5Vq1JSUfyZ9NXaR5rBmdFHLZZmZ3SAG175UwPSfybiPeu4GTL0NgwaU3pvV9t-Y_AoPDkC1u4bIE8Qrpur4kaRk5Mpb4T9LNSkFWoIykrs1UFsz57YgWAHGPRgyOCIn7li8VpnFWG-6LhIUd_plSWaXzOTxVGuDd5VVIwaXjkrO-_sH_Gd6w2OP4RyayYV8pNl980WFOhbQIAf4wv6ebRIJSBwC8I2K7OsrzWodpnArqdt2Hj8T47snK9B8Ca3TjZg2JEuLtHjk03soKUKsVV6Fq3GGHjThdIUheQBhEM0QQGbeRHV5HfnSYJ-d2r6diHxs2H0O5PuLBhek3nKhUr-cD7N0ItklvUUi5Z6QaYXnSci68DTOGytD0XQTB_sKAWduRYS-Tov8fwTF8WqR8GIz5WTGTguek6SpwZ369wmv35xFRu0l0QjyM_B3G2Xf78vATeNIRFJnNdlTp2EAs516glYK0Y2tefH4VcCPAOU64DCsnJmd1KLdz4mAb3ZbBmuR6GlkFNsXtNm_XAObCmkZOLBHLsQP-8mp8Ml78zRLb1ieQcOU1CZBiHE07INie7rZWOxNBZj8vhq0NwwTMFpqQ_AA8R1xEHANjDU-lFK_VNaSMOjjPkKqajLfi49M7UW1Iwtn7hHhX3J4v65d3TPWL0AfUGFcA3Lakdi-Jo0Hq-Lh6VuFWlHsJjdKBpX7gX_wIBdMsJVEM3CfOw0lnf9sbVUpPVXEGlsoeGCBM7dbdj0pRc3YNOAA==\n📅 2026-06-19 – 2026-06-29 (10 days)\n🌤 Weather: 2/5 — volatile weather outlook\n👥 Crowds: low\n💡 June is rainy season in Palawan — 15–22 rain days expected and rough seas that routinely close the El Nido lagoon and Coron island-hopping tours central to the wishlist intent. Thin history for this route; baseline still forming.\n\nDataset: 5 records across 3 routes · Updated 2026-04-27\n",
+  "execution_context": {
+    "trigger_source": "telegram",
+    "origin_interface": "telegram",
+    "request_text": null,
+    "defaulted_params": [],
+    "context_summary": [],
+    "resolved_origin": "MAD",
+    "user_context": {
+      "location_label": null,
+      "preferred_origins": [],
+      "max_budget_eur": null,
+      "destination_focus": [],
+      "preference_tags": [],
+      "notes": []
+    },
+    "telegram": null
+  }
+}

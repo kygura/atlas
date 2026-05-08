@@ -1,0 +1,173 @@
+{
+  "trip_id": "fnc_20260524_atlas08",
+  "destination": "Madeira",
+  "flight": {
+    "flight_id": "MAD-FNC-2026-05-24",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "FNC",
+    "destination_name": "Madeira",
+    "travel_window_start": "2026-05-24",
+    "travel_window_end": "2026-06-01",
+    "days_out": 16,
+    "price_economy_eur": 189,
+    "price_business_eur": null,
+    "stops": 0,
+    "best_layover": null,
+    "travel_time_hours": 2.67,
+    "booking_url": "https://on.kiwi.com/TbYBJl",
+    "snapshot_date": "2026-05-08",
+    "search_error": null
+  },
+  "hotel": {
+    "name": "The Vine Hotel",
+    "tripadvisor_id": 1107923,
+    "rating": 4.5,
+    "review_count": 2830,
+    "price_per_night_eur": 319,
+    "nights": 8,
+    "total_eur": 2552,
+    "address": "Rua das Aranhas No. 27-A, Funchal, Madeira 9000-044 Portugal",
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g189167-d1107923-Reviews-The_Vine_Hotel-Funchal_Madeira_Madeira_Islands.html?staydates=2026_05_24_2026_06_01&uguests=1_1",
+    "amenities": [
+      "Panoramic rooftop pool",
+      "Vinotherapy spa",
+      "Free breakfast",
+      "Free WiFi",
+      "Fitness center",
+      "Airport transfer"
+    ],
+    "review_summary": "Boutique wine-concept hotel with exceptional central location; standout breakfast and personable staff; panoramic Funchal views from the rooftop pool."
+  },
+  "hotel_alt": {
+    "name": "Hotel Madeira",
+    "tripadvisor_id": 254080,
+    "rating": 4.3,
+    "review_count": 826,
+    "price_per_night_eur": 176,
+    "nights": 8,
+    "total_eur": 1408,
+    "address": "Rua Ivens 21, Funchal, Madeira 9000-046 Portugal",
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g189167-d254080-Reviews-Hotel_Madeira-Funchal_Madeira_Madeira_Islands.html?staydates=2026_05_24_2026_06_01&uguests=1_1",
+    "amenities": [
+      "Rooftop pool with Funchal panorama",
+      "Free WiFi",
+      "Bar/lounge",
+      "Airport transfer"
+    ],
+    "review_summary": "Well-located 3-star with personalized service; rooftop pool offers sweeping city views; best value option in central Funchal."
+  },
+  "daily_plan": [
+    {
+      "day": 1,
+      "date": "2026-05-24",
+      "note": "Arrival — flight lands 10:40. Afternoon: self-guided walk along Funchal waterfront and Zona Velha."
+    },
+    {
+      "day": 2,
+      "date": "2026-05-25",
+      "am": {
+        "title": "Old Funchal Walking Tour",
+        "price_eur": 16.4,
+        "duration_min": 120,
+        "rating": 4.74,
+        "description": "Guided walk through Funchal's historic old town — cobbled alleys, tilework facades, Mercado dos Lavradores.",
+        "link": "https://www.viator.com/tours/Funchal/History-Tellers/d22388-10440P2?pid=P00280233&medium=mcp&client=anthropic"
+      },
+      "pm": {
+        "title": "Dolphin and Whale Watching — Ecological Catamaran",
+        "price_eur": 35,
+        "duration_min": 180,
+        "rating": 4.55,
+        "description": "Three-hour catamaran cruise off Funchal's coast — sperm whales, bottlenose dolphins, and migrating blue and fin whales in May.",
+        "link": "https://www.viator.com/tours/Funchal/Dolphins-and-Whales-Watching-in-a-Luxurious-Catamaran/d22388-14203P1?pid=P00280233&medium=mcp&client=anthropic"
+      }
+    },
+    {
+      "day": 3,
+      "date": "2026-05-26",
+      "am": {
+        "title": "Full-Day Rabaçal Levada Walk",
+        "price_eur": 48,
+        "duration_min": 480,
+        "rating": 4.73,
+        "description": "Full-day guided levada into Rabaçal valley — UNESCO laurisilva forest, moss-draped laurel canopy, 25 Fontes twin waterfalls.",
+        "link": "https://www.viator.com/tours/Madeira/Rabacal/d5392-23651P10?pid=P00280233&medium=mcp&client=anthropic"
+      }
+    },
+    {
+      "day": 4,
+      "date": "2026-05-27",
+      "am": {
+        "title": "West Tour — Fanal Forest & Porto Moniz Volcanic Pools",
+        "price_eur": 35.22,
+        "duration_min": 420,
+        "rating": 4.94,
+        "description": "Small-group tour: fog-shrouded ancient Fanal laurisilva forest, centuries-old til trees, then north coast to Porto Moniz natural lava pools.",
+        "link": "https://www.viator.com/tours/Madeira/West-of-Madeira-Tour/d5392-186563P2?pid=P00280233&medium=mcp&client=anthropic"
+      }
+    },
+    {
+      "day": 5,
+      "date": "2026-05-28",
+      "am": {
+        "title": "Hidden Corners: Levada Walk",
+        "price_eur": 48,
+        "duration_min": 480,
+        "rating": 4.81,
+        "description": "Off-beat levada route through Madeira's lesser-visited interior — narrow irrigation channels and viewpoints known mostly to locals.",
+        "link": "https://www.viator.com/tours/Madeira/Hidden-Corners-Levada-Walk/d5392-23651P18?pid=P00280233&medium=mcp&client=anthropic"
+      }
+    },
+    {
+      "day": 6,
+      "date": "2026-05-29",
+      "am": {
+        "title": "Whale & Dolphin Watching — Calheta",
+        "price_eur": 60,
+        "duration_min": 120,
+        "rating": 4.93,
+        "description": "Highest-rated whale watch on Madeira — small boat from Calheta marina, reliably close encounters with sperm whales and common dolphins.",
+        "link": "https://www.viator.com/tours/Calheta/Whale-and-Dolphin-Watching-or-Swim-with-Dolphins-in-Madeira/d50841-23523P1?pid=P00280233&medium=mcp&client=anthropic"
+      }
+    },
+    {
+      "day": 7,
+      "date": "2026-05-30",
+      "note": "Free day — suggested: Monte Palace Tropical Garden by cable car, toboggan wicker baskets back to Funchal, evening in Zona Velha."
+    },
+    {
+      "day": 8,
+      "date": "2026-05-31",
+      "note": "Last full day. Morning espetada at Mercado dos Lavradores, afternoon waterfront walk."
+    },
+    {
+      "day": 9,
+      "date": "2026-06-01",
+      "note": "Departure. FNC → MAD 13:20. Morning free."
+    }
+  ],
+  "total_estimate": {
+    "flight": 189,
+    "hotel": 2552,
+    "activities": 242,
+    "total": 2983
+  },
+  "validation": {
+    "gates_passed": [
+      "composite_score",
+      "weather_score",
+      "crowd_level",
+      "distortion_flag",
+      "budget_compliance",
+      "isolation_score"
+    ],
+    "warnings": []
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true
+  },
+  "created_at": "2026-05-08T00:00:00Z"
+}
