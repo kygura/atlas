@@ -1,0 +1,176 @@
+{
+  "scan_date": "2026-05-03",
+  "run_mode": "scheduled",
+  "origin_resolved": "MAD",
+  "query": null,
+  "results": [
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-05-19",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-05-19",
+        "travel_window_end": "2026-05-29",
+        "days_out": 16,
+        "price_economy_eur": 196,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": null,
+        "travel_time_hours": 11,
+        "booking_url": "https://on.kiwi.com/uxJgB5",
+        "snapshot_date": "2026-05-03",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-05-19",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Madeira Flower Festival (Apr 30 – May 24, Funchal)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 3,
+        "personal_flag": "The Flower Festival runs through May 24 — Funchal transforms with cascades of blooms while crowd pressure stays well below summer levels.",
+        "raw_reasoning": "May 2026 in Madeira: shoulder season with 18–22°C daytime, 7 hours of sunshine, minimal rain, sea at 19°C. The Madeira Flower Festival (Apr 30 – May 24) is an annual structural event that adds cultural appeal without one-off price distortion. Arrival May 19 catches the final days of the festival and the post-festival calm through May 29. Crowds moderate — summer peak (June–August) has not yet arrived. €196 RT is highly competitive for this route."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 7.05,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-LOP-2026-05-17",
+        "source": "lastminute",
+        "origin": "MAD",
+        "destination": "LOP",
+        "destination_name": "Lombok",
+        "travel_window_start": "2026-05-17",
+        "travel_window_end": "2026-05-31",
+        "days_out": 14,
+        "price_economy_eur": 758.3,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": null,
+        "travel_time_hours": 41.75,
+        "booking_url": "https://www.lastminute.ie/msr/route/searching.do?departureAirport=MAD&arrivalAirport=LOP&outboundDay=17&outboundMonthYear=052026&returnDay=31&returnMonthYear=052026&adults=1&childs=0&infants=0&COBRANDED=LMNEN_LLMPROJECTEN&currency=EUR&url=search3.do&roundtrip=true&fareType=&requestId=770430681595181056&mac=770430681595181056SCHv011000213530&acntb=flight&utm_term=MADLOP&utm_campaign=results&utm_medium=meta_search&utm_source=LMNEN_LLMPROJECTEN&bf_subsource=-----WS0S02RS01&j=758300&jC=758300_EUR&cp=0",
+        "snapshot_date": "2026-05-03",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-LOP-2026-05-17",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": 4,
+        "isolation_score": 4,
+        "personal_flag": "May catches Lombok at its transition sweet spot — dry season opening, 4–6ft swells arriving at Desert Point, with significantly fewer surfers than the June–August peak.",
+        "raw_reasoning": "May marks the start of Lombok's dry season. Temperatures 25–30°C, water 27°C, rain minimal. Surf: 4–6ft swells building at Selong Belanak and Desert Point, offshore winds establishing. Crowd level medium — peak surf tourism (June–August) has not arrived, so lineups and guesthouses are notably quieter. No major local festivals or events in this window. Travel window May 17–31 is well within the wishlist allowed period (avoid starts Jul 15). Isolation strong at Selong Belanak and Desert Point area. €758.30 RT via Etihad is the cheapest available for this long-haul route."
+      },
+      "price_vs_baseline_pct": 9.78,
+      "composite_score": 6.97,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-FNC-2026-06-25",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "FNC",
+        "destination_name": "Madeira",
+        "travel_window_start": "2026-06-25",
+        "travel_window_end": "2026-07-05",
+        "days_out": 53,
+        "price_economy_eur": 197,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": null,
+        "travel_time_hours": 14,
+        "booking_url": "https://on.kiwi.com/2LWvDr",
+        "snapshot_date": "2026-05-03",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-FNC-2026-06-25",
+        "weather_score": 5,
+        "crowd_level": "high",
+        "notable_events": [
+          "Atlantic Festival fireworks Jun 5–28 (concludes just before arrival)",
+          "Santos Populares street festivals (June)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "Best weather of the year — 9–10h sun daily, warm Atlantic — but July Madeira is firmly peak season with higher prices and noticeably busier trails.",
+        "raw_reasoning": "Late June to early July is peak season in Madeira. Average highs 22–26°C, 9–10h sunshine, water temp 23°C (73°F). Atlantic Festival fireworks (Jun 5–28) conclude just before arrival on Jun 25 — no distortion on this window. Santos Populares in June adds lively street atmosphere. Crowd level high: July is summer holiday period with families and European tourists. Accommodation and flights more expensive than May baseline. Isolation low — popular trails like Levada do Caldeirão Verde will be busy. €197 RT remains excellent value despite peak timing."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.8,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-LOP-2026-06-28",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "LOP",
+        "destination_name": "Lombok",
+        "travel_window_start": "2026-06-28",
+        "travel_window_end": "2026-07-08",
+        "days_out": 56,
+        "price_economy_eur": 1256,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": null,
+        "travel_time_hours": 22.8,
+        "booking_url": "https://on.kiwi.com/nD1dFy",
+        "snapshot_date": "2026-05-03",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-LOP-2026-06-28",
+        "weather_score": 4,
+        "crowd_level": "high",
+        "notable_events": [],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": 5,
+        "isolation_score": 3,
+        "personal_flag": "Peak dry season delivers the year's best swells — consistent 4–6ft+ at Desert Point — but surf camps are at capacity; book permits and boards well in advance.",
+        "raw_reasoning": "Late June to early July is Lombok's peak surf season. Dry weather, 29–31°C, consistent 4–6ft+ swells. June–July are the busiest months for surf camps and resorts. Return date Jul 8 is within the wishlist allowed window (avoid period begins Jul 15). Crowd level high across surf spots, though remote corners retain isolation. Isolation score reduced from May level due to peak-season density at core surf breaks. €1256 RT via Kiwi is notably higher than Window A — reflects peak-season demand."
+      },
+      "price_vs_baseline_pct": -49.43,
+      "composite_score": 4.38,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    }
+  ],
+  "itinerary_delivered": true,
+  "itinerary_text": "ATLAS — 2026-05-03 · from MAD\n\n#1 Madeira via direct\n✈ €196 · 1 stop(s) · 11.0h · Book → https://on.kiwi.com/uxJgB5\n📅 2026-05-19 – 2026-05-29 (10 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 The Flower Festival runs through May 24 — Funchal transforms with cascades of blooms while crowd pressure stays well below summer levels. Thin history for this route; baseline still forming.\n\n#2 Lombok via direct\n✈ €758 · 2 stop(s) · 41.8h · Book → https://www.lastminute.ie/msr/route/searching.do?departureAirport=MAD&arrivalAirport=LOP&outboundDay=17&outboundMonthYear=052026&returnDay=31&returnMonthYear=052026&adults=1&childs=0&infants=0&COBRANDED=LMNEN_LLMPROJECTEN&currency=EUR&url=search3.do&roundtrip=true&fareType=&requestId=770430681595181056&mac=770430681595181056SCHv011000213530&acntb=flight&utm_term=MADLOP&utm_campaign=results&utm_medium=meta_search&utm_source=LMNEN_LLMPROJECTEN&bf_subsource=-----WS0S02RS01&j=758300&jC=758300_EUR&cp=0\n📅 2026-05-17 – 2026-05-31 (14 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 May catches Lombok at its transition sweet spot — dry season opening, 4–6ft swells arriving at Desert Point, with significantly fewer surfers than the June–August peak. 10% vs route median.\n\n#3 Madeira via direct\n✈ €197 · 1 stop(s) · 14.0h · Book → https://on.kiwi.com/2LWvDr\n📅 2026-06-25 – 2026-07-05 (10 days)\n🌤 Weather: 5/5 — excellent seasonal conditions\n👥 Crowds: high\n💡 Best weather of the year — 9–10h sun daily, warm Atlantic — but July Madeira is firmly peak season with higher prices and noticeably busier trails. Thin history for this route; baseline still forming.\n\n#4 Lombok via direct\n✈ €1256 · 2 stop(s) · 22.8h · Book → https://on.kiwi.com/nD1dFy\n📅 2026-06-28 – 2026-07-08 (10 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: high\n💡 Peak dry season delivers the year's best swells — consistent 4–6ft+ at Desert Point — but surf camps are at capacity; book permits and boards well in advance. -49% vs route median.\n\nDataset: 4 records across 2 routes · Updated 2026-05-03\n",
+  "execution_context": {
+    "trigger_source": "telegram",
+    "origin_interface": "telegram",
+    "request_text": null,
+    "defaulted_params": [],
+    "context_summary": [],
+    "resolved_origin": "MAD",
+    "user_context": {
+      "location_label": null,
+      "preferred_origins": [],
+      "max_budget_eur": null,
+      "destination_focus": [],
+      "preference_tags": [],
+      "notes": []
+    },
+    "telegram": null
+  }
+}
