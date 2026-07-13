@@ -1,0 +1,151 @@
+{
+  "trip_id": "pdg250509",
+  "destination": "Mentawai Islands",
+  "flight": {
+    "flight_id": "MAD-PDG-2026-05-25",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "PDG",
+    "destination_name": "Mentawai Islands",
+    "travel_window_start": "2026-05-25",
+    "travel_window_end": "2026-06-03",
+    "days_out": 16,
+    "price_economy_eur": 1237,
+    "price_business_eur": null,
+    "stops": 2,
+    "best_layover": "DOH",
+    "travel_time_hours": 19.8,
+    "booking_url": "https://on.kiwi.com/voirfz",
+    "snapshot_date": "2026-05-09",
+    "search_error": null
+  },
+  "hotel": {
+    "name": "Nyang Ebay Surf Camp",
+    "tripadvisor_id": 6671765,
+    "rating": 4.5,
+    "price_per_night_eur": 39,
+    "total_eur": 352,
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g8557488-d6671765-Reviews-Nyang_Ebay_Surf_Camp-Pulau_Masokut_Mentawai_Islands_West_Sumatra_Sumatra.html?staydates=2026_05_25_2026_06_03&uguests=1_1&m=70140",
+    "amenities": [
+      "beachfront",
+      "full-board meals",
+      "surfboard rental",
+      "snorkeling",
+      "boat charter access",
+      "airport transfer",
+      "mosquito nets"
+    ],
+    "review_summary": "Traditional beachfront bungalows on Masokut Island — 5 world-class breaks within 30-min walk, family-run, full-board meals, guided Padang transfers by Handra.",
+    "style": "surf-camp"
+  },
+  "hotel_alt": {
+    "name": "Oinan Lodge",
+    "tripadvisor_id": 2161151,
+    "rating": 4.7,
+    "price_per_night_eur": 20,
+    "total_eur": 179,
+    "booking_link": "https://www.tripadvisor.com/Hotel_Review-g14968689-d2161151-Reviews-Oinan_Lodge-Tuapejat_Mentawai_Islands_West_Sumatra_Sumatra.html?staydates=2026_05_25_2026_06_03&uguests=1_1&m=70140",
+    "review_summary": "Budget seaside lodge on Tuapejat — minimal infrastructure, strong early reviews, lower price point.",
+    "style": "budget-lodge"
+  },
+  "daily_plan": [
+    {
+      "day": 1,
+      "date": "2026-05-25",
+      "note": "Arrival: Padang → Mentawai Fast Ferry → Masokut",
+      "am": "Mentawai Fast Ferry + speedboat transfer — €30 — 5h",
+      "pm": "First session at E-Bay + snorkel reef — €0 — 3h"
+    },
+    {
+      "day": 2,
+      "date": "2026-05-26",
+      "am": "Dawn patrol E-Bay — €0 — 3h — offshore swell session",
+      "pm": "Pitstops reef walk + sunset session — €0 — 3h"
+    },
+    {
+      "day": 3,
+      "date": "2026-05-27",
+      "am": "Bank Vaults full-morning session — €0 — 4h — hollow right-hander, 30-min walk",
+      "pm": "Mentawai village visit — €10 — 2h — Uma clan, animist culture, traditional tattoo art"
+    },
+    {
+      "day": 4,
+      "date": "2026-05-28",
+      "full_day": "Boat charter — Kandui & Hideaways — €70 — 8h — world-class hollow reefs"
+    },
+    {
+      "day": 5,
+      "date": "2026-05-29",
+      "am": "Beng-Bengs + Nipussi morning — €0 — 4h — two lesser-surfed island peaks",
+      "pm": "Reef snorkeling + free afternoon — €0 — 2h"
+    },
+    {
+      "day": 6,
+      "date": "2026-05-30",
+      "full_day": "Boat charter — Hollow Trees (HTs) — €70 — 8h — one of the world's great left-hand barrels"
+    },
+    {
+      "day": 7,
+      "date": "2026-05-31",
+      "am": "Freesurf E-Bay + Pitstops — €0 — 4h",
+      "pm": "Fishing with local crew — €15 — 3h — catch goes on the dinner table"
+    },
+    {
+      "day": 8,
+      "date": "2026-06-01",
+      "am": "Final Bank Vaults + E-Bay double session — €0 — 5h",
+      "pm": "Traditional dinner with host family — €0 — 2h — included in camp package"
+    },
+    {
+      "day": 9,
+      "date": "2026-06-02",
+      "note": "Departure: speedboat → Siberut → ferry → Padang",
+      "am": "Final dawn session E-Bay — €0 — 2h",
+      "pm": "Return transfer to Padang — €0 — 5h — overnight Padang before June 3 flight"
+    }
+  ],
+  "total_estimate": {
+    "flight_eur": 1237,
+    "hotel_eur": 352,
+    "activities_eur": 195,
+    "total_eur": 1784
+  },
+  "validation": {
+    "gates_passed": [
+      "min_composite_score (6.81 ≥ 3.0)",
+      "min_weather_score (4 ≥ 3)",
+      "crowds not peak (low)",
+      "min_isolation_score (4 ≥ 2)"
+    ],
+    "warnings": [
+      "Outbound travel time 19.8h (2 stops via DOH+CGK) — long haul",
+      "Note: Viator has no Mentawai-specific listings; activities are camp-organized or self-guided — not Viator-bookable"
+    ]
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true,
+    "note": "First scan for MAD-PDG route — no prior records. €1,237 is the initial data point."
+  },
+  "alternative": {
+    "destination": "Lombok",
+    "flight_id": "MAD-LOP-2026-05-23",
+    "price_eur": 994.44,
+    "dates": "2026-05-23 → 2026-06-06",
+    "stops": 2,
+    "booking_url": "https://www.lastminute.ie/msr/route/searching.do?departureAirport=MAD&arrivalAirport=LOP&outboundDay=23&outboundMonthYear=052026&returnDay=06&returnMonthYear=062026&adults=1&childs=0&infants=0&COBRANDED=LMNEN_LLMPROJECTEN&currency=EUR&url=search3.do&roundtrip=true&fareType=&requestId=772333333024278528&mac=772333333024278528SCHv01-982979472&acntb=flight&utm_term=MADLOP&utm_campaign=results&utm_medium=meta_search&utm_source=LMNEN_LLMPROJECTEN&bf_subsource=-----WS0S02RS01&j=994440&jC=994440_EUR&cp=0",
+    "composite_score": 6.52,
+    "hotel": {
+      "name": "Ola Ola Lombok",
+      "tripadvisor_id": 13228155,
+      "rating": 4.7,
+      "price_per_night_eur": 23,
+      "total_eur": 322,
+      "booking_link": "https://www.tripadvisor.com/Hotel_Review-g2147811-d13228155-Reviews-Ola_Ola_Lombok-Selong_Belanak_Lombok_West_Nusa_Tenggara.html?staydates=2026_05_23_2026_06_06&uguests=1_1&m=70140",
+      "review_summary": "Charming, trendy guesthouse right at Selong Belanak beach — 80 reviews, 4.7 rating, boutique feel at a budget price."
+    }
+  },
+  "created_at": "2026-05-09T00:00:00.000Z",
+  "prices_checked_at": "2026-05-09T00:00:00.000Z"
+}

@@ -3,22 +3,63 @@
     "destination": "Lombok",
     "iata": "LOP",
     "status": "active",
-    "intent_tags": ["surf", "isolation", "warm-water"],
-    "avoid_periods": ["Jul 15 – Aug 31"],
+    "intent_tags": [
+      "surf",
+      "isolation",
+      "warm-water"
+    ],
+    "avoid_periods": [
+      "Jul 15 – Aug 31"
+    ],
     "notes": "Prefer Selong Belanak or Desert Point area. Avoid Nyepi."
   },
   {
     "destination": "Palawan",
     "iata": "PPS",
     "status": "active",
-    "intent_tags": ["maritime", "remote", "island-hopping"],
+    "intent_tags": [
+      "maritime",
+      "remote",
+      "island-hopping"
+    ],
     "notes": "Coron or El Nido. Avoid Mar–Apr (hottest)."
   },
   {
     "destination": "Madeira",
     "iata": "FNC",
     "status": "active",
-    "intent_tags": ["mild-weather", "hiking", "ocean"],
+    "intent_tags": [
+      "mild-weather",
+      "hiking",
+      "ocean"
+    ],
     "notes": "Funchal base with north coast day trips."
+  },
+  {
+    "destination": "Tofo",
+    "iata": "INH",
+    "status": "active",
+    "intent_tags": [
+      "surf",
+      "remote",
+      "coastal",
+      "adventure",
+      "ocean"
+    ],
+    "avoid_periods": [],
+    "notes": "Tofinho Point for advanced surf, Tofo Beach for softer peaks. Prime surf season May–September. Low crowds in May vs July–August. Malaria precautions required. Adventurous African coast with genuine local culture and no mass tourism."
+  },
+  {
+    "destination": "Mentawai Islands",
+    "iata": "PDG",
+    "status": "active",
+    "intent_tags": [
+      "surf",
+      "remote",
+      "ocean",
+      "isolation"
+    ],
+    "avoid_periods": [],
+    "notes": "Gateway via Padang (PDG) then Mentawai Fast Ferry (~3–4h). Peak season May–September: Macaronis, Lance's Left, Hollow Trees firing. May is start of peak — solid swell, offshore winds, fewer boats than July–August. Boat charter or camp at Sipora/Siberut preferred."
   }
 ]
