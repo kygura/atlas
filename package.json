@@ -9,7 +9,6 @@
   "scripts": {
     "test": "bun test",
     "typecheck": "tsc --noEmit",
-    "build": "echo 'no build step — api/ functions deploy as-is'",
     "normalize": "bun run src/cli/normalize.ts",
     "annotate": "bun run src/cli/annotate.ts",
     "persist-trip": "bun run src/cli/persist-trip.ts",
