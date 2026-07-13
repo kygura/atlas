@@ -1,6 +1,1 @@
-{
-  "functions": {
-    "api/dashboard.ts": { "runtime": "nodejs@20.x" },
-    "api/trigger.ts": { "runtime": "nodejs@20.x" }
-  }
-}
+{}

@@ -41,33 +41,52 @@ Read config/wishlist.json for active destinations and intent tags.
 Query Notion wishlist DB if NOTION_WISHLIST_DB_ID is set — merge any
 additional notes into the wishlist. Non-blocking if unavailable.
 
-Step 1.5 — Scout destinations (mandatory, date-driven)
-You must not rely solely on the static wishlist. On every scheduled run,
-use your native web_search tool to discover destinations that are optimal
-for the exact date this routine executes. This is not optional.
+Step 1.5 — Scout destinations (mandatory, date-driven, no hardcoded spots)
 
-Read `config/traveller_profile.json` to understand who you are searching
-for. Use this persona — not a rigid trip-type filter — as your lens.
-The traveller is adventurous, coastal, nomadic, surf-oriented, and
-occasionally high-end when the place and season justify it. Let that
-guide what you search for, not a fixed menu.
+`config/wishlist.json` is a rolling cache of *previously* scouted candidates,
+not a seed list. Do not treat entries already in it as this run's destination
+set, and do not recycle a fixed list of "usual" spots — every run derives its
+destinations fresh from today's date. This step is never skipped, scheduled
+or query mode.
 
-1. Determine the current month, season, and hemisphere conditions from
-   today's date.
-2. Use web_search to find 1–3 destinations that are genuinely compelling
-   *right now* for this traveller — based on real weather forecasts,
-   current swell/conditions, tourism load, safety, and notable events.
-   Apply your own judgment. You may optionally consult the trip types in
-   `config/trip_profiles.json` as inspiration, but do not iterate over
-   them mechanically. Do not recycle generic year-round lists.
-3. Write every discovered destination as a WishlistItem array to
-   `tmp/wishlist.update.json`.
-4. Run: bun run wishlist
-   This upserts candidates into `config/wishlist.json` by IATA code.
-5. Proceed to Step 2 with the augmented wishlist.
+1. **Resolve today's date, season, and hemisphere.** Get the current date
+   (calendar tool or system clock) and derive the season/climate conditions
+   for candidate regions from it — this is the anchor for everything below.
+2. **Read `config/traveller_profile.json`** for the persona lens (who you're
+   scouting for) and **`config/trip_profiles.json`** for the activity-type
+   menu (e.g. `surf`, `natural-adventure`, `hiking`, `relax`,
+   `cultural-travel`, `wildlife` — the file is authoritative; consult it
+   rather than inventing or hardcoding categories here).
+3. **Select the activity type(s) for this run:**
+   - If `execution_context.user_context.activity_types` is non-empty
+     (set via a Telegram `/scout activity:...` command or parsed from a
+     free-text query), use those — match them against
+     `config/trip_profiles.json` ids/aliases, tolerating close synonyms.
+   - Otherwise, choose 1–2 activity types from the menu that best fit the
+     persona and the current season/climate (e.g. don't pick "surf" for a
+     region mid-flat-spell, don't pick "hiking" for monsoon season).
+4. **Use web_search to find 1–3 destinations** that are genuinely compelling
+   *right now* for the selected activity type(s) and persona, based on real
+   weather forecasts, current conditions (swell, trail state, wildlife
+   activity, etc.), and — explicitly — **low tourism season**: prefer
+   shoulder/off-peak windows with genuinely good conditions over peak-crowd
+   windows, unless the persona's `luxury_exceptions` justify peak season for
+   a specific reason. Also weigh safety and notable events. Apply your own
+   judgment; do not recycle generic year-round lists.
+5. Honor `execution_context.user_context.destination_focus` when set — if the
+   requester named a destination, scout and validate that destination instead
+   of (or alongside) open discovery.
+6. Write every discovered destination as a WishlistItem array to
+   `tmp/wishlist.update.json`, tagging `intent_tags` with the activity
+   type(s) chosen above.
+7. Run: bun run wishlist
+   This upserts candidates into `config/wishlist.json` by IATA code — this is
+   how the cache grows, not how destinations are chosen.
+8. Proceed to Step 2 using only the destinations discovered in this step
+   (steps 4–5), not the full contents of `config/wishlist.json`.
 
 Step 2 — Search flights
-For each active destination, use Kiwi.com and lastminute.com to find:
+For each destination scouted in Step 1.5, use Kiwi.com and lastminute.com to find:
 
 - **Window A**: cheapest flight 2–4 weeks out
 - **Window B**: cheapest flight 6–10 weeks out
@@ -87,6 +106,12 @@ Apply hard filters from `config/hard_filters.json`:
 Discard results that fail. Note failures — do not silently skip destinations.
 Do not hardcode these restrictions in the routine prompt when they already live
 in `config/`.
+
+If `execution_context.user_context.budget_range_eur` or `stay_duration_days`
+is set (from a Telegram command or a parsed query), treat it as a per-run
+override on top of `config/hard_filters.json` for this run only — do not
+persist it to config unless the requester explicitly asked to change the
+default.
 
 ### Step 1.3 — Normalize
 
@@ -170,12 +195,15 @@ alternative gets flight details + hotel suggestion only.
 
 ---
 
-Step 1.5 — Scout destinations (mandatory, date-driven)
-Same as SCAN MODE Step 1.5. You must use web_search to discover
-destinations optimal for today's date, guided by the traveller persona in
-`config/traveller_profile.json`. If the query has a specific focus
-(e.g., "surf trip", "something remote"), let that sharpen the search.
-Write `tmp/wishlist.update.json` and run `bun run wishlist`.
+Step 1.5 — Scout destinations (mandatory, date-driven, no hardcoded spots)
+Identical to SCAN MODE Step 1.5: resolve today's date/season, pick activity
+type(s) from `config/trip_profiles.json`, and use web_search to find
+destinations that fit the current climate and low-tourism-season window —
+never default to a fixed list. In query mode the activity-type selection in
+step 3 is driven first by `execution_context.user_context.activity_types` /
+`destination_focus` (from a `/scout` command or parsed free text) before
+falling back to persona + season judgment. Write `tmp/wishlist.update.json`
+and run `bun run wishlist`.
 
 Step 2 — Search
 Use Kiwi.com and lastminute.com for the resolved parameters. 
@@ -290,7 +318,7 @@ flight scan records — trips are the enriched, actionable output.
 - `tmp/hard_filters.update.json` is the model-authored patch for updating `config/hard_filters.json`
 - `tmp/wishlist.update.json` is the model-authored patch for updating `config/wishlist.json`
 - `config/traveller_profile.json` defines the traveller persona used to guide destination scouting
-- `config/trip_profiles.json` is an optional menu of trip types the agent may consult for inspiration
+- `config/trip_profiles.json` is the canonical activity-type menu (surf, natural-adventure, hiking, relax, cultural-travel, wildlife, ...) used both by Step 1.5 scouting and to match `/scout activity:` command arguments
 - `tmp/telegram_message.json` is the model-authored outbound Telegram payload consumed by `bun run deliver`
 - `data/*.json` persists the scored record plus `execution_context`
 - `bun run wishlist` applies destination patches to `config/wishlist.json`
@@ -398,9 +426,19 @@ This is the last step. It does not block delivery.
 
 ### Step Q1 — Parse Query
 
-Extract from session text: origin (explicit > calendar > fallback),
-destination or intent tags, timeframe, budget, trip length. Missing fields →
-config defaults.
+If the inbound message was a recognized Telegram command (`execution_context.command.name`
+is `scout`, `trip`, `plan`, or `search`), the structured arguments are already
+parsed for you in `execution_context.user_context`: `destination_focus`,
+`activity_types`, `stay_duration_days` (`{min, max}`), `budget_range_eur`
+(`{min, max}`), and `resolved_origin`/`preferred_origins`. Use those directly
+— do not re-derive them from `request_text` when they're already present.
+Any leftover free-text tokens the parser couldn't classify are in
+`user_context.notes`; read those for extra color (e.g. "quiet", "no
+nightlife").
+
+Otherwise (free-text query, no command), extract from session text: origin
+(explicit > calendar > fallback), destination or intent tags, timeframe,
+budget, trip length. Missing fields → config defaults.
 
 If the user request asks to change restrictions or operating thresholds
 (max stops, budget bounds, activity preferences, planning depth, etc.):
@@ -524,11 +562,42 @@ originated from but are stored separately because they contain perishable data
 
 - `text`
 - `photo_file_id` for highest-resolution inbound image
-- `execution_context` with Telegram chat/message/user metadata and optional
-  location
+- `execution_context` with Telegram chat/message/user metadata, optional
+  location, and — when the message was a recognized bot command — the
+  parsed `command` and structured `user_context` search arguments
 
 The routine persists interpreted request context into
 `tmp/execution_context.json`.
+
+### Telegram Commands
+
+`api/trigger.ts` recognizes Telegram bot commands (a message starting with
+`/`) and parses flexible `key:value` arguments out of them deterministically,
+before the routine ever runs — this is how a remote user steers the agentic
+search without relying on free-text interpretation alone.
+
+- `/scout`, `/trip`, `/plan`, `/search` (aliases) — trigger a query-mode run.
+  Supported arguments, in any order/combination:
+  - `destination:` / `to:` — one or more places, comma-separated
+  - `activity:` / `type:` — one or more activity types, matched against the
+    `config/trip_profiles.json` menu (e.g. `activity:surf`,
+    `activity:relax,cultural-travel`)
+  - `days:` / `nights:` — stay length: `7`, `7-10`
+  - `budget:` / `price:` — EUR range: `1500`, `800-1500`, `<1500`, `800+`
+  - `origin:` / `from:` — departure IATA code
+  - Any unrecognized tokens are kept as free-text `notes` for the model to
+    read alongside the structured fields
+  - Example: `/scout destination:Portugal activity:surf days:7-10 budget:800-1500 origin:MAD`
+- `/help` (and `/start`) — answered directly by `api/trigger.ts` via the
+  Telegram Bot API (`TELEGRAM_BOT_TOKEN`) with usage instructions. This does
+  **not** trigger the routine — no `execution_context` is forwarded.
+- Plain text (no leading `/`) still works exactly as before — it's forwarded
+  as `request_text` and interpreted per Step Q1.
+
+The parsed arguments land in `execution_context.user_context.activity_types`,
+`stay_duration_days`, `budget_range_eur`, `destination_focus`, and
+`preferred_origins`/`resolved_origin` — see Step Q1 for how the routine
+consumes them.
 
 ### Repo Contract
 
@@ -578,3 +647,10 @@ Inbound Telegram images preserved as `photo_file_id` inside
     no tourist traps, no chain resorts, no bus tours unless explicitly asked.
 11. Trip plans are perishable — they reference real-time availability. The
     message should note this: "Prices and availability checked [timestamp]."
+12. Never select destinations from a fixed/hardcoded list. Step 1.5 always
+    re-derives candidates from today's date, climate/season, and the
+    activity-type menu in `config/trip_profiles.json` — `config/wishlist.json`
+    is a cache of past results, not a source of truth for this run.
+13. When `execution_context.command` is present, its structured
+    `user_context` fields (destination, activity type, stay duration, budget
+    range, origin) take priority over guessing from `request_text`.
