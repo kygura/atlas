@@ -27,6 +27,7 @@ afterEach(() => {
   mock.restore();
   delete process.env.ROUTINE_FIRE_URL;
   delete process.env.ROUTINE_TOKEN;
+  delete process.env.TELEGRAM_BOT_TOKEN;
 });
 
 test("handler forwards message text and returns ok", async () => {
@@ -131,4 +132,94 @@ test("handler drops empty message with no photo", async () => {
 
   expect(res.statusCode).toBe(200);
   expect(fetchMock).toHaveBeenCalledTimes(0);
+});
+
+test("handler answers /help directly via Telegram and does not fire the routine", async () => {
+  process.env.ROUTINE_FIRE_URL = "https://example.com/fire";
+  process.env.ROUTINE_TOKEN = "secret";
+  process.env.TELEGRAM_BOT_TOKEN = "bot-token";
+
+  const fetchMock = mock(() => Promise.resolve(new Response(null, { status: 200 })));
+  globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+  const res = makeRes();
+  await handler({
+    body: {
+      message: {
+        text: "/help",
+        chat: { id: 777 },
+        message_id: 5,
+        from: { id: 1, username: "someone", language_code: "en" }
+      }
+    }
+  }, res);
+
+  expect(res.statusCode).toBe(200);
+  expect(fetchMock).toHaveBeenCalledTimes(1);
+  const call = (fetchMock.mock.calls as unknown[][])[0];
+  expect(call[0]).toBe("https://api.telegram.org/botbot-token/sendMessage");
+  const body = JSON.parse((call[1] as RequestInit).body as string);
+  expect(body.chat_id).toBe("777");
+  expect(body.text).toContain("Atlas commands");
+  expect(body.reply_to_message_id).toBe(5);
+});
+
+test("handler parses /scout arguments into structured execution_context fields", async () => {
+  process.env.ROUTINE_FIRE_URL = "https://example.com/fire";
+  process.env.ROUTINE_TOKEN = "secret";
+
+  const fetchMock = mock(() => Promise.resolve(new Response(null, { status: 200 })));
+  globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+  const res = makeRes();
+  await handler({
+    body: {
+      message: {
+        text: "/scout destination:Portugal activity:surf,relax days:7-10 budget:800-1500 origin:MAD",
+        chat: { id: 555 },
+        message_id: 9,
+        from: { id: 2, username: "steerer", language_code: "en" }
+      }
+    }
+  }, res);
+
+  expect(res.statusCode).toBe(200);
+  expect(fetchMock).toHaveBeenCalledTimes(1);
+  const body = JSON.parse(((fetchMock.mock.calls as unknown[][])[0][1] as RequestInit).body as string);
+
+  expect(body.execution_context.command).toEqual({
+    name: "scout",
+    raw_args: "destination:Portugal activity:surf,relax days:7-10 budget:800-1500 origin:MAD"
+  });
+  expect(body.execution_context.resolved_origin).toBe("MAD");
+  expect(body.execution_context.user_context.destination_focus).toEqual(["Portugal"]);
+  expect(body.execution_context.user_context.activity_types).toEqual(["surf", "relax"]);
+  expect(body.execution_context.user_context.stay_duration_days).toEqual({ min: 7, max: 10 });
+  expect(body.execution_context.user_context.budget_range_eur).toEqual({ min: 800, max: 1500 });
+  expect(body.execution_context.user_context.max_budget_eur).toBe(1500);
+  expect(body.execution_context.user_context.preferred_origins).toEqual(["MAD"]);
+});
+
+test("handler forwards freeform text with no command field", async () => {
+  process.env.ROUTINE_FIRE_URL = "https://example.com/fire";
+  process.env.ROUTINE_TOKEN = "secret";
+
+  const fetchMock = mock(() => Promise.resolve(new Response(null, { status: 200 })));
+  globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+  const res = makeRes();
+  await handler({
+    body: {
+      message: {
+        text: "surf and isolation",
+        chat: { id: 321 },
+        message_id: 1,
+        from: { id: 3, username: "nl_user", language_code: "en" }
+      }
+    }
+  }, res);
+
+  const body = JSON.parse(((fetchMock.mock.calls as unknown[][])[0][1] as RequestInit).body as string);
+  expect(body.execution_context.command).toBeNull();
+  expect(body.execution_context.user_context.activity_types).toEqual([]);
 });

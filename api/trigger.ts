@@ -1,3 +1,6 @@
+import { parseTelegramCommand, COMMAND_HELP_TEXT } from "../src/commands/parser";
+import { sendTelegramText } from "../src/delivery/telegram";
+
 type PhotoSize = {
   file_id: string;
   width: number;
@@ -52,6 +55,20 @@ export default async function handler(req: Req, res: Res) {
     return res.status(200).json({ ok: true });
   }
 
+  const command = text ? parseTelegramCommand(text) : null;
+
+  // /help (and /start) are answered directly — no need to spin up a full
+  // routine run just to print usage instructions.
+  if (command?.name === "help") {
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    if (chatId && botToken) {
+      await sendTelegramText(chatId, COMMAND_HELP_TEXT, botToken, {
+        replyToMessageId: message?.message_id
+      }).catch(() => undefined);
+    }
+    return res.status(200).json({ ok: true });
+  }
+
   const fireUrl = process.env.ROUTINE_FIRE_URL;
   const token = process.env.ROUTINE_TOKEN;
 
@@ -67,15 +84,19 @@ export default async function handler(req: Req, res: Res) {
       request_text: text || null,
       defaulted_params: [],
       context_summary: [],
-      resolved_origin: null,
+      resolved_origin: command?.origin ?? null,
       user_context: {
         location_label: null,
-        preferred_origins: [],
-        max_budget_eur: null,
-        destination_focus: [],
-        preference_tags: [],
-        notes: []
+        preferred_origins: command?.preferred_origins ?? [],
+        max_budget_eur: command?.budget_range_eur?.max ?? null,
+        destination_focus: command?.destination_focus ?? [],
+        preference_tags: command?.notes ?? [],
+        notes: command?.notes ?? [],
+        activity_types: command?.activity_types ?? [],
+        stay_duration_days: command?.stay_duration_days ?? null,
+        budget_range_eur: command?.budget_range_eur ?? null
       },
+      command: command ? { name: command.name, raw_args: command.raw_args } : null,
       telegram: chatId ? {
         chat_id: chatId,
         message_id: message?.message_id ?? null,

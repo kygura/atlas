@@ -73,13 +73,28 @@ export const TelegramContextSchema = z.object({
   location: TelegramLocationSchema.nullable()
 });
 
+export const NumericRangeSchema = z.object({
+  min: z.number().nonnegative().nullable(),
+  max: z.number().nonnegative().nullable()
+});
+
 export const UserContextSchema = z.object({
   location_label: z.string().nullable(),
   preferred_origins: z.array(z.string().length(3)),
   max_budget_eur: z.number().nonnegative().nullable(),
   destination_focus: z.array(z.string()),
   preference_tags: z.array(z.string()),
-  notes: z.array(z.string())
+  notes: z.array(z.string()),
+  // Added for Telegram command steering; optional so historical records
+  // written before this field existed still parse.
+  activity_types: z.array(z.string()).optional(),
+  stay_duration_days: NumericRangeSchema.nullable().optional(),
+  budget_range_eur: NumericRangeSchema.nullable().optional()
+});
+
+export const TelegramCommandSchema = z.object({
+  name: z.string().min(1),
+  raw_args: z.string().nullable()
 });
 
 export const ExecutionContextSchema = z.object({
@@ -90,7 +105,10 @@ export const ExecutionContextSchema = z.object({
   context_summary: z.array(z.string()),
   resolved_origin: z.string().length(3).nullable(),
   user_context: UserContextSchema,
-  telegram: TelegramContextSchema.nullable()
+  telegram: TelegramContextSchema.nullable(),
+  // Present when the request came from a recognized Telegram bot command
+  // (e.g. /scout) rather than free text.
+  command: TelegramCommandSchema.nullable().optional()
 });
 
 export const TelegramOutboundMessageSchema = z.object({
@@ -133,6 +151,7 @@ export const TripProfileSchema = z.object({
   id: z.string().min(1),
   label: z.string().min(1),
   criteria: z.array(z.string()),
+  aliases: z.array(z.string()).optional(),
   sample_origins: z.array(z.string().length(3)).optional(),
   max_results: z.number().int().positive().optional(),
   relevant_months: z.array(z.number().int().min(1).max(12)).optional()
@@ -194,3 +213,5 @@ export type ScoringWeights = z.infer<typeof ScoringWeightsSchema>;
 export type RunMode = z.infer<typeof RunModeSchema>;
 export type ExecutionContext = z.infer<typeof ExecutionContextSchema>;
 export type TelegramOutboundMessage = z.infer<typeof TelegramOutboundMessageSchema>;
+export type NumericRange = z.infer<typeof NumericRangeSchema>;
+export type TelegramCommand = z.infer<typeof TelegramCommandSchema>;

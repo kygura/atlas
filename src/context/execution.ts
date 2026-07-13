@@ -8,7 +8,10 @@ const EMPTY_USER_CONTEXT: ExecutionContext["user_context"] = {
   max_budget_eur: null,
   destination_focus: [],
   preference_tags: [],
-  notes: []
+  notes: [],
+  activity_types: [],
+  stay_duration_days: null,
+  budget_range_eur: null
 };
 
 function readOptionalString(rootDir: string, relativePath: string): string | null {
@@ -58,8 +61,9 @@ export function deriveExecutionContext(
     defaulted_params: defaultedParams,
     context_summary: stored?.context_summary ?? [],
     resolved_origin: resolvedOrigin,
-    user_context: stored?.user_context ?? EMPTY_USER_CONTEXT,
-    telegram: stored?.telegram ?? null
+    user_context: { ...EMPTY_USER_CONTEXT, ...stored?.user_context },
+    telegram: stored?.telegram ?? null,
+    command: stored?.command ?? null
   });
 }
 
@@ -75,11 +79,32 @@ export function summarizeExecutionContext(context: ExecutionContext | null | und
   if (context.user_context.preferred_origins.length) {
     parts.push(`origins ${context.user_context.preferred_origins.join("/")}`);
   }
-  if (context.user_context.max_budget_eur != null) {
+  const budgetRange = context.user_context.budget_range_eur;
+  if (budgetRange && (budgetRange.min != null || budgetRange.max != null)) {
+    if (budgetRange.min != null && budgetRange.max != null) {
+      parts.push(`budget €${budgetRange.min.toFixed(0)}–€${budgetRange.max.toFixed(0)}`);
+    } else if (budgetRange.max != null) {
+      parts.push(`budget ≤ €${budgetRange.max.toFixed(0)}`);
+    } else if (budgetRange.min != null) {
+      parts.push(`budget ≥ €${budgetRange.min.toFixed(0)}`);
+    }
+  } else if (context.user_context.max_budget_eur != null) {
     parts.push(`budget ≤ €${context.user_context.max_budget_eur.toFixed(0)}`);
   }
   if (context.user_context.destination_focus.length) {
     parts.push(`destinations ${context.user_context.destination_focus.join(", ")}`);
+  }
+  const activityTypes = context.user_context.activity_types ?? [];
+  if (activityTypes.length) {
+    parts.push(`activity ${activityTypes.join(", ")}`);
+  }
+  const stayDuration = context.user_context.stay_duration_days;
+  if (stayDuration && (stayDuration.min != null || stayDuration.max != null)) {
+    if (stayDuration.min != null && stayDuration.max != null) {
+      parts.push(`${stayDuration.min}-${stayDuration.max} days`);
+    } else {
+      parts.push(`${stayDuration.min ?? stayDuration.max} days`);
+    }
   }
   if (context.user_context.preference_tags.length) {
     parts.push(`preferences ${context.user_context.preference_tags.join(", ")}`);
