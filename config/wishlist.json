@@ -1,1 +1,54 @@
-[]
+[
+  {
+    "destination": "Pico Island, Azores",
+    "iata": "PIX",
+    "status": "scouted",
+    "intent_tags": [
+      "wildlife",
+      "relax",
+      "ocean",
+      "remote",
+      "coastal"
+    ],
+    "avoid_periods": [
+      "Aug"
+    ],
+    "notes": "July-September peak window for sperm whales and sei whales. Calmer seas, stable weather. Low crowds vs mainland Europe. Lajes do Pico world-class whale watching. Volcanic landscapes, diving. MAD via LIS."
+  },
+  {
+    "destination": "Sal Island, Cape Verde",
+    "iata": "SAL",
+    "status": "scouted",
+    "intent_tags": [
+      "wildlife",
+      "relax",
+      "ocean",
+      "remote",
+      "coastal"
+    ],
+    "avoid_periods": [
+      "Dec",
+      "Jan",
+      "Feb"
+    ],
+    "notes": "July is shoulder season for Cape Verde (peak is Nov-Mar for Europeans). Sea turtles nesting on Santa Maria beach (Loggerhead turtles, July-Sept). Kite surfing, diving, genuinely remote Atlantic. Low crowds vs peak winter. Direct flights from MAD/AGP/LPA."
+  },
+  {
+    "destination": "Sal Island, Cape Verde",
+    "iata": "SID",
+    "status": "scouted",
+    "intent_tags": [
+      "wildlife",
+      "relax",
+      "ocean",
+      "remote",
+      "coastal"
+    ],
+    "avoid_periods": [
+      "Dec",
+      "Jan",
+      "Feb"
+    ],
+    "notes": "July shoulder season (peak is Nov-Mar for Europeans). Loggerhead sea turtles nesting July-Sept on Santa Maria beach. Kite surfing, diving, genuinely remote Atlantic. Very low crowds vs peak winter. Direct flights from MAD/AGP/LPA."
+  }
+]
