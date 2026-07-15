@@ -1,0 +1,184 @@
+{
+  "trip_id": "PIX-20260917-atlas",
+  "destination": "Pico Island, Azores",
+  "flight": {
+    "flight_id": "MAD-PIX-2026-09-17",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "PIX",
+    "destination_name": "Pico Island, Azores",
+    "travel_window_start": "2026-09-17",
+    "travel_window_end": "2026-09-24",
+    "days_out": 64,
+    "price_economy_eur": 318,
+    "price_business_eur": null,
+    "stops": 1,
+    "best_layover": "LIS",
+    "travel_time_hours": 5.25,
+    "booking_url": "https://kiwi.com/u/vfsh8z",
+    "snapshot_date": "2026-07-15",
+    "search_error": null
+  },
+  "hotel": {
+    "name": "Pico Dreams - Sportfish",
+    "tripadvisor_id": 6577963,
+    "rating": 4.3,
+    "review_count": 58,
+    "price_per_night_eur": 112,
+    "total_stay_eur": 787,
+    "location": "Sao Roque do Pico, Pico Island, Azores",
+    "styles": [
+      "Hidden Gem",
+      "Charming"
+    ],
+    "amenities_highlight": "Sport fishing base with ocean access; boutique character; close to whale-watching embarkation",
+    "review_summary": "Guests consistently highlight the island-immersed feel, hands-on host, and direct sea access — a proper base for outdoor Azores, not a tourist hotel.",
+    "booking_url": "https://www.tripadvisor.com/Hotel_Review-g735545-d6577963-Reviews-Pico_Dreams_Sportfish-Sao_Roque_do_Pico_Pico_Azores.html"
+  },
+  "hotel_alt": {
+    "name": "Casas Alto da Bonanca",
+    "tripadvisor_id": 14105898,
+    "rating": 5,
+    "review_count": 4,
+    "price_per_night_eur": 102,
+    "total_stay_eur": 714,
+    "location": "Sao Roque do Pico, Pico Island, Azores",
+    "styles": [
+      "Quaint"
+    ],
+    "amenities_highlight": "Self-catering hillside cottages with volcanic landscape views",
+    "review_summary": "Perfect 5.0 from early guests — quaint, quiet cottages above the lava coastline with unobstructed Atlantic views.",
+    "booking_url": "https://www.tripadvisor.com/Hotel_Review-g735545-d14105898-Reviews-Casas_Alto_da_Bonanca-Sao_Roque_do_Pico_Pico_Azores.html"
+  },
+  "daily_plan": [
+    {
+      "day": 1,
+      "date": "2026-09-17",
+      "label": "Arrival",
+      "activities": []
+    },
+    {
+      "day": 2,
+      "date": "2026-09-18",
+      "label": "Ocean day",
+      "activities": [
+        {
+          "slot": "AM",
+          "viator_code": "155438P1",
+          "title": "Whale and Dolphin Watching — Pico Island",
+          "price_eur": 70,
+          "duration_minutes": 180,
+          "rating": 4.89,
+          "review_count": 46,
+          "description": "Small-boat excursion from Lajes do Pico with ex-whalers as guides — sperm whales still resident in the channel in September, common and bottlenose dolphins reliably spotted.",
+          "link": "https://www.viator.com/tours/Pico/Whale-and-dolphin-watching-in-Pico-Island/d50346-155438P1?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        },
+        {
+          "slot": "PM",
+          "viator_code": "5666154P8",
+          "title": "Pico Island — Volcanic Lakes and Highlands Guided Tour",
+          "price_eur": 71,
+          "duration_minutes": 240,
+          "rating": null,
+          "review_count": 0,
+          "description": "4-hour tour through Pico's interior calderas and highland lagoons — Lagoa do Capitão, lava tubes, and dramatic volcanic landscapes rarely seen from the coast.",
+          "link": "https://www.viator.com/tours/Pico/Pico-Island-Volcanic-Lakes-and-Highlands-Guided-Tour/d50346-5666154P8?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-09-19",
+      "label": "Summit day",
+      "activities": [
+        {
+          "slot": "Full day",
+          "viator_code": "275106P4",
+          "title": "Mount Pico Guided Climb — Summit Portugal's Highest Peak",
+          "price_eur": 85,
+          "duration_minutes": 420,
+          "rating": 4.95,
+          "review_count": 194,
+          "description": "Guided 7-hour ascent of Pico Volcano (2,351m) — Portugal's highest summit and one of the Atlantic's most dramatic climbs, with crater rim views stretching to Faial and São Jorge on a clear September morning.",
+          "link": "https://www.viator.com/tours/Pico/Climb-Pico-Mountain/d50346-275106P4?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-09-20",
+      "label": "Wine and lava coast",
+      "activities": [
+        {
+          "slot": "AM",
+          "viator_code": "5666154P2",
+          "title": "Pico Wine Route — UNESCO Vineyard Landscape",
+          "price_eur": 59,
+          "duration_minutes": 240,
+          "rating": null,
+          "review_count": 0,
+          "description": "Half-day through the UNESCO-listed currais — the extraordinary black lava-walled vineyard plots unique to Pico — with tastings of Verdelho and Arinto wines at a family adega.",
+          "link": "https://www.viator.com/tours/Pico/Pico-Wine-Route-Tour-UNESCO-Vineyard-Landscape-Experience/d50346-5666154P2?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-09-21",
+      "label": "Faial day trip (self-guided)",
+      "activities": []
+    },
+    {
+      "day": 6,
+      "date": "2026-09-22",
+      "label": "Second whale watch",
+      "activities": [
+        {
+          "slot": "AM",
+          "viator_code": "289301P1",
+          "title": "Whale and Dolphin Watching — Half Day",
+          "price_eur": 66,
+          "duration_minutes": 180,
+          "rating": 4.61,
+          "review_count": 171,
+          "description": "A second shot at the Pico-Faial channel with a different operator — September sightings of sperm whales remain high, and two trips dramatically increases chance of extended surface time.",
+          "link": "https://www.viator.com/tours/Pico/Whale-and-Dolphin-Watching/d50346-289301P1?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "date": "2026-09-23",
+      "label": "Lava pools, last evening",
+      "activities": []
+    },
+    {
+      "day": 8,
+      "date": "2026-09-24",
+      "label": "Departure",
+      "activities": []
+    }
+  ],
+  "total_estimate": {
+    "flight_eur": 318,
+    "hotel_eur": 787,
+    "activities_eur": 351,
+    "total_eur": 1456
+  },
+  "validation": {
+    "gates_passed": [
+      "min_composite_score",
+      "min_weather_score",
+      "allow_peak_crowds",
+      "min_isolation_score"
+    ],
+    "warnings": []
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true,
+    "note": "First scan for MAD-PIX route — no historical baseline. €318 appears exceptional but cannot be quantified without prior records."
+  },
+  "created_at": "2026-07-15T00:00:00Z"
+}

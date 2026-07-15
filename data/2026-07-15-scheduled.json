@@ -1,0 +1,258 @@
+{
+  "scan_date": "2026-07-15",
+  "run_mode": "scheduled",
+  "origin_resolved": "MAD",
+  "query": null,
+  "results": [
+    {
+      "flight": {
+        "flight_id": "MAD-PIX-2026-09-17",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "PIX",
+        "destination_name": "Pico Island, Azores",
+        "travel_window_start": "2026-09-17",
+        "travel_window_end": "2026-09-24",
+        "days_out": 64,
+        "price_economy_eur": 318,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": "LIS",
+        "travel_time_hours": 5.25,
+        "booking_url": "https://kiwi.com/u/vfsh8z",
+        "snapshot_date": "2026-07-15",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-PIX-2026-09-17",
+        "weather_score": 4,
+        "crowd_level": "low",
+        "notable_events": [],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 5,
+        "personal_flag": "September sweet spot: sperm whales still active in the channel, empty coastal paths, volcanic silence — and nearly two-thirds cheaper than August.",
+        "raw_reasoning": "September 17-24 sits in the ideal post-peak window. August school holidays are over across Europe; domestic Portuguese tourism drops sharply. Sperm whales are resident year-round in the Pico-Faial channel and September encounters remain excellent — the migratory baleen species (blue, fin, humpback) have largely passed but sperm whales compensate. Weather: Sept on Pico averages 22C, with rain risk increasing vs summer but still predominantly good weather. Some Atlantic fronts possible but week-scale windows are reliable. Crowds: very low — accommodation prices drop, trails empty, boat tours often half-full. €318 is exceptional — well below any historical norm I'd expect for this route (first scan, thin baseline). Isolation score 5: genuinely off-season feel."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 8.1,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-SID-2026-09-10",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "SID",
+        "destination_name": "Sal Island, Cape Verde",
+        "travel_window_start": "2026-09-10",
+        "travel_window_end": "2026-09-15",
+        "days_out": 57,
+        "price_economy_eur": 282,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": "MXP",
+        "travel_time_hours": 13.08,
+        "booking_url": "https://kiwi.com/u/sdnwpq",
+        "snapshot_date": "2026-07-15",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-SID-2026-09-10",
+        "weather_score": 4,
+        "crowd_level": "low",
+        "notable_events": [
+          "Sea turtle nesting still active in September (season runs July-October) — hatching begins for early nests"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 4,
+        "personal_flag": "Early September on Sal: turtles still nesting and early-season hatchlings emerging, seas calm and clear, and virtually empty beaches — the dry season's best value window at €282.",
+        "raw_reasoning": "September 10-15 on Sal. The dry season continues through September. Sea turtle nesting active: late-July nests begin hatching in September, so the beach wildlife cycle adds hatchling emergence to ongoing nesting — a rare wildlife double. Weather: slightly lower temps (26-27C), same dry and sunny conditions. European crowds: schools back in session across Europe, resort occupancy drops sharply after first week of September. Santa Maria beach hotels running at ~40-50% vs 80%+ in December-March peak. Isolation score 4: shoulder season creates genuine quietness on an island that is normally resort-heavy. Route via Milan (MXP) is unusual but both legs are easyJet — clean 1-stop each way with 5h layovers within limit. €282 is outstanding — no historical baseline to compare but this price is well below any comparable Atlantic island route. 5 nights (Sep 10-15) fits minimum stay."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 8.03,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-SID-2026-08-11",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "SID",
+        "destination_name": "Sal Island, Cape Verde",
+        "travel_window_start": "2026-08-11",
+        "travel_window_end": "2026-08-19",
+        "days_out": 27,
+        "price_economy_eur": 577,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": "LPA",
+        "travel_time_hours": 6.75,
+        "booking_url": "https://kiwi.com/u/pbbqdz",
+        "snapshot_date": "2026-07-15",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-SID-2026-08-11",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [
+          "August is the single best month for loggerhead turtle nesting on Sal — nightly nest counts at maximum"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 3,
+        "personal_flag": "August is peak turtle nesting on Sal: highest nest counts of the year, excellent diving, warm flat sea — and still less crowded than December resort season.",
+        "raw_reasoning": "August 11-19 on Sal. Dry season at its most reliable. Loggerhead nesting: Project Biodiversity identifies August as the optimum month for nesting density — Sal's tallest beaches see highest nesting counts. Turtle night-watch programs run every night with guided groups. Weather: avg 28C, flat seas, near-zero rain chance. Diving: warm water 27-28C, typically 20-30m visibility off Pedra de Lume and Buracona. Crowds: European school summer holidays mean more visitors than shoulder months, but total visitor density is well below the December-March European beach escape peak. Route via LPA (Gran Canaria) is clean — 6.75h total travel. Isolation score 3: Sal is the most developed Cape Verde island (beach resort strip in Santa Maria) but only ~30km long — easy to escape to empty northern coast. €577 reasonable for this route."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.41,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-PIX-2026-07-29",
+        "source": "lastminute",
+        "origin": "MAD",
+        "destination": "PIX",
+        "destination_name": "Pico Island, Azores",
+        "travel_window_start": "2026-07-29",
+        "travel_window_end": "2026-08-05",
+        "days_out": 14,
+        "price_economy_eur": 778.59,
+        "price_business_eur": null,
+        "stops": 2,
+        "best_layover": "LIS",
+        "travel_time_hours": 21.75,
+        "booking_url": "https://www.lastminute.ie/msr/route/searching.do?departureAirport=MAD&arrivalAirport=PIX&outboundDay=29&outboundMonthYear=072026&returnDay=05&returnMonthYear=082026&adults=1&childs=0&infants=0&COBRANDED=LMNEN_LLMPROJECTEN&currency=EUR&url=search3.do&roundtrip=true&fareType=&requestId=796606169419130880&mac=796606169419130880SCHv011629109666&acntb=flight&utm_term=MADPIX&utm_campaign=results&utm_medium=meta_search&utm_source=LMNEN_LLMPROJECTEN&bf_subsource=-----WS0S02RS01&j=778590&jC=778590_EUR&cp=0",
+        "snapshot_date": "2026-07-15",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-PIX-2026-07-29",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Festival Cais Agosto (Jul 29 - Aug 2, Sao Roque do Pico): 5-day music and cultural festival coincides with arrival date"
+        ],
+        "distortion_flag": true,
+        "distortion_reason": "Festival Cais Agosto (Jul 29-Aug 2) runs concurrent with arrival — elevated accommodation pressure and local crowds in Sao Roque do Pico for days 1-4 of the trip. Not a structural baseline price signal.",
+        "surf_quality": null,
+        "isolation_score": 3,
+        "personal_flag": "Lands right on Festival Cais Agosto — five days of local music on an island already buzzing with peak whale-watching activity; exciting but not the isolated Atlantic escape.",
+        "raw_reasoning": "July 29 arrival on Pico coincides exactly with the start of Festival Cais Agosto (Jul 29-Aug 2), a growing cultural/music festival in Sao Roque do Pico. This creates real accommodation pressure and crowd distortion that is event-driven, not structural. Whale watching is excellent (peak sperm whale season). Summer weather is stable — 24-26C, calmer seas. Crowds are at medium baseline for July but the festival pushes local density up. The €778 price may partly reflect this event period. Mark as distorted — do not use for baseline comparison. Isolation score 3: festival + summer = busy pockets, though the volcanic interior remains empty."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 6.08,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-SID-2026-07-29",
+        "source": "lastminute",
+        "origin": "MAD",
+        "destination": "SID",
+        "destination_name": "Sal Island, Cape Verde",
+        "travel_window_start": "2026-07-29",
+        "travel_window_end": "2026-08-05",
+        "days_out": 14,
+        "price_economy_eur": 836.69,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": "LIS",
+        "travel_time_hours": 8.25,
+        "booking_url": "https://www.lastminute.ie/msr/route/searching.do?departureAirport=MAD&arrivalAirport=SID&outboundDay=29&outboundMonthYear=072026&returnDay=05&returnMonthYear=082026&adults=1&childs=0&infants=0&COBRANDED=LMNEN_LLMPROJECTEN&currency=EUR&url=search3.do&roundtrip=true&fareType=&requestId=796606404338083840&mac=796606404338083840SCHv01-344210865&acntb=flight&utm_term=MADSID&utm_campaign=results&utm_medium=meta_search&utm_source=LMNEN_LLMPROJECTEN&bf_subsource=-----WS0S02RS01&j=836690&jC=836690_EUR&cp=0",
+        "snapshot_date": "2026-07-15",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-SID-2026-07-29",
+        "weather_score": 4,
+        "crowd_level": "medium",
+        "notable_events": [
+          "Peak loggerhead sea turtle nesting period (Jul-Aug, Santa Maria beach guided night watches available nightly)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 3,
+        "personal_flag": "Late July on Sal: highest nesting density of the year for loggerheads, warm flat seas, and fewer Northern Europeans than the December-March peak.",
+        "raw_reasoning": "July 29-Aug 5 on Sal Island, Cape Verde. The dry season runs roughly June-October, making July weather excellent: 27-29C, low humidity, calm seas. Loggerhead sea turtle nesting peaks in July-August on Santa Maria beach — Project Biodiversity recorded 36,500+ nests in 2024 across Sal and Boavista. Turtle-watching tours are well-organized and regulated but have become increasingly popular with tourist groups. Crowds: European summer tourists arrive, but Sal's peak tourist season for Europeans is December-March (beach holiday escape from cold); July is lower than that peak though higher than autumn. Isolation score 3: Santa Maria has resort infrastructure but the eastern and northern coastlines remain quiet. €837 (lastminute) is higher than Kiwi alternatives for similar routes — within 21-day window premium. Diving conditions excellent in July (warm water, 25m+ visibility)."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 5.98,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    },
+    {
+      "flight": {
+        "flight_id": "MAD-PIX-2026-08-07",
+        "source": "kiwi",
+        "origin": "MAD",
+        "destination": "PIX",
+        "destination_name": "Pico Island, Azores",
+        "travel_window_start": "2026-08-07",
+        "travel_window_end": "2026-08-17",
+        "days_out": 23,
+        "price_economy_eur": 1016,
+        "price_business_eur": null,
+        "stops": 1,
+        "best_layover": "LIS",
+        "travel_time_hours": 8.08,
+        "booking_url": "https://kiwi.com/u/uq3c3d",
+        "snapshot_date": "2026-07-15",
+        "search_error": null
+      },
+      "annotation": {
+        "flight_id": "MAD-PIX-2026-08-07",
+        "weather_score": 4,
+        "crowd_level": "high",
+        "notable_events": [
+          "Bom Jesus Festival (Aug 6, just before departure)",
+          "Semana dos Baleeiros / Whalers Week (late August, Aug 24-31 — after return)"
+        ],
+        "distortion_flag": false,
+        "distortion_reason": null,
+        "surf_quality": null,
+        "isolation_score": 2,
+        "personal_flag": "Peak August on Pico: guaranteed daily whale sightings, warm ocean, but accommodation full and prices structurally elevated for the season — no good deal here.",
+        "raw_reasoning": "August 7-17 is core peak summer on Pico Island. Bom Jesus Festival Aug 6 (day before departure) may affect availability but ends before travel. Whalers Week (Aug 24-31) is after return — no direct overlap. High crowds structurally: Portuguese and EU summer holiday peak. Whale watching is excellent (sperm whales, bottlenose dolphins, common dolphins all active). Weather: reliable summer — avg 25C, low rain probability. Price €1,016 reflects structural peak-season pricing, not event distortion. Isolation score 2: Madalena busy with ferries, beaches crowded, trails busy. Lajes do Pico has whale-watching tour queues."
+      },
+      "price_vs_baseline_pct": null,
+      "composite_score": 4.81,
+      "opportunity_flag": false,
+      "opportunity_reason": null
+    }
+  ],
+  "itinerary_delivered": false,
+  "itinerary_text": "ATLAS — 2026-07-15 · from MAD\n\n#1 Pico Island, Azores via LIS\n✈ €318 · 1 stop(s) · 5.3h · Book → https://kiwi.com/u/vfsh8z\n📅 2026-09-17 – 2026-09-24 (7 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: low\n💡 September sweet spot: sperm whales still active in the channel, empty coastal paths, volcanic silence — and nearly two-thirds cheaper than August. Thin history for this route; baseline still forming.\n\n#2 Sal Island, Cape Verde via MXP\n✈ €282 · 1 stop(s) · 13.1h · Book → https://kiwi.com/u/sdnwpq\n📅 2026-09-10 – 2026-09-15 (5 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: low\n💡 Early September on Sal: turtles still nesting and early-season hatchlings emerging, seas calm and clear, and virtually empty beaches — the dry season's best value window at €282. Thin history for this route; baseline still forming.\n\n#3 Sal Island, Cape Verde via LPA\n✈ €577 · 1 stop(s) · 6.8h · Book → https://kiwi.com/u/pbbqdz\n📅 2026-08-11 – 2026-08-19 (8 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 August is peak turtle nesting on Sal: highest nest counts of the year, excellent diving, warm flat sea — and still less crowded than December resort season. Thin history for this route; baseline still forming.\n\n#4 Sal Island, Cape Verde via LIS\n✈ €837 · 1 stop(s) · 8.3h · Book → https://www.lastminute.ie/msr/route/searching.do?departureAirport=MAD&arrivalAirport=SID&outboundDay=29&outboundMonthYear=072026&returnDay=05&returnMonthYear=082026&adults=1&childs=0&infants=0&COBRANDED=LMNEN_LLMPROJECTEN&currency=EUR&url=search3.do&roundtrip=true&fareType=&requestId=796606404338083840&mac=796606404338083840SCHv01-344210865&acntb=flight&utm_term=MADSID&utm_campaign=results&utm_medium=meta_search&utm_source=LMNEN_LLMPROJECTEN&bf_subsource=-----WS0S02RS01&j=836690&jC=836690_EUR&cp=0\n📅 2026-07-29 – 2026-08-05 (7 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: medium\n💡 Late July on Sal: highest nesting density of the year for loggerheads, warm flat seas, and fewer Northern Europeans than the December-March peak. Thin history for this route; baseline still forming.\n\n#5 Pico Island, Azores via LIS\n✈ €1016 · 1 stop(s) · 8.1h · Book → https://kiwi.com/u/uq3c3d\n📅 2026-08-07 – 2026-08-17 (10 days)\n🌤 Weather: 4/5 — strong weather window\n👥 Crowds: high\n💡 Peak August on Pico: guaranteed daily whale sightings, warm ocean, but accommodation full and prices structurally elevated for the season — no good deal here. Thin history for this route; baseline still forming.\n\nDataset: 6 records across 2 routes · Updated 2026-07-15\n",
+  "execution_context": {
+    "trigger_source": "telegram",
+    "origin_interface": "telegram",
+    "request_text": null,
+    "defaulted_params": [],
+    "context_summary": [],
+    "resolved_origin": "MAD",
+    "user_context": {
+      "location_label": null,
+      "preferred_origins": [],
+      "max_budget_eur": null,
+      "destination_focus": [],
+      "preference_tags": [],
+      "notes": [],
+      "activity_types": [],
+      "stay_duration_days": null,
+      "budget_range_eur": null
+    },
+    "telegram": null,
+    "command": null
+  }
+}
