@@ -19,7 +19,15 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check for commits ahead of main
+        id: check
+        run: |
+          git fetch origin main
+          ahead=$(git rev-list --count origin/main..HEAD)
+          echo "ahead=$ahead" >> "$GITHUB_OUTPUT"
+
       - name: Create PR and auto-merge
+        if: steps.check.outputs.ahead != '0'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
