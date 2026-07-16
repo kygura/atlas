@@ -1,0 +1,161 @@
+{
+  "trip_id": "ace_20260922_atlas01",
+  "destination": "Lanzarote (La Graciosa), Canary Islands",
+  "flight": {
+    "flight_id": "MAD-ACE-2026-09-22",
+    "source": "kiwi",
+    "origin": "MAD",
+    "destination": "ACE",
+    "destination_name": "Lanzarote (La Graciosa)",
+    "travel_window_start": "2026-09-22",
+    "travel_window_end": "2026-09-29",
+    "days_out": 68,
+    "price_economy_eur": 46,
+    "price_business_eur": null,
+    "stops": 0,
+    "best_layover": null,
+    "travel_time_hours": 2.75,
+    "booking_url": "https://kiwi.com/u/ysrb89",
+    "snapshot_date": "2026-07-16",
+    "search_error": null
+  },
+  "hotel": {
+    "name": "La Casa de los Naranjos",
+    "location": "Haría, Lanzarote (10 min from the Órzola ferry to La Graciosa)",
+    "rating": 4.8,
+    "review_count": 70,
+    "price_per_night_eur": 174,
+    "total_stay_eur_7_nights": 1218,
+    "booking_url": "https://www.tripadvisor.com/Hotel_Review-g1064321-d23832438-Reviews-La_Casa_de_los_Naranjos-Haria_Lanzarote_Canary_Islands.html?staydates=2026_09_22_2026_09_29&uguests=1_1",
+    "review_summary": "An 8-room restored 19th-century manor house that feels like staying at a friend's country home rather than a hotel — exactly the low-key, characterful stay this trip calls for.",
+    "amenities": [
+      "Free Wi-Fi",
+      "Free private parking",
+      "Wine bar",
+      "Garden courtyard",
+      "19th-century library",
+      "Included breakfast (fresh orange, eggs to order)",
+      "Pets allowed"
+    ]
+  },
+  "hotel_alt": {
+    "name": "Hotel Emblemático Delmás",
+    "location": "Haría, Lanzarote",
+    "rating": 4.1,
+    "review_count": 40,
+    "price_per_night_eur": 140,
+    "total_stay_eur_7_nights": 980,
+    "booking_url": "https://www.tripadvisor.com/Hotel_Review-g1064321-d12174561-Reviews-Hotel_Emblematico_Delmas-Haria_Lanzarote_Canary_Islands.html?staydates=2026_09_22_2026_09_29&uguests=1_1",
+    "review_summary": "A 300-year-old restored house turned small hotel with a pool and sauna — solid value runner-up, though a couple of reviewers flagged the pool as smaller than pictured.",
+    "amenities": [
+      "Free Wi-Fi",
+      "Free breakfast",
+      "Pool",
+      "Sauna & hot tub",
+      "Garden & terrace",
+      "Free parking",
+      "On-site restaurant"
+    ]
+  },
+  "daily_plan": [
+    {
+      "day": 1,
+      "date": "2026-09-23",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "La Graciosa Island Day Trip from Lanzarote",
+          "price_eur": 49,
+          "duration": "5h",
+          "rating": 5,
+          "description": "Ferry across from Órzola to the car-free island itself — Playa de las Conchas and Caleta de Sebo at an unhurried pace.",
+          "booking_url": "https://www.viator.com/tours/Lanzarote/La-Graciosa-Island-Day-Trip-from-Lanzarote-Transfer-Ferry/d5482-396764P32?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-09-24",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "Trekking in the Volcanoes Natural Park (small group)",
+          "price_eur": 47,
+          "duration": "3.5h",
+          "rating": 4.92,
+          "description": "Small-group hike through Timanfaya's lava fields, on foot rather than the standard bus loop most visitors take.",
+          "booking_url": "https://www.viator.com/tours/Lanzarote/Private-Hiking-Tour-of-the-Timanfaya-Volcanoes/d5482-334924P2?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-09-25",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "Lanzarote & La Graciosa Jeep Tour with Beach Time",
+          "price_eur": 55,
+          "duration": "2-4h",
+          "rating": 4.77,
+          "description": "Off-road jeep route through the island's volcanic interior ending with unstructured time at a quiet beach.",
+          "booking_url": "https://www.viator.com/tours/Isla-de-Graciosa/Lanzarote-La-Graciosa-Complete-Jeep-Tour-with-Beach-Time/d51271-396764P15?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-09-26",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "Discover La Graciosa at your leisure",
+          "price_eur": 31,
+          "duration": "5h",
+          "rating": null,
+          "description": "Self-guided return ferry with no fixed itinerary — a second, slower pass at the island's virgin coves.",
+          "booking_url": "https://www.viator.com/tours/Lanzarote/Discover-La-Graciosa-at-your-leisure/d5482-28965P496?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-09-27",
+      "activities": [],
+      "note": "Deliberately unscheduled — persona prefers minimal itinerary pressure. Free day around Haría/Órzola."
+    },
+    {
+      "day": 6,
+      "date": "2026-09-28",
+      "activities": [
+        {
+          "slot": "AM",
+          "title": "Lanzarote excursion in the Volcanoes Natural Park",
+          "price_eur": 20,
+          "duration": "2h",
+          "rating": null,
+          "description": "Low-key closing excursion through Timanfaya's craters before the last night ahead of departure.",
+          "booking_url": "https://www.viator.com/tours/Lanzarote/Lanzarote-excursion-in-the-Volcanoes-Natural-Park/d5482-5623505P6?pid=P00280233&medium=mcp&mcid=42383&client=anthropic"
+        }
+      ]
+    }
+  ],
+  "total_estimate": {
+    "flight_eur": 46,
+    "hotel_eur": 1218,
+    "activities_eur": 202,
+    "total_eur": 1466
+  },
+  "validation": {
+    "gates_passed": true,
+    "warnings": [
+      "Thin baseline: first scan for MAD-ACE route, no historical price comparison yet."
+    ]
+  },
+  "baseline_context": {
+    "median_price": null,
+    "deviation_pct": null,
+    "thin_baseline": true
+  },
+  "created_at": "2026-07-16T18:23:31Z"
+}
