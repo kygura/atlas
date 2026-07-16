@@ -175,8 +175,7 @@ Step 8 — Promote to master
 Run: bun run promote
 Merges the current branch into `master` and pushes. If branch protection
 blocks a direct merge, it falls back to creating a PR via `gh` and enabling
-auto-merge. The GitHub Actions `auto-merge.yml` workflow is a secondary
-safety net that performs the same action on any pushed branch.
+auto-merge.
 
 Defaults are stored in `config/trip_preferences.json` under `validation_gates`.
 User API requests can override any gate for the current run.
