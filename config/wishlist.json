@@ -50,5 +50,39 @@
       "Feb"
     ],
     "notes": "July shoulder season (peak is Nov-Mar for Europeans). Loggerhead sea turtles nesting July-Sept on Santa Maria beach. Kite surfing, diving, genuinely remote Atlantic. Very low crowds vs peak winter. Direct flights from MAD/AGP/LPA."
+  },
+  {
+    "destination": "São Tomé & Príncipe",
+    "iata": "TMS",
+    "status": "scouted",
+    "intent_tags": [
+      "wildlife",
+      "remote",
+      "ocean",
+      "coastal",
+      "nomadic",
+      "local-culture"
+    ],
+    "avoid_periods": [
+      "Nov",
+      "Dec",
+      "Jan",
+      "Feb"
+    ],
+    "notes": "Off the tourism radar, dubbed the 'African Galapagos'. Humpback whale watching season begins late July and runs through October off Príncipe. Turtle nesting is Nov-Feb (not in season now). Via Lisbon, 1 stop, ~12-18h total. High-end exception: Bom Bom Island Resort on Príncipe justified by genuine remoteness/exclusivity per luxury_exceptions."
+  },
+  {
+    "destination": "La Graciosa (Lanzarote), Canary Islands",
+    "iata": "ACE",
+    "status": "scouted",
+    "intent_tags": [
+      "relax",
+      "remote",
+      "coastal",
+      "ocean",
+      "nomadic"
+    ],
+    "avoid_periods": [],
+    "notes": "Car-free micro-island off Lanzarote, ~700 residents, no bars or sunbeds, virgin coves (La Cocina, Las Conchas). Stable dry summer weather. Direct flights from MAD/AGP/LPA into ACE, then short ferry from Orzola. Fills up for summer so book ahead, but genuinely low-infrastructure and quiet vs mainland Canary resorts."
   }
 ]
