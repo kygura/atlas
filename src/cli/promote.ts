@@ -44,8 +44,14 @@ export function runPromote(options: PromoteOptions = {}) {
         "--title", `atlas: promote ${currentBranch}`,
         "--body", `Auto-generated scan results from ${currentBranch}.`
       ]);
-      gh(rootDir, ["pr", "merge", prUrl, "--squash", "--auto"]);
-      return { pushed: true, merged: true, branch: currentBranch, reason: `Created and auto-merged PR for ${currentBranch} into ${targetBranch}.` };
+      try {
+        gh(rootDir, ["pr", "merge", prUrl, "--squash"]);
+      } catch {
+        // Immediate merge can fail on pending required checks; auto-merge
+        // still requires the repo's "Allow auto-merge" setting to be on.
+        gh(rootDir, ["pr", "merge", prUrl, "--squash", "--auto"]);
+      }
+      return { pushed: true, merged: true, branch: currentBranch, reason: `Created and merged PR for ${currentBranch} into ${targetBranch}.` };
     } catch (prErr) {
       throw new Error(
         `Failed to merge ${currentBranch} into ${targetBranch}. PR fallback also failed: ${prErr instanceof Error ? prErr.message : String(prErr)}`

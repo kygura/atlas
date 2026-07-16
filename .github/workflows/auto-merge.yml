@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create PR and auto-merge
+      - name: Create PR and merge
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -28,4 +28,9 @@ jobs:
           if [ -z "$pr_url" ]; then
             pr_url=$(gh pr create --base main --head "$branch" --title "Routine update from $branch" --body "Auto-generated scan results.")
           fi
-          gh pr merge "$pr_url" --squash --auto
+          # Try an immediate merge first; it doesn't depend on the repo's
+          # "Allow auto-merge" setting, which has intermittently been off and
+          # left routine PRs (e.g. #10) stranded with "Auto merge is not
+          # allowed for this repository". Fall back to --auto only if the
+          # immediate merge is rejected (e.g. pending required checks).
+          gh pr merge "$pr_url" --squash || gh pr merge "$pr_url" --squash --auto
