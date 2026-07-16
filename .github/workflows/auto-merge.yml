@@ -26,7 +26,7 @@ jobs:
           ahead=$(git rev-list --count origin/main..HEAD)
           echo "ahead=$ahead" >> "$GITHUB_OUTPUT"
 
-      - name: Create PR and auto-merge
+      - name: Create PR and merge
         if: steps.check.outputs.ahead != '0'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,4 +36,4 @@ jobs:
           if [ -z "$pr_url" ]; then
             pr_url=$(gh pr create --base main --head "$branch" --title "Routine update from $branch" --body "Auto-generated scan results.")
           fi
-          gh pr merge "$pr_url" --squash --auto
+          gh pr merge "$pr_url" --squash
