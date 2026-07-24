@@ -28,17 +28,23 @@ yourself:
   per candidate region/theme to run `web_search` concurrently and report back
   a destination + rationale. Do not scout destinations serially in the main
   thread.
-- **Step 2 (Search flights):** spawn one subagent per scouted destination to
-  query Kiwi.com and lastminute.com for Window A and Window B in parallel.
-  Each subagent returns raw results for its destination only; you merge them
-  before writing `tmp/raw_results.json`.
-- **Step 1.4 (Annotate):** spawn one subagent per `FlightResult` (or a small
-  batch per subagent if the result set is large) to run `web_search` and
-  produce that flight's annotation object concurrently. Merge the returned
-  objects into `tmp/annotations.json`.
+- **Steps 2 + 1.4 (Search flights + Annotate) — fanned out per destination:**
+  once destinations are scouted, spawn **one subagent per destination**, and
+  keep that same subagent responsible for both of that destination's steps
+  end to end:
+  1. query Kiwi.com and lastminute.com for Window A and Window B,
+  2. `web_search` the actual travel-window conditions and produce the
+     annotation object for each resulting `FlightResult`.
+  A destination's subagent returns its annotated `FlightResult`s as one unit;
+  you merge across destinations before writing `tmp/raw_results.json` /
+  `tmp/annotations.json`. Keeping search + annotate in the same per-destination
+  subagent (rather than fanning them out separately) is what keeps the
+  reasoning about a destination's conditions coherent — the subagent that
+  found the flight windows is the one that assesses them.
 - **Phase 3 (Trip planning):** for each candidate that passes validation (up
-  to 2), spawn a dedicated subagent to run the TripAdvisor + Viator research
-  for that destination in parallel with the other candidate's subagent.
+  to 2), spawn a dedicated subagent — one per destination — to run the
+  TripAdvisor + Viator research for that destination in parallel with the
+  other candidate's subagent.
 
 Launch each batch of subagents in a single response (parallel tool calls),
 not sequential ones. The orchestrating (main) run is the only one that
@@ -120,7 +126,9 @@ or query mode.
    (steps 4–5), not the full contents of `config/wishlist.json`.
 
 Step 2 — Search flights
-For each destination scouted in Step 1.5, use Kiwi.com and lastminute.com to find:
+Fan out one subagent per destination scouted in Step 1.5 (see Subagent
+Execution Policy above — that same subagent also owns Step 1.4 for its
+destination). Each subagent uses Kiwi.com and lastminute.com to find:
 
 - **Window A**: cheapest flight 2–4 weeks out
 - **Window B**: cheapest flight 6–10 weeks out
@@ -156,8 +164,10 @@ Reads `tmp/raw_results.json` → writes `tmp/flight_results.json` as typed
 
 ### Step 1.4 — Annotate
 
-For each `FlightResult`, use `web_search` to assess actual conditions during
-the travel window:
+Handled by the same per-destination subagent as Step 2 (see Subagent
+Execution Policy above), immediately after that subagent finds its
+destination's flights. For each `FlightResult` it produced, use `web_search`
+to assess actual conditions during the travel window:
 
 | Field              | Type        | Description                                         |
 |--------------------|-------------|-----------------------------------------------------|
@@ -687,8 +697,10 @@ Inbound Telegram images preserved as `photo_file_id` inside
 13. When `execution_context.command` is present, its structured
     `user_context` fields (destination, activity type, stay duration, budget
     range, origin) take priority over guessing from `request_text`.
-14. Scouting (Step 1.5), flight search (Step 2), annotation (Step 1.4), and
-    Phase 3 trip planning must run as parallel subagents — one per
-    destination/flight/candidate — per the Subagent Execution Policy above.
-    Looping through multiple independent items serially in the main thread is
+14. Scouting (Step 1.5) and Phase 3 trip planning must run as parallel
+    subagents, one per candidate/destination. Flight search (Step 2) and
+    annotation (Step 1.4) must run as parallel subagents fanned out **per
+    destination**, with each destination's subagent owning both steps —
+    per the Subagent Execution Policy above. Looping through multiple
+    independent items serially in the main thread is
     a violation of this contract, not a stylistic choice.
