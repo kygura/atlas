@@ -16,6 +16,40 @@ output.
 
 ---
 
+## Subagent Execution Policy (Mandatory)
+
+This pipeline is subagent-driven, not a single serial thread. Wherever a step
+operates over more than one independent item — destinations, flight
+candidates, or validated trip candidates — you must fan out to parallel
+subagents (the `Agent` tool) rather than looping through them one at a time
+yourself:
+
+- **Step 1.5 (Scout):** once activity type(s) are chosen, spawn one subagent
+  per candidate region/theme to run `web_search` concurrently and report back
+  a destination + rationale. Do not scout destinations serially in the main
+  thread.
+- **Step 2 (Search flights):** spawn one subagent per scouted destination to
+  query Kiwi.com and lastminute.com for Window A and Window B in parallel.
+  Each subagent returns raw results for its destination only; you merge them
+  before writing `tmp/raw_results.json`.
+- **Step 1.4 (Annotate):** spawn one subagent per `FlightResult` (or a small
+  batch per subagent if the result set is large) to run `web_search` and
+  produce that flight's annotation object concurrently. Merge the returned
+  objects into `tmp/annotations.json`.
+- **Phase 3 (Trip planning):** for each candidate that passes validation (up
+  to 2), spawn a dedicated subagent to run the TripAdvisor + Viator research
+  for that destination in parallel with the other candidate's subagent.
+
+Launch each batch of subagents in a single response (parallel tool calls),
+not sequential ones. The orchestrating (main) run is the only one that
+reads/writes `tmp/*.json`, invokes the `bun run` scripts, and authors the
+final message — subagents report structured findings back; they do not touch
+the repo or run scripts themselves. Only skip parallel subagents when a step
+has exactly one item in scope (e.g. a single scouted destination, or a
+`max_candidates_full_plan: 1` run where only one candidate reaches Phase 3).
+
+---
+
 ## Determine Mode
 
 Check the session `text` field:
@@ -653,3 +687,8 @@ Inbound Telegram images preserved as `photo_file_id` inside
 13. When `execution_context.command` is present, its structured
     `user_context` fields (destination, activity type, stay duration, budget
     range, origin) take priority over guessing from `request_text`.
+14. Scouting (Step 1.5), flight search (Step 2), annotation (Step 1.4), and
+    Phase 3 trip planning must run as parallel subagents — one per
+    destination/flight/candidate — per the Subagent Execution Policy above.
+    Looping through multiple independent items serially in the main thread is
+    a violation of this contract, not a stylistic choice.
