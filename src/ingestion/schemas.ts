@@ -4,8 +4,9 @@ const isoDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 
 export const FlightSourceSchema = z.enum(["kiwi", "lastminute"]);
 export const CrowdLevelSchema = z.enum(["low", "medium", "high", "peak"]);
-export const RunModeSchema = z.enum(["scheduled", "query"]);
+export const RunModeSchema = z.enum(["scheduled", "query", "discovery"]);
 export const TriggerSourceSchema = z.enum(["scheduled", "telegram"]);
+export const WishlistSourceSchema = z.enum(["scouted", "user_requested"]);
 export const OriginInterfaceSchema = z.enum(["routine_schedule", "telegram"]);
 export const TelegramParseModeSchema = z.enum(["MarkdownV2", "HTML"]);
 
@@ -135,10 +136,40 @@ export const WishlistItemSchema = z.object({
   status: z.string().min(1),
   intent_tags: z.array(z.string()),
   avoid_periods: z.array(z.string()).optional(),
-  notes: z.string().optional()
+  notes: z.string().optional(),
+  // Distinguishes autonomous Discovery Mode finds from destinations a user
+  // explicitly asked to be watched via /watch. Missing on older cache
+  // entries — treated as "scouted" by consumers.
+  source: WishlistSourceSchema.optional(),
+  // Telegram chat_id to notify when a watched destination clears the deal
+  // bar. Required in practice for source: "user_requested" entries.
+  requested_by: z.string().nullable().optional(),
+  target_budget_eur: NumericRangeSchema.nullable().optional(),
+  watch_active: z.boolean().optional(),
+  discovery_score: z.number().min(0).max(10).nullable().optional(),
+  added_at: isoDateSchema.nullable().optional(),
+  last_scouted_at: isoDateSchema.nullable().optional()
 });
 
 export const WishlistPatchSchema = z.array(WishlistItemSchema);
+
+export const WatchRequestSchema = z.object({
+  destination: z.string().min(1),
+  iata: z.string().length(3),
+  intent_tags: z.array(z.string()),
+  avoid_periods: z.array(z.string()).optional(),
+  notes: z.string().optional(),
+  requested_by: z.string().min(1),
+  target_budget_eur: NumericRangeSchema.nullable().optional()
+});
+
+export const WatchPatchSchema = z.array(WatchRequestSchema);
+
+export const WatchNotificationSchema = TelegramOutboundMessageSchema.extend({
+  chat_id: z.string().min(1)
+});
+
+export const WatchNotificationsSchema = z.array(WatchNotificationSchema);
 
 export const TravellerProfileSchema = z.object({
   persona: z.string().min(1),
@@ -164,12 +195,50 @@ export const DestinationCandidateSchema = z.object({
   reason: z.string().min(1),
   intent_tags: z.array(z.string()),
   avoid_periods: z.array(z.string()).optional(),
-  notes: z.string().optional()
+  notes: z.string().optional(),
+  // web_search-sourced signals for Discovery Mode composite scoring.
+  weather_score: z.number().int().min(1).max(5),
+  // Activity-specific conditions fit (swell/trail/wildlife activity/etc).
+  conditions_score: z.number().int().min(1).max(5),
+  // 5 = genuinely low/shoulder season right now, 1 = peak crowds.
+  tourism_season_score: z.number().int().min(1).max(5),
+  price_signal_eur: z.number().nonnegative().nullable(),
+  price_signal_note: z.string().nullable()
 });
+
+export const DestinationCandidatesSchema = z.array(DestinationCandidateSchema);
 
 export const ScoutPatchSchema = z.object({
   profile_id: z.string().min(1),
   candidates: z.array(DestinationCandidateSchema)
+});
+
+export const DiscoveryWeightsSchema = z.object({
+  weather_score: z.number().nonnegative(),
+  tourism_season_score: z.number().nonnegative(),
+  conditions_score: z.number().nonnegative(),
+  price_signal: z.number().nonnegative(),
+  min_composite_score: z.number().min(0).max(10),
+  repeat_penalty: z.number().nonnegative(),
+  repeat_window_days: z.number().int().nonnegative(),
+  max_candidates_per_run: z.number().int().positive()
+});
+
+export const ScoredDestinationCandidateSchema = DestinationCandidateSchema.extend({
+  composite_score: z.number().min(0).max(10),
+  repeat_penalty_applied: z.boolean(),
+  thin_price_signal: z.boolean()
+});
+
+export const ScoredDestinationCandidatesSchema = z.array(ScoredDestinationCandidateSchema);
+
+export const DiscoveryRunRecordSchema = z.object({
+  run_date: isoDateSchema,
+  activity_types: z.array(z.string()),
+  origin_resolved: z.string().length(3).nullable(),
+  candidates: ScoredDestinationCandidatesSchema,
+  passed_iatas: z.array(z.string()),
+  execution_context: ExecutionContextSchema.optional()
 });
 
 export const HardFiltersSchema = z.object({
@@ -215,3 +284,10 @@ export type ExecutionContext = z.infer<typeof ExecutionContextSchema>;
 export type TelegramOutboundMessage = z.infer<typeof TelegramOutboundMessageSchema>;
 export type NumericRange = z.infer<typeof NumericRangeSchema>;
 export type TelegramCommand = z.infer<typeof TelegramCommandSchema>;
+export type WishlistSource = z.infer<typeof WishlistSourceSchema>;
+export type WatchRequest = z.infer<typeof WatchRequestSchema>;
+export type WatchPatch = z.infer<typeof WatchPatchSchema>;
+export type WatchNotification = z.infer<typeof WatchNotificationSchema>;
+export type DiscoveryWeights = z.infer<typeof DiscoveryWeightsSchema>;
+export type ScoredDestinationCandidate = z.infer<typeof ScoredDestinationCandidateSchema>;
+export type DiscoveryRunRecord = z.infer<typeof DiscoveryRunRecordSchema>;

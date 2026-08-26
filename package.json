@@ -16,6 +16,8 @@
     "deliver": "bun run src/cli/deliver.ts",
     "configure": "bun run src/cli/configure.ts",
     "wishlist": "bun run src/cli/wishlist.ts",
+    "discover": "bun run src/cli/discover.ts",
+    "watch": "bun run src/cli/watch.ts",
     "promote": "bun run src/cli/promote.ts"
   },
   "dependencies": {

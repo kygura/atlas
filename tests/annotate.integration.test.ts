@@ -102,3 +102,80 @@ test("runAnnotate scores, writes data, commits scan record, and persists itinera
   }
   expect(execFileSync("git", ["-C", root, "log", "--oneline", "-1"], { encoding: "utf8" })).toContain("atlas: record");
 });
+
+test("runAnnotate writes tmp/watch_hits.json when a scored result clears a watched destination's deal bar", () => {
+  const root = mkdtempSync(join(tmpdir(), "atlas-annotate-watch-"));
+  mkdirSync(join(root, "tmp"), { recursive: true });
+  mkdirSync(join(root, "config"), { recursive: true });
+  mkdirSync(join(root, "data"), { recursive: true });
+
+  execFileSync("git", ["-C", root, "init"], { stdio: "ignore" });
+  execFileSync("git", ["-C", root, "config", "user.email", "atlas@example.com"], { stdio: "ignore" });
+  execFileSync("git", ["-C", root, "config", "user.name", "Atlas Test"], { stdio: "ignore" });
+
+  writeFileSync(join(root, "config", "wishlist.json"), JSON.stringify([
+    {
+      destination: "Lombok",
+      iata: "LOP",
+      status: "watching",
+      intent_tags: ["surf"],
+      source: "user_requested",
+      requested_by: "555",
+      watch_active: true,
+      target_budget_eur: { min: null, max: 900 }
+    }
+  ]));
+  writeFileSync(join(root, "config", "scoring_weights.json"), JSON.stringify({
+    price_vs_baseline: 0.3,
+    weather_score: 0.25,
+    crowd_level: 0.25,
+    surf_quality: 0.15,
+    isolation_score: 0.05,
+    opportunity_threshold: 7.5
+  }));
+
+  writeFileSync(join(root, "tmp", "flight_results.json"), JSON.stringify([
+    {
+      flight_id: "AGP-LOP-2026-05-10",
+      source: "kiwi",
+      origin: "AGP",
+      destination: "LOP",
+      destination_name: "Lombok",
+      travel_window_start: "2026-05-10",
+      travel_window_end: "2026-05-24",
+      days_out: 18,
+      price_economy_eur: 650,
+      price_business_eur: null,
+      stops: 1,
+      best_layover: "SIN",
+      travel_time_hours: 18,
+      booking_url: "https://example.com/book",
+      snapshot_date: "2026-04-22",
+      search_error: null
+    }
+  ]));
+
+  writeFileSync(join(root, "tmp", "annotations.json"), JSON.stringify([
+    {
+      flight_id: "AGP-LOP-2026-05-10",
+      weather_score: 5,
+      crowd_level: "low",
+      notable_events: [],
+      distortion_flag: false,
+      distortion_reason: null,
+      surf_quality: 4,
+      isolation_score: 5,
+      personal_flag: "Notable surf window.",
+      raw_reasoning: "reasoning"
+    }
+  ]));
+
+  const result = runAnnotate({ rootDir: root, mode: "scheduled" });
+  expect(result.watchHits).toHaveLength(1);
+  expect(result.watchHits[0].requested_by).toBe("555");
+  expect(result.watchHits[0].iata).toBe("LOP");
+
+  const written = JSON.parse(readFileSync(join(root, "tmp", "watch_hits.json"), "utf8"));
+  expect(written).toHaveLength(1);
+  expect(written[0].requested_by).toBe("555");
+});
