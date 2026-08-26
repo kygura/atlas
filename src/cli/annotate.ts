@@ -14,6 +14,7 @@ import {
 } from "../ingestion/schemas";
 import { commitScanRecord } from "../persistence/repo";
 import { scoreAll } from "../scoring/engine";
+import { findWatchHits } from "../scoring/watch";
 import { parseArg, readJsonFile, resolveRootDir, rootPath, todayIso, writeJsonFile } from "../utils/common";
 import { renderItinerary } from "./format";
 
@@ -90,10 +91,16 @@ export function runAnnotate(options: AnnotateOptions = {}) {
     writeFileSync(rootPath(rootDir, "tmp", "itinerary.txt"), itineraryText, "utf8");
   }
 
+  const watchHits = findWatchHits(scored, wishlist);
+  if (watchHits.length) {
+    writeJsonFile(rootPath(rootDir, "tmp", "watch_hits.json"), watchHits);
+  }
+
   return {
     record,
     scored,
-    commit
+    commit,
+    watchHits
   };
 }
 
@@ -104,5 +111,8 @@ if (isMain) {
   const queryArg = parseArg(process.argv.slice(2), "query") ?? null;
   const originArg = parseArg(process.argv.slice(2), "origin");
   const result = runAnnotate({ mode: modeArg, query: queryArg, originResolved: originArg });
-  console.log(`Scored ${result.scored.length} results. ${result.commit.committed ? "Committed to data/." : "No new data commit created."}`);
+  console.log(
+    `Scored ${result.scored.length} results. ${result.commit.committed ? "Committed to data/." : "No new data commit created."}` +
+    (result.watchHits.length ? ` ${result.watchHits.length} watchlist deal(s) detected.` : "")
+  );
 }

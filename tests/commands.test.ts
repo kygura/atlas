@@ -81,3 +81,28 @@ test("parseTelegramCommand handles multiple origins without setting a single res
   expect(parsed?.preferred_origins).toEqual(["MAD", "AGP"]);
   expect(parsed?.origin).toBeNull();
 });
+
+test("parseTelegramCommand accepts /discover and its aliases", () => {
+  expect(parseTelegramCommand("/discover")?.name).toBe("discover");
+  expect(parseTelegramCommand("/discovery activity:surf")?.name).toBe("discovery");
+  expect(parseTelegramCommand("/findme activity:hiking")?.name).toBe("findme");
+});
+
+test("parseTelegramCommand parses /discover arguments the same way as /scout", () => {
+  const parsed = parseTelegramCommand("/discover activity:surf,relax origin:MAD");
+  expect(parsed?.activity_types).toEqual(["surf", "relax"]);
+  expect(parsed?.origin).toBe("MAD");
+});
+
+test("parseTelegramCommand accepts /watch and its aliases", () => {
+  expect(parseTelegramCommand("/watch destination:Thailand")?.name).toBe("watch");
+  expect(parseTelegramCommand("/track destination:Thailand")?.name).toBe("track");
+  expect(parseTelegramCommand("/remind destination:Thailand")?.name).toBe("remind");
+});
+
+test("parseTelegramCommand parses /watch destination and budget", () => {
+  const parsed = parseTelegramCommand("/watch destination:Thailand budget:<1500 activity:cultural-travel");
+  expect(parsed?.destination_focus).toEqual(["Thailand"]);
+  expect(parsed?.budget_range_eur).toEqual({ min: null, max: 1500 });
+  expect(parsed?.activity_types).toEqual(["cultural-travel"]);
+});

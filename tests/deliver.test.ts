@@ -162,6 +162,56 @@ test("runDeliver returns a Composio fallback reason when native Telegram deliver
   expect(result.reason).toContain("Composio MCP fallback");
 });
 
+test("runDeliver sends watch notifications to their requester chat_id alongside the main digest", async () => {
+  const root = makeRoot();
+  process.env.ATLAS_TELEGRAM_CHAT_ID = "123";
+  process.env.TELEGRAM_BOT_TOKEN = "token";
+
+  writeFileSync(join(root, "tmp", "itinerary.txt"), "ATLAS — 2026-04-22 · from AGP\n", "utf8");
+  writeFileSync(join(root, "tmp", "watch_notifications.json"), JSON.stringify([
+    { chat_id: "555", text: "Lombok deal: €650, 27% below median." }
+  ]), "utf8");
+  writeScanRecord(root, "2026-04-22-scheduled.json", false);
+
+  const fetchMock = mock(() => Promise.resolve(new Response(null, { status: 200 })));
+  globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+  const result = await runDeliver({ rootDir: root });
+
+  expect(result.sent).toBe(true);
+  expect(result.watchNotifications).toEqual([{ chat_id: "555", sent: true }]);
+  expect(fetchMock).toHaveBeenCalledTimes(2);
+  const watchCallBody = JSON.parse(((fetchMock.mock.calls as unknown[][])[0][1] as RequestInit).body as string);
+  expect(watchCallBody.chat_id).toBe("555");
+  expect(watchCallBody.text).toContain("Lombok deal");
+});
+
+test("runDeliver reports a watch notification failure without failing the main digest send", async () => {
+  const root = makeRoot();
+  process.env.ATLAS_TELEGRAM_CHAT_ID = "123";
+  process.env.TELEGRAM_BOT_TOKEN = "token";
+
+  writeFileSync(join(root, "tmp", "itinerary.txt"), "ATLAS — 2026-04-22 · from AGP\n", "utf8");
+  writeFileSync(join(root, "tmp", "watch_notifications.json"), JSON.stringify([
+    { chat_id: "555", text: "Lombok deal." }
+  ]), "utf8");
+  writeScanRecord(root, "2026-04-22-scheduled.json", false);
+
+  let call = 0;
+  const fetchMock = mock(() => {
+    call += 1;
+    return Promise.resolve(call === 1 ? new Response("blocked", { status: 403 }) : new Response(null, { status: 200 }));
+  });
+  globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+  const result = await runDeliver({ rootDir: root });
+
+  expect(result.sent).toBe(true);
+  expect(result.watchNotifications).toHaveLength(1);
+  expect(result.watchNotifications?.[0].sent).toBe(false);
+  expect(result.watchNotifications?.[0].reason).toContain("403");
+});
+
 test("runDeliver does not mark already-delivered records", async () => {
   const root = makeRoot();
   process.env.ATLAS_TELEGRAM_CHAT_ID = "123";

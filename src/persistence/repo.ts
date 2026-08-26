@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { ScanRecordSchema, type ScanRecord } from "../ingestion/schemas";
+import { ScanRecordSchema, type DiscoveryRunRecord, type ScanRecord } from "../ingestion/schemas";
 import { writeJsonFile } from "../utils/common";
 
 export type CommitResult = {
@@ -42,6 +42,33 @@ export function commitScanRecord(rootDir: string, record: ScanRecord): CommitRes
     return { filePath, committed: false };
   } catch {
     git(rootDir, ["commit", "-m", `atlas: record ${record.scan_date} ${record.run_mode} scan`]);
+    return { filePath, committed: true };
+  }
+}
+
+function resolveDiscoveryRecordPath(rootDir: string, record: DiscoveryRunRecord): string {
+  const discoveryDir = join(rootDir, "data", "discovery");
+  mkdirSync(discoveryDir, { recursive: true });
+  const basePath = join(discoveryDir, `${record.run_date}.json`);
+  if (!existsSync(basePath)) {
+    return basePath;
+  }
+
+  const stamp = new Date().toISOString().slice(11, 19).replace(/:/g, "");
+  return join(discoveryDir, `${record.run_date}-${stamp}.json`);
+}
+
+export function commitDiscoveryRecord(rootDir: string, record: DiscoveryRunRecord): CommitResult {
+  git(rootDir, ["rev-parse", "--show-toplevel"]);
+  const filePath = resolveDiscoveryRecordPath(rootDir, record);
+  writeJsonFile(filePath, record);
+  git(rootDir, ["add", filePath]);
+
+  try {
+    git(rootDir, ["diff", "--cached", "--quiet", "--", "data/discovery"]);
+    return { filePath, committed: false };
+  } catch {
+    git(rootDir, ["commit", "-m", `atlas: record ${record.run_date} discovery run`]);
     return { filePath, committed: true };
   }
 }

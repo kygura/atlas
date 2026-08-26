@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { ScanRecordSchema, type ScanRecord } from "../ingestion/schemas";
+import { ScanRecordSchema, WatchNotificationsSchema, type ScanRecord } from "../ingestion/schemas";
 import { resolveTelegramMessage } from "../delivery/message";
 import { markItineraryDelivered } from "../persistence/repo";
 import { sendTelegramText } from "../delivery/telegram";
@@ -11,10 +11,17 @@ export type DeliverOptions = {
   rootDir?: string;
 };
 
+export type WatchNotificationResult = {
+  chat_id: string;
+  sent: boolean;
+  reason?: string;
+};
+
 export type DeliverResult = {
   sent: boolean;
   reason?: string;
   committed?: boolean;
+  watchNotifications?: WatchNotificationResult[];
 };
 
 type PendingRecord = {
@@ -52,14 +59,50 @@ function errorMessage(error: unknown): string {
   return String(error);
 }
 
+async function sendWatchNotifications(rootDir: string, botToken: string | undefined): Promise<WatchNotificationResult[] | undefined> {
+  const watchNotificationsPath = rootPath(rootDir, "tmp", "watch_notifications.json");
+  if (!existsSync(watchNotificationsPath)) {
+    return undefined;
+  }
+
+  const notifications = WatchNotificationsSchema.parse(JSON.parse(readFileSync(watchNotificationsPath, "utf8")));
+  if (!notifications.length) {
+    return undefined;
+  }
+
+  if (!botToken) {
+    return notifications.map((notification) => ({
+      chat_id: notification.chat_id,
+      sent: false,
+      reason: "TELEGRAM_BOT_TOKEN not set"
+    }));
+  }
+
+  const results: WatchNotificationResult[] = [];
+  for (const notification of notifications) {
+    try {
+      await sendTelegramText(notification.chat_id, notification.text, botToken, {
+        parseMode: notification.parse_mode,
+        disableWebPagePreview: notification.disable_web_page_preview ?? true
+      });
+      results.push({ chat_id: notification.chat_id, sent: true });
+    } catch (error) {
+      results.push({ chat_id: notification.chat_id, sent: false, reason: errorMessage(error) });
+    }
+  }
+  return results;
+}
+
 export async function runDeliver(options: DeliverOptions = {}): Promise<DeliverResult> {
   const rootDir = resolveRootDir(options.rootDir);
   const pendingRecord = findLatestUndeliveredRecord(rootPath(rootDir, "data"));
 
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
+  const watchNotifications = await sendWatchNotifications(rootDir, botToken);
+
   const chatId = pendingRecord?.record.execution_context?.telegram?.chat_id ?? process.env.ATLAS_TELEGRAM_CHAT_ID;
   if (!chatId || !botToken) {
-    return { sent: false, reason: "reply chat_id or TELEGRAM_BOT_TOKEN not set" };
+    return { sent: false, reason: "reply chat_id or TELEGRAM_BOT_TOKEN not set", watchNotifications };
   }
 
   const itineraryPath = rootPath(rootDir, "tmp", "itinerary.txt");
@@ -67,11 +110,13 @@ export async function runDeliver(options: DeliverOptions = {}): Promise<DeliverR
     ? readFileSync(itineraryPath, "utf8").trim()
     : pendingRecord?.record.itinerary_text.trim() ?? "";
   if (!text) {
-    return { sent: false, reason: "tmp/itinerary.txt is empty and no persisted itinerary is available" };
+    return { sent: false, reason: "tmp/itinerary.txt is empty and no persisted itinerary is available", watchNotifications };
   }
 
-  const replyToMessageId = pendingRecord?.record.run_mode === "query"
-    ? pendingRecord.record.execution_context?.telegram?.message_id ?? undefined
+  // Reply-thread any run triggered from Telegram (query or an on-demand
+  // /discover) — only a schedule-triggered run has no message to reply to.
+  const replyToMessageId = pendingRecord?.record.run_mode !== "scheduled"
+    ? pendingRecord?.record.execution_context?.telegram?.message_id ?? undefined
     : undefined;
   const message = resolveTelegramMessage(rootDir, pendingRecord?.record ?? null, text);
 
@@ -84,22 +129,27 @@ export async function runDeliver(options: DeliverOptions = {}): Promise<DeliverR
   } catch (error) {
     return {
       sent: false,
-      reason: `native Telegram delivery failed (${errorMessage(error)}); use Composio MCP fallback`
+      reason: `native Telegram delivery failed (${errorMessage(error)}); use Composio MCP fallback`,
+      watchNotifications
     };
   }
 
   if (pendingRecord) {
     const commit = markItineraryDelivered(rootDir, pendingRecord.filePath);
-    return { sent: true, committed: commit.committed };
+    return { sent: true, committed: commit.committed, watchNotifications };
   }
 
-  return { sent: true, committed: false };
+  return { sent: true, committed: false, watchNotifications };
 }
 
 const isMain = fileURLToPath(import.meta.url) === process.argv[1];
 
 if (isMain) {
   const result = await runDeliver();
+  if (result.watchNotifications?.length) {
+    const sent = result.watchNotifications.filter((n) => n.sent).length;
+    console.log(`Watchlist notifications: ${sent}/${result.watchNotifications.length} sent.`);
+  }
   if (!result.sent) {
     console.error(`Delivery skipped: ${result.reason}`);
     process.exit(1);
