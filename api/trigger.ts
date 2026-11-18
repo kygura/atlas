@@ -57,7 +57,7 @@ export default async function handler(req: Req, res: Res) {
 
   const command = text ? parseTelegramCommand(text) : null;
 
-  // /help (and /start) are answered directly — no need to spin up a full
+  // /help (and /start) are answered directly, no need to spin up a full
   // routine run just to print usage instructions.
   if (command?.name === "help") {
     const botToken = process.env.TELEGRAM_BOT_TOKEN;

@@ -45,24 +45,24 @@ const ARG_KEY_ALIASES: Record<string, ArgKey> = {
 
 export const COMMAND_HELP_TEXT = `Atlas commands
 
-/scout — steer the next search with flexible arguments. Aliases: /trip, /plan, /search
-/discover — run Discovery Mode now: rank fresh destinations by weather, season, conditions and price signal without a full trip plan. Aliases: /discovery, /findme
-/watch — add a destination to your watchlist; Atlas notifies you here when a deal appears. Aliases: /track, /remind
-/help — show this message
+/scout: steer the next search with flexible arguments. Aliases: /trip, /plan, /search
+/discover: run Discovery Mode now: rank fresh destinations by weather, season, conditions and price signal without a full trip plan. Aliases: /discovery, /findme
+/watch: add a destination to your watchlist; Atlas notifies you here when a deal appears. Aliases: /track, /remind
+/help: show this message
 
 Arguments (any combination, any order):
-destination:<place> — e.g. destination:Portugal or to:Bali
-activity:<type> — e.g. activity:surf or activity:relax,cultural-travel
-days:<n> or days:<min>-<max> — stay length, e.g. days:7-10
-budget:<n>, budget:<min>-<max>, budget:<1500 or budget:800+ — price range in EUR
-origin:<IATA> — departure airport, e.g. origin:MAD
+destination:<place>: e.g. destination:Portugal or to:Bali
+activity:<type>: e.g. activity:surf or activity:relax,cultural-travel
+days:<n> or days:<min>-<max>: stay length, e.g. days:7-10
+budget:<n>, budget:<min>-<max>, budget:<1500 or budget:800+: price range in EUR
+origin:<IATA>: departure airport, e.g. origin:MAD
 
 Examples
 /scout destination:Portugal activity:surf days:7-10 budget:800-1500 origin:MAD
 /discover activity:surf
 /watch destination:Thailand budget:<1500
 
-Plain messages without a leading "/" are also understood — describe what you want in your own words, including things like "add Thailand to my watchlist and notify me of deals".`;
+Plain messages without a leading "/" are also understood: describe what you want in your own words, including things like "add Thailand to my watchlist and notify me of deals".`;
 
 function parseRange(raw: string): ParsedRange | null {
   const trimmed = raw.trim();
